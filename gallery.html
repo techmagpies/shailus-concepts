@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Thambulaa Return Gifts</title>
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../gallery.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div id="header"></div>
+
+<!-- ================= BANNER ================= -->
+<section class="page-banner">
+    <div class="container">
+        <h1>Gift Gallery</h1>
+        <p>Explore our beautiful collection of return gifts and customized products.</p>
+    </div>
+</section>
+
+<!-- ================= SEARCH ================= -->
+<section class="search-bar">
+    <div class="container">
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" placeholder="Search products...">
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= FILTER ================= -->
+<section class="gallery-section">
+    <div class="container">
+
+        <div class="gallery-filter">
+
+            <button class="gallery-btn active" data-category="all">All</button>
+            <button class="gallery-btn" data-category="wedding">Wedding</button>
+            <button class="gallery-btn" data-category="birthday">Birthday</button>
+            <button class="gallery-btn" data-category="baby">Baby</button>
+            <button class="gallery-btn" data-category="housewarming">Housewarming</button>
+            <button class="gallery-btn" data-category="corporate">Corporate</button>
+            <button class="gallery-btn" data-category="festival">Festival</button>
+            <button class="gallery-btn" data-category="customized">Customized</button>
+
+        </div>
+
+        <!-- PRODUCTS GRID -->
+        <div class="gallery-grid" id="galleryGrid"></div>
+
+    </div>
+</section>
+
+<div id="footer"></div>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="../js/products-data.js" defer></script>
+<script src="../js/gallery.js" defer></script>
+
+</body>
+
+</html>

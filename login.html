@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Shailu's Concepts</title>
+<style>
+  :root{
+    --deep-green: #0d3328;
+    --green-mid: #134a3a;
+    --gold: #c9a455;
+    --gold-light: #e6cf8f;
+    --cream: #fdfaf3;
+    --blush: #f3e2dd;
+    --text-dark: #1a1a1a;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: 'Poppins', Arial, sans-serif;
+    background:#fff;
+  }
+
+  /* ============ SITE HEADER (sticky wrapper) ============ */
+  .site-header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow .25s ease;
+  }
+
+  .site-header.scrolled{
+    box-shadow: 0 8px 22px rgba(13,51,40,0.18);
+  }
+
+  /* ============ TOP BAR ============ */
+  .top-bar{
+    background: linear-gradient(135deg, var(--deep-green), var(--green-mid));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 30px;
+  }
+
+  .icon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color: var(--gold-light);
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: color .2s ease;
+    position:relative;
+  }
+
+  .icon-btn:hover{ color: var(--gold); }
+
+  .top-left, .top-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex:1;
+  }
+
+  .top-right{ justify-content:flex-end; }
+
+  /* ============ SEARCH ============ */
+  .search-wrap{
+    display:flex; align-items:center;
+  }
+
+  .search-input{
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    margin-left: 0;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-family: inherit;
+    font-size: 13.5px;
+    transition: width .25s ease, opacity .2s ease, padding .25s ease, margin .25s ease;
+  }
+
+  .search-input::placeholder{ color: rgba(255,255,255,0.6); }
+
+  .search-wrap.expanded .search-input{
+    width: 200px;
+    opacity: 1;
+    padding: 8px 14px;
+    margin-left: 10px;
+  }
+
+  .search-input:focus{ outline: 1.5px solid var(--gold); }
+
+  .cart-badge{
+    position:absolute;
+    top:-6px; right:-8px;
+    background: var(--gold);
+    color: var(--deep-green);
+    font-size:10px; font-weight:700;
+    width:16px; height:16px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .brand-center{
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+  }
+
+  .brand-center img{ height:52px; width:auto; object-fit:contain; }
+
+  .brand-name{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:20px; font-weight:700; letter-spacing:1.5px;
+    color: var(--gold-light); margin-top:4px; line-height:1;
+  }
+
+  .brand-tagline{
+    font-size:10px; letter-spacing:2px; color: var(--gold-light);
+    text-transform:uppercase; opacity:0.85;
+  }
+
+  /* ============ NAV BAR ============ */
+  .nav-bar{
+    background: var(--cream);
+    border-bottom:1px solid rgba(201,164,85,0.35);
+    position: relative;
+  }
+
+  .nav-row{
+    display:flex; align-items:center; justify-content:center;
+    gap:34px; padding:14px 20px; flex-wrap:nowrap;
+  }
+
+  .nav-row a, .nav-row .drop-toggle{
+    text-decoration:none; color: var(--deep-green);
+    font-weight:600; font-size:15px;
+    background:none; border:none; font-family:inherit; cursor:pointer;
+    display:flex; align-items:center; gap:5px;
+    padding:4px 2px; white-space:nowrap; transition: color .2s ease;
+  }
+
+  .nav-row a:hover, .nav-row .drop-toggle:hover{ color: var(--gold); }
+  .nav-row a.active{ color: var(--gold); }
+
+  .drop-toggle .arrow{ font-size:10px; transition: transform .2s ease; }
+  .dropdown.open .drop-toggle .arrow{ transform: rotate(180deg); }
+
+  .dropdown{ position:relative; }
+
+  .dropdown-menu{
+    display:none;
+    position:absolute; top:calc(100% + 12px); left:50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold); border-radius:8px;
+    min-width:220px;
+    box-shadow: 0 14px 30px rgba(13,51,40,0.3);
+    z-index:500; padding:8px 0;
+  }
+
+  .dropdown.open .dropdown-menu{ display:block; }
+
+  .dropdown-menu a{
+    display:block; color: var(--gold-light);
+    padding:10px 20px; font-size:14px; font-weight:500; white-space:nowrap;
+  }
+
+  .dropdown-menu a:hover{ background: rgba(201,164,85,0.15); color: var(--gold); }
+  .dropdown-menu hr{ border:none; border-top:1px solid rgba(201,164,85,0.25); margin:6px 14px; }
+
+  .has-submenu{ position:relative; }
+
+  .has-submenu > .sub-toggle{
+    width:100%; background:none; border:none; text-align:left;
+    cursor:pointer; font-family:inherit; color: var(--gold-light);
+    padding:10px 20px; font-size:14px; font-weight:500;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+
+  .has-submenu > .sub-toggle:hover,
+  .has-submenu.open > .sub-toggle{ background: rgba(201,164,85,0.15); color: var(--gold); }
+
+  .submenu{
+    display:none; position:absolute; top:0; left:100%;
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold); border-radius:8px;
+    min-width:190px; box-shadow: 0 14px 30px rgba(13,51,40,0.3); padding:8px 0;
+  }
+
+  .has-submenu.open .submenu{ display:block; }
+  .submenu a{ color: var(--gold-light); padding:10px 20px; font-size:13.5px; }
+  .submenu a:hover{ background: rgba(201,164,85,0.15); color: var(--gold); }
+
+  /* ============ HAMBURGER ============ */
+  .hamburger{
+    display:none; flex-direction:column; justify-content:center;
+    gap:5px; width:30px; height:30px; cursor:pointer;
+    background:none; border:none; padding:0;
+  }
+
+  .hamburger span{ display:block; height:3px; width:100%; background: var(--gold-light); border-radius:2px; }
+
+  /* ============ RESPONSIVE: HEADER/NAV ============ */
+  @media (max-width: 1024px){
+    .top-bar{ padding:12px 18px; }
+    .brand-center img{ height:42px; }
+    .brand-name{ font-size:16px; }
+    .brand-tagline{ font-size:8.5px; }
+    .hamburger{ display:flex; }
+
+    .nav-row{
+      display:none; flex-direction:column; align-items:flex-start;
+      gap:0; padding:6px 0;
+    }
+
+    .nav-row.mobile-open{ display:flex; }
+    .nav-row a, .nav-row .dropdown{ width:100%; }
+    .nav-row a, .nav-row .drop-toggle{
+      padding:13px 24px; width:100%; justify-content:space-between;
+    }
+
+    .dropdown-menu{
+      position:static; transform:none; width:100%;
+      border-radius:0; box-shadow:none; border-left:none; border-right:none;
+    }
+
+    .has-submenu .submenu{ position:static; width:100%; border-radius:0; box-shadow:none; }
+    .has-submenu > .sub-toggle{ padding-left:34px; }
+    .submenu a{ padding-left:44px; }
+  }
+
+  @media (max-width: 480px){
+    .top-left, .top-right{ gap:14px; }
+    .brand-center img{ height:36px; }
+    .brand-name{ font-size:13px; letter-spacing:1px; }
+    .brand-tagline{ font-size:7px; letter-spacing:1px; }
+  }
+
+  /* ============ LOGIN / SIGNUP PAGE CONTENT ============ */
+  .auth-page{
+    background: linear-gradient(135deg, var(--deep-green), var(--green-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: calc(100vh - 250px);
+  }
+
+  .login-card{
+    background: var(--cream);
+    width: 100%;
+    max-width: 400px;
+    border-radius: 14px;
+    padding: 40px 36px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+  }
+
+  .login-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+
+  .login-logo img{ height: 56px; width: auto; object-fit: contain; margin-bottom: 8px; border-radius: 8px; }
+
+  .login-logo .brand-name-card{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px; font-weight: 700; letter-spacing: 1.5px;
+    color: var(--deep-green);
+  }
+
+  .login-logo .brand-tagline-card{
+    font-size: 10px; letter-spacing: 2px; color: var(--gold);
+    text-transform: uppercase; margin-top: 2px;
+  }
+
+  .auth-page h1{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 24px; color: var(--deep-green);
+    text-align: center; margin-bottom: 6px;
+  }
+
+  .subtext{
+    text-align: center; font-size: 13.5px; color: #777; margin-bottom: 28px;
+  }
+
+  .form-group{ margin-bottom: 18px; }
+
+  .form-group label{
+    display: block; font-size: 13px; font-weight: 600;
+    color: var(--deep-green); margin-bottom: 6px;
+  }
+
+  .form-group input{
+    width: 100%; padding: 12px 14px; border: 1px solid #ddd5c2;
+    border-radius: 7px; font-size: 14px; font-family: inherit;
+    background: #fff; transition: border-color .2s ease;
+  }
+
+  .form-group input:focus{
+    outline: none; border-color: var(--gold);
+  }
+
+  .form-options{
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 22px; font-size: 12.5px;
+  }
+
+  .form-options label{ display: flex; align-items: center; gap: 6px; color: #555; cursor: pointer; }
+  .form-options a{ color: var(--gold); text-decoration: none; font-weight: 600; }
+  .form-options a:hover{ text-decoration: underline; }
+
+  .login-btn{
+    width: 100%; background: var(--gold); color: var(--deep-green);
+    border: none; padding: 13px; border-radius: 7px;
+    font-weight: 700; font-size: 14px; letter-spacing: 0.5px;
+    cursor: pointer; transition: background .2s ease;
+  }
+
+  .login-btn:hover{ background: var(--gold-light); }
+
+  .divider{
+    display: flex; align-items: center; gap: 10px;
+    margin: 24px 0; color: #999; font-size: 12px;
+  }
+  .divider::before, .divider::after{
+    content: ''; flex: 1; height: 1px; background: #e3dccb;
+  }
+
+  .signup-text{
+    text-align: center; font-size: 13.5px; color: #555;
+  }
+  .signup-text a{ color: var(--deep-green); font-weight: 700; text-decoration: none; }
+  .signup-text a:hover{ color: var(--gold); }
+
+  .back-home{
+    display: block; text-align: center; margin-top: 18px;
+    font-size: 12.5px; color: #999; text-decoration: none;
+  }
+  .back-home:hover{ color: var(--deep-green); }
+
+  .form-message{
+    text-align: center; font-size: 13px; color: #b33;
+    margin-bottom: 14px; display: none;
+  }
+
+  .auth-form{ display: none; }
+  .auth-form.active{ display: block; }
+
+  @media (max-width: 480px){
+    .login-card{ padding: 32px 24px; }
+  }
+
+  /* ============ FOOTER ============ */
+  .footer {
+    background: linear-gradient(180deg, var(--deep-green), #071f17);
+    color: var(--gold-light);
+    padding-top: 60px;
+  }
+
+  .footer-top {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr 1.6fr;
+    gap: 40px;
+  }
+
+  .footer-brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: rgba(230, 207, 143, 0.8);
+    margin-bottom: 16px;
+  }
+
+  .footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+
+  .rating-text {
+    font-size: 13px;
+    color: rgba(230, 207, 143, 0.85);
+  }
+
+  .rating-text a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .rating-text a:hover { text-decoration: underline; }
+
+  .footer-col h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .footer-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 20px;
+    border-radius: 2px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col ul li a {
+    color: rgba(230, 207, 143, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-hours li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: rgba(230, 207, 143, 0.85);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-hours svg { flex-shrink: 0; margin-top: 3px; stroke: var(--gold); }
+
+  .follow-label {
+    font-size: 13px;
+    color: var(--gold-light);
+    margin: 18px 0 10px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 14px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 164, 85, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    transition: background .2s, border-color .2s;
+  }
+
+  .footer-social a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--deep-green);
+  }
+
+  .footer-social a svg { stroke: currentColor; }
+
+  .footer-contact { gap: 14px !important; }
+
+  .footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: rgba(230, 207, 143, 0.85);
+    line-height: 1.6;
+  }
+
+  .footer-contact svg { flex-shrink: 0; margin-top: 3px; stroke: var(--gold); }
+
+  .footer-contact a {
+    color: rgba(230, 207, 143, 0.85);
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  .footer-contact a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(201, 164, 85, 0.2);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: rgba(230, 207, 143, 0.6);
+  }
+
+  .footer-bottom strong { color: var(--gold-light); }
+
+  @media (max-width: 1100px) {
+    .footer-top { grid-template-columns: 1fr 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 650px) {
+    .footer-top { grid-template-columns: 1fr 1fr; padding: 0 20px 40px; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 400px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SITE HEADER (sticky) ============ -->
+<header class="site-header" id="siteHeader">
+
+<!-- ============ TOP BAR ============ -->
+<div class="top-bar">
+  <div class="top-left">
+    <div class="search-wrap" id="searchWrap">
+      <button class="icon-btn" aria-label="Search" id="searchToggleBtn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products..." onkeydown="if(event.key==='Enter'){ window.location.href='index.html?search='+encodeURIComponent(this.value); }">
+    </div>
+  </div>
+
+  <div class="brand-center">
+    <img src="assets/logo.jpeg" alt="Shailu's Concepts">
+    <span class="brand-name">Shailu's Concepts</span>
+    <span class="brand-tagline">Return Gift Store For All Occasions</span>
+  </div>
+
+  <div class="top-right">
+    <a class="icon-btn" aria-label="Login" href="login.html" title="Login">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <a class="icon-btn" aria-label="Cart" href="index.html" title="View cart on Home">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu"
+      onclick="document.getElementById('mainNavRow').classList.toggle('mobile-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ NAV BAR ============ -->
+<nav class="nav-bar" id="mainNavBar">
+  <div class="nav-row" id="mainNavRow">
+
+    <a href="index.html">Home</a>
+    <a href="index.html#">New Arrivals</a>
+
+    <div class="dropdown" id="returnGiftsDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('returnGiftsDropdown')">
+        Return Gifts <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html#">Category</a>
+        <div class="has-submenu" id="bagsSubmenu">
+          <button class="sub-toggle" type="button"
+            onclick="event.stopPropagation(); toggleDropdown('bagsSubmenu')">
+            Bags <span class="arrow">›</span>
+          </button>
+          <div class="submenu">
+            <a href="index.html#">Jute Bags</a>
+            <a href="index.html#">Non-Woven Bags</a>
+            <a href="index.html#">Fancy Bags</a>
+            <a href="index.html#">Paper Bags</a>
+            <a href="index.html#">Imported Bags</a>
+          </div>
+        </div>
+        <a href="index.html#">Kids Return Gifts</a>
+        <a href="index.html#">Return Gifts</a>
+        <a href="index.html#">New Collection</a>
+        <a href="index.html#">Combos</a>
+        <a href="index.html#">Customised Return Gifts</a>
+        <hr>
+        <a href="index.html#">Corporate Gifts</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="favourBagsDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('favourBagsDropdown')">
+        Favour Bags <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html#">Jute Bags</a>
+        <a href="index.html#">Paper Bags</a>
+        <a href="index.html#">Fancy Pouches</a>
+        <a href="index.html#">Eco-Friendly Bags</a>
+      </div>
+    </div>
+
+    <a href="index.html#">Corporate Gifts</a>
+
+    <div class="dropdown" id="eventDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('eventDropdown')">
+        Gifting For Moments <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html#">Weddings</a>
+        <a href="index.html#">Birthdays</a>
+        <a href="index.html#">Baby Showers</a>
+        <a href="index.html#">Festivals</a>
+        <a href="index.html#">Housewarming</a>
+      </div>
+    </div>
+
+    <a href="index.html#">About Us</a>
+    <a href="https://thambulaaareturngifts.com/terms/" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+    <a href="https://thambulaaareturngifts.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+
+  </div>
+</nav>
+
+</header>
+
+<!-- ============ LOGIN / SIGNUP CONTENT ============ -->
+<section class="auth-page">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="assets/logo.jpeg" alt="Shailu's Concepts">
+      <span class="brand-name-card">Shailu's Concepts</span>
+      <span class="brand-tagline-card">Return Gift Store For All Occasions</span>
+    </div>
+
+    <h1 id="formTitle">Welcome Back</h1>
+    <p class="subtext" id="formSubtext">Login to manage your orders and wishlist</p>
+
+    <p class="form-message" id="formMessage"></p>
+
+    <!-- ===== LOGIN FORM ===== -->
+    <form id="loginForm" class="auth-form active" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="loginEmail">Email Address</label>
+        <input type="email" id="loginEmail" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter your password" required>
+      </div>
+
+      <div class="form-options">
+        <label><input type="checkbox" id="rememberMe"> Remember me</label>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="login-btn">Log In</button>
+
+      <div class="divider">OR</div>
+
+      <p class="signup-text">Don't have an account? <a href="#" onclick="showForm('signup'); return false;">Sign up</a></p>
+    </form>
+
+    <!-- ===== SIGN UP FORM ===== -->
+    <form id="signupForm" class="auth-form" onsubmit="handleSignup(event)">
+      <div class="form-group">
+        <label for="signupName">Full Name</label>
+        <input type="text" id="signupName" placeholder="Your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupEmail">Email Address</label>
+        <input type="email" id="signupEmail" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupPhone">Phone Number</label>
+        <input type="tel" id="signupPhone" placeholder="+91 00000 00000" required>
+      </div>
+
+      <div class="form-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" id="signupPassword" placeholder="Create a password" required minlength="6">
+      </div>
+
+      <div class="form-group">
+        <label for="signupConfirmPassword">Confirm Password</label>
+        <input type="password" id="signupConfirmPassword" placeholder="Re-enter your password" required minlength="6">
+      </div>
+
+      <button type="submit" class="login-btn">Create Account</button>
+
+      <div class="divider">OR</div>
+
+      <p class="signup-text">Already have an account? <a href="#" onclick="showForm('login'); return false;">Log in</a></p>
+    </form>
+
+    <a href="index.html" class="back-home">&larr; Back to Home</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+
+    <!-- Col 1: Brand -->
+    <div class="footer-col footer-brand">
+      <img src="assets/logo.jpeg" alt="Shailu's Concepts">
+      <p>At Shailu's Concepts, we offer wholesale return gifts for weddings, birthdays, baby showers, housewarmings, corporate events, and festivals. Our theme-based and customized gifts make every occasion special.</p>
+      <div class="footer-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">4.8 · <a href="https://www.google.com/search?q=Shailu%27s+Concepts+Return+Gifts+for+All+Occasions+proddatur" target="_blank" rel="noopener">33 Google Reviews</a></span>
+      </div>
+    </div>
+
+    <!-- Col 2: Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#">About Us</a></li>
+        <li><a href="index.html#">New Arrivals</a></li>
+        <li><a href="index.html#">FAQ</a></li>
+        <li><a href="index.html#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 3: Category -->
+    <div class="footer-col">
+      <h4>Category</h4>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><a href="index.html#">Return Gifts</a></li>
+        <li><a href="index.html#">Favour Bags</a></li>
+        <li><a href="index.html#">Corporate Gifts</a></li>
+        <li><a href="index.html#">Kids Return Gifts</a></li>
+        <li><a href="index.html#">Customised Gifts</a></li>
+        <li><a href="index.html#">Combos</a></li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Opening Hours -->
+    <div class="footer-col">
+      <h4>Opening Hours</h4>
+      <div class="footer-divider"></div>
+      <ul class="footer-hours">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Monday – Saturday : <br>10.00 am – 7.30 pm</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Sunday : Opens 10 am</span>
+        </li>
+      </ul>
+      <p class="follow-label">Follow Us:</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://wa.me/918825498438" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Col 5: Connect With Us -->
+    <div class="footer-col">
+      <h4>Connect With Us</h4>
+      <div class="footer-divider"></div>
+      <ul class="footer-contact">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Shop No : 39, Shivasankara Shopping Mall, Korrapadu Rd, YMR Colony, Proddatur, Andhra Pradesh – 516360</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:shailusconcepts@gmail.com">shailusconcepts@gmail.com</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          <a href="tel:+918825498438">+91 88254 98438</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2025 <strong>Shailu's Concepts</strong>. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ===== Dropdown helper =====
+  function toggleDropdown(id){
+    var el = document.getElementById(id);
+    var wasOpen = el.classList.contains('open');
+    document.querySelectorAll('.dropdown.open, .has-submenu.open').forEach(function(d){ d.classList.remove('open'); });
+    if(!wasOpen) el.classList.add('open');
+  }
+
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.dropdown.open, .has-submenu.open').forEach(function(d){
+      if(!d.contains(e.target)) d.classList.remove('open');
+    });
+  });
+
+  // ===== Sticky header shadow on scroll =====
+  var siteHeaderEl = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 10){ siteHeaderEl.classList.add('scrolled'); }
+    else { siteHeaderEl.classList.remove('scrolled'); }
+  });
+
+  // ===== Search (expand box; Enter sends you to Home with the query) =====
+  function toggleSearch(){
+    var wrap = document.getElementById('searchWrap');
+    var input = document.getElementById('searchInput');
+    wrap.classList.toggle('expanded');
+    if(wrap.classList.contains('expanded')){
+      input.focus();
+    } else {
+      input.value = '';
+    }
+  }
+
+  // ===== Login / Signup form toggle =====
+  // Placeholder auth handlers — no backend connected yet.
+  // When the Django backend is ready, replace these with fetch() calls
+  // to your auth endpoints (e.g. POST /api/login/, POST /api/signup/).
+
+  function showForm(which){
+    var loginForm = document.getElementById('loginForm');
+    var signupForm = document.getElementById('signupForm');
+    var title = document.getElementById('formTitle');
+    var subtext = document.getElementById('formSubtext');
+    var msg = document.getElementById('formMessage');
+
+    msg.style.display = 'none';
+
+    if(which === 'signup'){
+      loginForm.classList.remove('active');
+      signupForm.classList.add('active');
+      title.textContent = 'Create Account';
+      subtext.textContent = 'Sign up to start shopping with us';
+    } else {
+      signupForm.classList.remove('active');
+      loginForm.classList.add('active');
+      title.textContent = 'Welcome Back';
+      subtext.textContent = 'Login to manage your orders and wishlist';
+    }
+  }
+
+  function handleLogin(e){
+    e.preventDefault();
+    var msg = document.getElementById('formMessage');
+    msg.style.display = 'block';
+    msg.style.color = '#0d3328';
+    msg.textContent = 'Login is not connected to a backend yet — this is a UI placeholder.';
+  }
+
+  function handleSignup(e){
+    e.preventDefault();
+    var msg = document.getElementById('formMessage');
+    var pass = document.getElementById('signupPassword').value;
+    var confirmPass = document.getElementById('signupConfirmPassword').value;
+
+    if(pass !== confirmPass){
+      msg.style.display = 'block';
+      msg.style.color = '#b33';
+      msg.textContent = 'Passwords do not match.';
+      return;
+    }
+
+    msg.style.display = 'block';
+    msg.style.color = '#0d3328';
+    msg.textContent = 'Sign up is not connected to a backend yet — this is a UI placeholder.';
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shailu's Concepts - Navbar</title>
+<style>
+  :root{
+    --deep-green: #0d3328;
+    --green-mid: #134a3a;
+    --gold: #c9a455;
+    --gold-light: #e6cf8f;
+    --cream: #fdfaf3;
+    --text-dark: #1a1a1a;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #fff;
+  }
+
+  /* ============ TOP BAR ============ */
+  .top-bar{
+    background: linear-gradient(135deg, var(--deep-green), var(--green-mid));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 30px;
+  }
+
+  .icon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color: var(--gold-light);
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: color .2s ease;
+    position:relative;
+  }
+
+  .icon-btn:hover{
+    color: var(--gold);
+  }
+
+  .top-left, .top-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex:1;
+  }
+
+  .top-right{
+    justify-content:flex-end;
+  }
+
+  .cart-badge{
+    position:absolute;
+    top:-6px;
+    right:-8px;
+    background: var(--gold);
+    color: var(--deep-green);
+    font-size:10px;
+    font-weight:700;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .brand-center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+  }
+
+  .brand-center img{
+    height:52px;
+    width:auto;
+    object-fit:contain;
+  }
+
+  .brand-name{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1.5px;
+    color: var(--gold-light);
+    margin-top:4px;
+    line-height:1;
+  }
+
+  .brand-tagline{
+    font-size:10px;
+    letter-spacing:2px;
+    color: var(--gold-light);
+    text-transform:uppercase;
+    opacity:0.85;
+  }
+
+  /* ============ NAV BAR (bottom row) ============ */
+  .nav-bar{
+    background: var(--cream);
+    border-bottom:1px solid rgba(201,164,85,0.35);
+    position:relative;
+  }
+
+  .nav-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:34px;
+    padding:14px 20px;
+    flex-wrap:nowrap;
+  }
+
+  .nav-row a, .nav-row .drop-toggle{
+    text-decoration:none;
+    color: var(--deep-green);
+    font-weight:600;
+    font-size:15px;
+    background:none;
+    border:none;
+    font-family:inherit;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:5px;
+    padding:4px 2px;
+    white-space:nowrap;
+    transition: color .2s ease;
+  }
+
+  .nav-row a:hover,
+  .nav-row .drop-toggle:hover{
+    color: var(--gold);
+  }
+
+  .nav-row a.active{
+    color: var(--gold);
+  }
+
+  .drop-toggle .arrow{
+    font-size:10px;
+    transition: transform .2s ease;
+  }
+
+  .dropdown.open .drop-toggle .arrow{
+    transform: rotate(180deg);
+  }
+
+  .dropdown{
+    position:relative;
+  }
+
+  .dropdown-menu{
+    display:none;
+    position:absolute;
+    top:calc(100% + 12px);
+    left:50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold);
+    border-radius:8px;
+    min-width:220px;
+    box-shadow: 0 14px 30px rgba(13,51,40,0.3);
+    z-index:500;
+    padding:8px 0;
+  }
+
+  .dropdown.open .dropdown-menu{
+    display:block;
+  }
+
+  .dropdown-menu a{
+    display:block;
+    color: var(--gold-light);
+    padding:10px 20px;
+    font-size:14px;
+    font-weight:500;
+    white-space:nowrap;
+  }
+
+  .dropdown-menu a:hover{
+    background: rgba(201,164,85,0.15);
+    color: var(--gold);
+  }
+
+  .dropdown-menu hr{
+    border:none;
+    border-top:1px solid rgba(201,164,85,0.25);
+    margin:6px 14px;
+  }
+
+  /* Nested submenu (Bags inside Return Gifts) */
+  .has-submenu{
+    position:relative;
+  }
+
+  .has-submenu > .sub-toggle{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
+    cursor:pointer;
+    font-family:inherit;
+    color: var(--gold-light);
+    padding:10px 20px;
+    font-size:14px;
+    font-weight:500;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .has-submenu > .sub-toggle:hover,
+  .has-submenu.open > .sub-toggle{
+    background: rgba(201,164,85,0.15);
+    color: var(--gold);
+  }
+
+  .submenu{
+    display:none;
+    position:absolute;
+    top:0;
+    left:100%;
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold);
+    border-radius:8px;
+    min-width:190px;
+    box-shadow: 0 14px 30px rgba(13,51,40,0.3);
+    padding:8px 0;
+  }
+
+  .has-submenu.open .submenu{
+    display:block;
+  }
+
+  .submenu a{
+    color: var(--gold-light);
+    padding:10px 20px;
+    font-size:13.5px;
+  }
+
+  .submenu a:hover{
+    background: rgba(201,164,85,0.15);
+    color: var(--gold);
+  }
+
+  /* ============ MOBILE HAMBURGER ============ */
+  .hamburger{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:30px;
+    height:30px;
+    cursor:pointer;
+    background:none;
+    border:none;
+    padding:0;
+  }
+
+  .hamburger span{
+    display:block;
+    height:3px;
+    width:100%;
+    background: var(--gold-light);
+    border-radius:2px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 1024px){
+    .top-bar{
+      padding:12px 18px;
+    }
+
+    .brand-center img{
+      height:42px;
+    }
+
+    .brand-name{
+      font-size:16px;
+    }
+
+    .brand-tagline{
+      font-size:8.5px;
+    }
+
+    .hamburger{
+      display:flex;
+    }
+
+    .nav-row{
+      display:none;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:0;
+      padding:6px 0;
+    }
+
+    .nav-row.mobile-open{
+      display:flex;
+    }
+
+    .nav-row a, .nav-row .dropdown{
+      width:100%;
+    }
+
+    .nav-row a, .nav-row .drop-toggle{
+      padding:13px 24px;
+      width:100%;
+      justify-content:space-between;
+    }
+
+    .dropdown-menu{
+      position:static;
+      transform:none;
+      width:100%;
+      border-radius:0;
+      box-shadow:none;
+      border-left:none;
+      border-right:none;
+    }
+
+    .has-submenu .submenu{
+      position:static;
+      width:100%;
+      border-radius:0;
+      box-shadow:none;
+    }
+
+    .has-submenu > .sub-toggle{
+      padding-left:34px;
+    }
+
+    .submenu a{
+      padding-left:44px;
+    }
+  }
+
+  @media (max-width: 480px){
+    .top-left, .top-right{
+      gap:14px;
+    }
+
+    .brand-center img{
+      height:36px;
+    }
+
+    .brand-name{
+      font-size:13px;
+      letter-spacing:1px;
+    }
+
+    .brand-tagline{
+      font-size:7px;
+      letter-spacing:1px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="top-bar">
+  <div class="top-left">
+    <button class="icon-btn" aria-label="Search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+  </div>
+
+  <div class="brand-center">
+    <img src="assets\logo.jpeg" alt="Shailu's Concepts">
+    <span class="brand-name">Shailu's Concepts</span>
+    <span class="brand-tagline">Return Gift Store For All Occasions</span>
+  </div>
+
+  <div class="top-right">
+    <button class="icon-btn" aria-label="Account">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </button>
+    <button class="icon-btn" aria-label="Cart">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-badge">0</span>
+    </button>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" onclick="document.getElementById('mainNavRow').classList.toggle('mobile-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ NAV BAR ============ -->
+<nav class="nav-bar">
+  <div class="nav-row" id="mainNavRow">
+
+    <a href="#" class="active">Home</a>
+    <a href="#">New Arrivals</a>
+
+    <div class="dropdown" id="returnGiftsDropdown">
+      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('returnGiftsDropdown').classList.toggle('open')">
+        Return Gifts <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="#">Category</a>
+
+        <div class="has-submenu" id="bagsSubmenu">
+          <button class="sub-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('bagsSubmenu').classList.toggle('open')">
+            Bags <span class="arrow">›</span>
+          </button>
+          <div class="submenu">
+            <a href="#">Jute Bags</a>
+            <a href="#">Non-Woven Bags</a>
+            <a href="#">Fancy Bags</a>
+            <a href="#">Paper Bags</a>
+            <a href="#">Imported Bags</a>
+          </div>
+        </div>
+
+        <a href="#">Kids Return Gifts</a>
+        <a href="#">Return Gifts</a>
+        <a href="#">New Collection</a>
+        <a href="#">Combos</a>
+        <a href="#">Customised Return Gifts</a>
+        <hr>
+        <a href="#">Corporate Gifts</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="favourBagsDropdown">
+      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('favourBagsDropdown').classList.toggle('open')">
+        Favour Bags <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="#">Jute Bags</a>
+        <a href="#">Paper Bags</a>
+        <a href="#">Fancy Pouches</a>
+        <a href="#">Eco-Friendly Bags</a>
+      </div>
+    </div>
+
+    <a href="#">Corporate Gifts</a>
+
+    <div class="dropdown" id="eventDropdown">
+      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('eventDropdown').classList.toggle('open')">
+        Gifting For Moments <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="#">Weddings</a>
+        <a href="#">Birthdays</a>
+        <a href="#">Baby Showers</a>
+        <a href="#">Festivals</a>
+        <a href="#">Housewarming</a>
+      </div>
+    </div>
+
+    <a href="#">About Us</a>
+
+    <div class="nav-row" style="display:contents;">
+      <a href="https://thambulaaareturngifts.com/terms/" target="_blank" rel="noopener">Terms And Conditions</a>
+      <a href="https://thambulaaareturngifts.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+
+  </div>
+</nav>
+
+<script>
+  // Close any open dropdown/submenu when clicking outside the nav
+  document.addEventListener('click', function(e){
+    var dropdowns = document.querySelectorAll('.dropdown.open, .has-submenu.open');
+    dropdowns.forEach(function(d){
+      if(!d.contains(e.target)){
+        d.classList.remove('open');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

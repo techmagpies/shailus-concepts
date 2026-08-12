@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Shailu's Concepts</title>
+<style>
+  :root{
+    --deep-green: #0d3328;
+    --green-mid: #134a3a;
+    --gold: #c9a455;
+    --gold-light: #e6cf8f;
+    --cream: #fdfaf3;
+    --header-cream: #fbeee2;
+    --blush: #f3e2dd;
+    --text-dark: #1a1a1a;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html, body{ overflow-x:hidden; max-width:100%; }
+
+  body{
+    font-family: 'Poppins', Arial, sans-serif;
+    background:#fff;
+    color: var(--text-dark);
+  }
+
+  /* ============ SITE HEADER (sticky wrapper) ============ */
+  .site-header{
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: box-shadow .25s ease;
+  }
+
+  .site-header.scrolled{
+    box-shadow: 0 8px 22px rgba(13,51,40,0.18);
+  }
+
+  /* ============ TOP BAR (dark green, logo + search + icons) ============ */
+  .top-bar{
+    background: linear-gradient(135deg, var(--deep-green), var(--green-mid));
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 30px;
+    gap:14px;
+  }
+
+  .top-left, .top-right{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    flex:1;
+    min-width:0;
+  }
+
+  .top-right{ justify-content:flex-end; }
+
+  .icon-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    color: var(--gold-light);
+    font-size:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: color .2s ease;
+    position:relative;
+  }
+
+  .icon-btn:hover{ color: var(--gold); }
+
+  .search-wrap{
+    display:flex; align-items:center;
+  }
+
+  .search-input{
+    width: 0;
+    opacity: 0;
+    padding: 0;
+    margin-left: 0;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    font-family: inherit;
+    font-size: 13.5px;
+    transition: width .25s ease, opacity .2s ease, padding .25s ease, margin .25s ease;
+  }
+
+  .search-input::placeholder{ color: rgba(255,255,255,0.6); }
+
+  .search-wrap.expanded .search-input{
+    width: 180px;
+    opacity: 1;
+    padding: 8px 14px;
+    margin-left: 10px;
+  }
+
+  .search-input:focus{ outline: 1.5px solid var(--gold); }
+
+  .cart-badge{
+    position:absolute;
+    top:-6px; right:-8px;
+    background: var(--gold);
+    color: var(--deep-green);
+    font-size:10px; font-weight:700;
+    width:16px; height:16px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .brand-center{
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+    flex-shrink:0;
+  }
+
+  .brand-center img{ height:52px; width:auto; object-fit:contain; }
+
+  .brand-name{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:20px; font-weight:700; letter-spacing:1.5px;
+    color: var(--gold-light); margin-top:4px; line-height:1;
+    white-space:nowrap;
+  }
+
+  .brand-tagline{
+    font-size:10px; letter-spacing:2px; color: var(--gold-light);
+    text-transform:uppercase; opacity:0.85;
+    white-space:nowrap;
+  }
+
+  .hamburger{
+    display:none; flex-direction:column; justify-content:center;
+    gap:5px; width:30px; height:30px; cursor:pointer;
+    background:none; border:none; padding:0; flex-shrink:0;
+  }
+
+  .hamburger span{ display:block; height:3px; width:100%; background: var(--gold-light); border-radius:2px; }
+
+  /* ============ NAV BAR (cream, links row) ============ */
+  .navbar{
+    background: var(--header-cream);
+    border-bottom:2px solid var(--deep-green);
+    width:100%;
+    max-width:100vw;
+    overflow:visible;
+    box-sizing:border-box;
+    position:relative;
+  }
+
+  /* ============ NAV LINKS (single row) ============ */
+  .nav-row{
+    display:flex; align-items:center;
+    justify-content:center;
+    gap:28px;
+    flex-wrap:nowrap;
+    padding:14px 20px;
+    min-width:0;
+    overflow:visible;
+  }
+
+  .nav-row::-webkit-scrollbar{ display:none; }
+
+  .nav-row a, .nav-row .drop-toggle{
+    text-decoration:none; color: var(--deep-green);
+    font-weight:600; font-size:15px;
+    background:none; border:none; font-family:inherit; cursor:pointer;
+    display:flex; align-items:center; gap:5px;
+    padding:2px 2px 4px; white-space:nowrap; transition: color .2s ease;
+    border-bottom:2px solid transparent;
+    line-height:1.2;
+  }
+
+  .nav-row a:hover, .nav-row .drop-toggle:hover{ color: var(--gold); }
+  .nav-row a.active{ color: var(--gold); border-bottom-color: var(--gold); font-weight:700; }
+
+  .drop-toggle .arrow{ font-size:10px; transition: transform .2s ease; }
+  .dropdown.open .drop-toggle .arrow{ transform: rotate(180deg); }
+
+  .dropdown{ position:relative; }
+
+  .dropdown-menu{
+    display:none;
+    position:absolute; top:calc(100% + 12px); left:50%;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold); border-radius:8px;
+    min-width:220px;
+    box-shadow: 0 14px 30px rgba(13,51,40,0.3);
+    z-index:500; padding:8px 0;
+  }
+
+  .dropdown.open .dropdown-menu{ display:block; }
+
+  .dropdown-menu a{
+    display:block; color: var(--gold-light);
+    padding:10px 20px; font-size:14px; font-weight:500; white-space:nowrap;
+  }
+
+  .dropdown-menu a:hover{ background: rgba(201,164,85,0.15); color: var(--gold); }
+  .dropdown-menu hr{ border:none; border-top:1px solid rgba(201,164,85,0.25); margin:6px 14px; }
+
+  .has-submenu{ position:relative; }
+
+  .has-submenu > .sub-toggle{
+    width:100%; background:none; border:none; text-align:left;
+    cursor:pointer; font-family:inherit; color: var(--gold-light);
+    padding:10px 20px; font-size:14px; font-weight:500;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+
+  .has-submenu > .sub-toggle:hover,
+  .has-submenu.open > .sub-toggle{ background: rgba(201,164,85,0.15); color: var(--gold); }
+
+  .submenu{
+    display:none; position:absolute; top:0; left:100%;
+    background: linear-gradient(180deg, var(--deep-green), var(--green-mid));
+    border:1px solid var(--gold); border-radius:8px;
+    min-width:190px; box-shadow: 0 14px 30px rgba(13,51,40,0.3); padding:8px 0;
+  }
+
+  .has-submenu.open .submenu{ display:block; }
+  .submenu a{ color: var(--gold-light); padding:10px 20px; font-size:13.5px; }
+  .submenu a:hover{ background: rgba(201,164,85,0.15); color: var(--gold); }
+
+
+  /* ============ RESPONSIVE NAVBAR ============ */
+  @media (max-width: 1400px){
+    .nav-row{ gap:16px; }
+    .nav-row a, .nav-row .drop-toggle{ font-size:13.5px; }
+  }
+
+  @media (max-width: 1024px){
+    .top-bar{ padding:12px 18px; }
+    .brand-center img{ height:42px; }
+    .brand-name{ font-size:16px; }
+    .brand-tagline{ font-size:8.5px; }
+    .hamburger{ display:flex; }
+
+    .nav-row{
+      display:none; flex-direction:column; align-items:flex-start;
+      gap:0; padding:6px 0;
+      position:absolute; top:100%; left:0; right:0;
+      background: linear-gradient(135deg, var(--deep-green), var(--green-mid));
+      border-bottom:2px solid var(--gold);
+      box-shadow: 0 14px 30px rgba(13,51,40,0.3);
+      z-index:900;
+      height:auto;
+      overflow:visible;
+      max-height:80vh;
+      overflow-y:auto;
+    }
+
+    .nav-row.mobile-open{ display:flex; }
+    .nav-row a, .nav-row .dropdown{ width:100%; }
+    .nav-row a, .nav-row .drop-toggle{
+      padding:13px 24px; width:100%; justify-content:space-between;
+      color: var(--gold-light);
+    }
+    .nav-row a:hover, .nav-row .drop-toggle:hover{ color: var(--gold); }
+    .nav-row a.active{ border-bottom:none; background: rgba(201,164,85,0.12); color: var(--gold); }
+
+    .dropdown-menu{
+      position:static; transform:none; width:100%;
+      border-radius:0; box-shadow:none; border-left:none; border-right:none;
+    }
+
+    .has-submenu .submenu{ position:static; width:100%; border-radius:0; box-shadow:none; }
+    .has-submenu > .sub-toggle{ padding-left:34px; }
+    .submenu a{ padding-left:44px; }
+
+    .search-wrap.expanded .search-input{ width:130px; }
+  }
+
+  @media (max-width: 700px){
+    .top-bar{ gap:10px; }
+    .top-left, .top-right{ gap:12px; }
+    .search-wrap.expanded .search-input{ width:110px; }
+  }
+
+  @media (max-width: 480px){
+    .top-left, .top-right{ gap:14px; }
+    .brand-center img{ height:36px; }
+    .brand-name{ font-size:13px; letter-spacing:1px; }
+    .brand-tagline{ font-size:7px; letter-spacing:1px; }
+    .search-wrap.expanded .search-input{ width:90px; padding:6px 12px; }
+  }
+
+  /* ============ CHECKOUT PAGE ============ */
+  .checkout-wrap{
+    max-width:1300px;
+    margin:0 auto;
+    padding:40px 24px 80px;
+    display:grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap:60px;
+    align-items:start;
+  }
+
+  .checkout-form h2{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:24px;
+    color: var(--deep-green);
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid #e6e1d3;
+  }
+
+  .checkout-section{ margin-bottom:38px; }
+
+  .checkout-section-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid #e6e1d3;
+  }
+
+  .checkout-section-head h2{ margin:0; padding:0; border:none; }
+
+  .sign-in-link{
+    color: var(--green-mid); font-size:14px; font-weight:600;
+    text-decoration:none;
+  }
+  .sign-in-link:hover{ text-decoration:underline; color: var(--deep-green); }
+
+  .field-row{
+    display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+    margin-bottom:14px;
+  }
+
+  .field{
+    margin-bottom:14px;
+    position:relative;
+  }
+
+  .field input, .field select{
+    width:100%; padding:13px 14px; border:1.5px solid #d8d2c2;
+    border-radius:6px; font-family:inherit; font-size:14.5px;
+    color: var(--text-dark); background:#fff;
+    transition: border-color .2s ease;
+  }
+
+  .field input:focus, .field select:focus{
+    outline:none; border-color: var(--deep-green);
+  }
+
+  .checkbox-row{
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:24px; font-size:14px; color: var(--text-dark);
+  }
+
+  .checkbox-row input[type="checkbox"]{
+    width:18px; height:18px; accent-color: var(--deep-green);
+    cursor:pointer;
+  }
+
+  .delivery-toggle{
+    display:grid; grid-template-columns: 1fr 1fr; gap:0;
+    border:1.5px solid #d8d2c2; border-radius:6px; overflow:hidden;
+    margin-bottom:18px;
+  }
+
+  .delivery-toggle button{
+    background:#fff; border:none; padding:14px; font-family:inherit;
+    font-size:14.5px; font-weight:600; color: var(--text-dark);
+    cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
+    transition: background .2s ease, color .2s ease;
+    border-right:1.5px solid #d8d2c2;
+  }
+
+  .delivery-toggle button:last-child{ border-right:none; }
+
+  .delivery-toggle button.active{
+    background: var(--deep-green); color:#fff;
+  }
+
+  .ship-method-box{
+    border:1.5px solid #d8d2c2; border-radius:6px;
+    padding:18px; font-size:14px; color:#777;
+    background:#faf8f3; margin-bottom:18px;
+  }
+
+  .payment-box{
+    border:1.5px solid var(--deep-green); border-radius:6px;
+    padding:0; margin-bottom:18px; overflow:hidden;
+  }
+
+  .payment-option-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 18px; background: var(--header-cream);
+    font-weight:700; font-size:14.5px; color: var(--deep-green);
+  }
+
+  .payment-badges{ display:flex; gap:6px; align-items:center; }
+  .payment-badges span{
+    font-size:10.5px; font-weight:700; padding:3px 7px;
+    border-radius:3px; background:#fff; border:1px solid #ddd; color:#555;
+  }
+
+  .payment-option-note{
+    padding:14px 18px; font-size:13px; color:#666; text-align:center;
+    border-top:1px solid #e6e1d3; background:#fff;
+  }
+
+  .billing-option{
+    display:flex; align-items:center; gap:12px;
+    padding:16px 18px; border:1.5px solid #d8d2c2; border-radius:6px;
+    margin-bottom:10px; cursor:pointer; transition: border-color .2s ease;
+  }
+
+  .billing-option.selected{ border-color: var(--deep-green); background: rgba(13,51,40,0.03); }
+
+  .billing-option input[type="radio"]{
+    width:18px; height:18px; accent-color: var(--deep-green); cursor:pointer;
+  }
+
+  .billing-option span{ font-size:14.5px; font-weight:500; }
+
+  .pay-now-btn{
+    width:100%; background: var(--deep-green); color: var(--gold-light);
+    border:none; padding:17px; border-radius:6px; font-weight:700;
+    font-size:16px; letter-spacing:0.5px; cursor:pointer; margin-top:10px;
+    transition: background .2s ease;
+  }
+
+  .pay-now-btn:hover{ background: var(--green-mid); }
+
+  .checkout-footnote{
+    text-align:center; font-size:12.5px; color:#999; margin-top:30px;
+  }
+
+  /* ============ ORDER SUMMARY ============ */
+  .order-summary{
+    background:#faf8f3; border:1px solid #ece5d4; border-radius:10px;
+    padding:28px; position:sticky; top:110px;
+  }
+
+  .order-summary h2{
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size:20px; color: var(--deep-green); margin-bottom:20px;
+  }
+
+  .order-item{
+    display:flex; gap:14px; align-items:flex-start;
+    padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid #ece5d4;
+  }
+
+  .order-item-thumb{
+    position:relative; flex-shrink:0;
+  }
+
+  .order-item-thumb img{
+    width:64px; height:64px; object-fit:cover; border-radius:8px;
+    border:1px solid #e6e1d3; background:#fff;
+  }
+
+  .order-item-qty{
+    position:absolute; top:-8px; right:-8px;
+    background: var(--deep-green); color:#fff;
+    font-size:11px; font-weight:700; width:20px; height:20px;
+    border-radius:50%; display:flex; align-items:center; justify-content:center;
+  }
+
+  .order-item-info{ flex:1; min-width:0; }
+
+  .order-item-info h4{
+    font-size:14.5px; font-weight:600; color: var(--text-dark);
+    margin-bottom:4px; line-height:1.3;
+  }
+
+  .order-item-price{
+    font-size:14px; color: var(--green-mid); font-weight:700;
+    white-space:nowrap; flex-shrink:0;
+  }
+
+  .summary-row{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:14.5px; color: var(--text-dark); margin-bottom:12px;
+  }
+
+  .summary-row.muted{ color:#888; font-size:13.5px; }
+
+  .summary-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-size:19px; font-weight:700; color: var(--deep-green);
+    padding-top:16px; margin-top:6px; border-top:1.5px solid var(--deep-green);
+  }
+
+  .summary-total .currency-label{
+    font-size:12px; font-weight:500; color:#888; margin-right:6px;
+  }
+
+  @media (max-width: 980px){
+    .checkout-wrap{ grid-template-columns: 1fr; gap:36px; }
+    .order-summary{ position:static; order:-1; }
+  }
+
+  @media (max-width: 600px){
+    .field-row{ grid-template-columns: 1fr; gap:0; }
+    .checkout-wrap{ padding:28px 16px 60px; }
+  }
+
+  /* ============ FOOTER (shared) ============ */
+  .footer {
+    background: linear-gradient(180deg, var(--deep-green), #071f17);
+    color: var(--gold-light);
+    padding-top: 60px;
+  }
+
+  .footer-top {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 30px 50px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr 1.6fr;
+    gap: 40px;
+  }
+
+  .footer-brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .footer-brand p {
+    font-size: 13.5px;
+    line-height: 1.8;
+    color: rgba(230, 207, 143, 0.8);
+    margin-bottom: 16px;
+  }
+
+  .footer-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+
+  .rating-text {
+    font-size: 13px;
+    color: rgba(230, 207, 143, 0.85);
+  }
+
+  .rating-text a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .rating-text a:hover { text-decoration: underline; }
+
+  .footer-col h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .footer-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 20px;
+    border-radius: 2px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col ul li a {
+    color: rgba(230, 207, 143, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color .2s;
+  }
+
+  .footer-col ul li a:hover { color: var(--gold); }
+
+  .footer-hours li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: rgba(230, 207, 143, 0.85);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .footer-hours svg { flex-shrink: 0; margin-top: 3px; stroke: var(--gold); }
+
+  .follow-label {
+    font-size: 13px;
+    color: var(--gold-light);
+    margin: 18px 0 10px;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 14px;
+  }
+
+  .footer-social a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 164, 85, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-light);
+    transition: background .2s, border-color .2s;
+  }
+
+  .footer-social a:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--deep-green);
+  }
+
+  .footer-social a svg { stroke: currentColor; }
+
+  .footer-contact { gap: 14px !important; }
+
+  .footer-contact li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13.5px;
+    color: rgba(230, 207, 143, 0.85);
+    line-height: 1.6;
+  }
+
+  .footer-contact svg { flex-shrink: 0; margin-top: 3px; stroke: var(--gold); }
+
+  .footer-contact a {
+    color: rgba(230, 207, 143, 0.85);
+    text-decoration: none;
+    transition: color .2s;
+  }
+
+  .footer-contact a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(201, 164, 85, 0.2);
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    color: rgba(230, 207, 143, 0.6);
+  }
+
+  .footer-bottom strong { color: var(--gold-light); }
+
+  @media (max-width: 1100px) {
+    .footer-top { grid-template-columns: 1fr 1fr 1fr; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 650px) {
+    .footer-top { grid-template-columns: 1fr 1fr; padding: 0 20px 40px; }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 400px) {
+    .footer-top { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ SITE HEADER (sticky) ============ -->
+<header class="site-header" id="siteHeader">
+
+<!-- ============ TOP BAR ============ -->
+<div class="top-bar">
+  <div class="top-left">
+    <div class="search-wrap" id="searchWrap">
+      <button class="icon-btn" aria-label="Search" id="searchToggleBtn" onclick="toggleSearch()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
+    </div>
+  </div>
+
+  <div class="brand-center">
+    <img src="assets/logo.jpeg" alt="Shailu's Concepts">
+    <span class="brand-name">Shailu's Concepts</span>
+    <span class="brand-tagline">Return Gift Store For All Occasions</span>
+  </div>
+
+  <div class="top-right">
+    <a class="icon-btn" aria-label="Login" href="login.html" title="Login">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+    <a class="icon-btn" aria-label="Cart" href="index.html">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu"
+      onclick="document.getElementById('mainNavRow').classList.toggle('mobile-open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</div>
+
+<!-- ============ NAV BAR ============ -->
+<nav class="navbar" id="mainNavBar">
+  <div class="nav-row" id="mainNavRow">
+
+    <a href="index.html">Home</a>
+
+    <div class="dropdown" id="returnGiftsDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('returnGiftsDropdown')">
+        Return Gifts <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">Jute Bags</a>
+        <a href="index.html">Non-Woven Bags</a>
+        <a href="index.html">Fancy Bags</a>
+        <a href="index.html">Paper Bags</a>
+        <a href="index.html">Imported Bags</a>
+        <a href="index.html">Kids Return Gifts</a>
+        <a href="index.html">New Collection</a>
+        <a href="index.html">Combos</a>
+        <a href="index.html">Customised Return Gifts</a>
+        <a href="index.html">Corporate Gifts</a>
+        <a href="index.html">Favour Bags</a>
+        <a href="index.html">Eco-Friendly Bags</a>
+        <a href="index.html">Wedding Return Gifts</a>
+        <a href="index.html">Festival Return Gifts</a>
+        <a href="index.html">Bulk Orders</a>
+        <a href="index.html">New Arrivals</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="germanSilverDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('germanSilverDropdown')">
+        German Silver <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">German Silver Gift Items</a>
+        <a href="index.html">German Silver Trays</a>
+        <a href="index.html">German Silver Pooja Items</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="weddingDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('weddingDropdown')">
+        Wedding <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">Wedding Return Gifts</a>
+        <a href="index.html">Wedding Hampers</a>
+        <a href="index.html">Engagement Gifts</a>
+        <a href="index.html">Bridal Gift Boxes</a>
+        <a href="index.html">Groom Gift Sets</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="brassDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('brassDropdown')">
+        Brass <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">Brass Diyas</a>
+        <a href="index.html">Brass Pooja Items</a>
+        <a href="index.html">Brass Decor</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="homeDecorDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('homeDecorDropdown')">
+        Home Decor <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">Wall Decor</a>
+        <a href="index.html">Showpieces</a>
+        <a href="index.html">Vases &amp; Planters</a>
+        <a href="index.html">Candle Holders</a>
+        <a href="index.html">Table Decor</a>
+        <a href="index.html">Housewarming Gifts</a>
+      </div>
+    </div>
+
+    <div class="dropdown" id="festivalDropdown">
+      <button class="drop-toggle" type="button"
+        onclick="event.stopPropagation(); toggleDropdown('festivalDropdown')">
+        Festival <span class="arrow">▾</span>
+      </button>
+      <div class="dropdown-menu">
+        <a href="index.html">Diwali Gifts</a>
+      </div>
+    </div>
+
+    <a href="checkout.html" class="active">Checkout</a>
+
+  </div>
+</nav>
+
+</header>
+
+<!-- ============ CHECKOUT CONTENT ============ -->
+<main class="checkout-wrap">
+
+  <!-- LEFT: FORM -->
+  <form class="checkout-form" id="checkoutForm" onsubmit="event.preventDefault(); handlePayNow();">
+
+    <div class="checkout-section">
+      <div class="checkout-section-head">
+        <h2>Contact</h2>
+        <a href="login.html" class="sign-in-link">Sign in</a>
+      </div>
+      <div class="field">
+        <input type="text" placeholder="Email or mobile phone number" required>
+      </div>
+      <div class="checkbox-row">
+        <input type="checkbox" id="newsOffers">
+        <label for="newsOffers">Email me with news and offers</label>
+      </div>
+    </div>
+
+    <div class="checkout-section">
+      <h2>Delivery</h2>
+
+      <div class="delivery-toggle">
+        <button type="button" class="active" id="shipBtn" onclick="setDeliveryMode('ship')">Ship</button>
+        <button type="button" id="pickupBtn" onclick="setDeliveryMode('pickup')">Pickup</button>
+      </div>
+
+      <div class="field">
+        <select>
+          <option>India</option>
+        </select>
+      </div>
+
+      <div class="field-row">
+        <div class="field"><input type="text" placeholder="First name (optional)"></div>
+        <div class="field"><input type="text" placeholder="Last name" required></div>
+      </div>
+
+      <div class="field"><input type="text" placeholder="Address" required></div>
+      <div class="field"><input type="text" placeholder="Apartment, suite, etc. (optional)"></div>
+
+      <div class="field-row">
+        <div class="field"><input type="text" placeholder="City" required></div>
+        <div class="field"><input type="text" placeholder="PIN code" required></div>
+      </div>
+
+      <div class="field">
+        <select>
+          <option>Karnataka</option>
+          <option>Andhra Pradesh</option>
+          <option>Tamil Nadu</option>
+          <option>Telangana</option>
+          <option>Maharashtra</option>
+          <option>Delhi</option>
+        </select>
+      </div>
+
+      <div class="field"><input type="tel" placeholder="Phone" required></div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="saveInfo">
+        <label for="saveInfo">Save this information for next time</label>
+      </div>
+    </div>
+
+    <div class="checkout-section">
+      <h2>Shipping method</h2>
+      <div class="ship-method-box">
+        Enter your shipping address to view available shipping methods.
+      </div>
+    </div>
+
+    <div class="checkout-section">
+      <h2>Payment</h2>
+      <p style="font-size:13px;color:#888;margin-bottom:14px;">All transactions are secure and encrypted.</p>
+
+      <div class="payment-box">
+        <div class="payment-option-head">
+          <span>Razorpay Secure (UPI, Cards, Int'l Cards, Wallets)</span>
+          <div class="payment-badges">
+            <span>UPI</span><span>VISA</span><span>+17</span>
+          </div>
+        </div>
+        <div class="payment-option-note">
+          You'll be redirected to Razorpay Secure (UPI, Cards, Int'l Cards, Wallets) to complete your purchase.
+        </div>
+      </div>
+    </div>
+
+    <div class="checkout-section">
+      <h2>Billing address</h2>
+
+      <label class="billing-option selected" id="billingSameLabel">
+        <input type="radio" name="billing" checked onclick="setBillingMode('same')">
+        <span>Same as shipping address</span>
+      </label>
+      <label class="billing-option" id="billingDiffLabel">
+        <input type="radio" name="billing" onclick="setBillingMode('diff')">
+        <span>Use a different billing address</span>
+      </label>
+    </div>
+
+    <button type="submit" class="pay-now-btn">Pay now</button>
+
+    <p class="checkout-footnote">All rights reserved Shailu's Concepts</p>
+  </form>
+
+  <!-- RIGHT: ORDER SUMMARY -->
+  <aside class="order-summary">
+    <h2>Order Summary</h2>
+    <div id="orderItemsContainer"><!-- populated by JS --></div>
+
+    <div class="summary-row">
+      <span>Subtotal</span>
+      <span id="summarySubtotal">₹0.00</span>
+    </div>
+    <div class="summary-row muted">
+      <span>Shipping</span>
+      <span id="summaryShipping">Enter shipping address</span>
+    </div>
+    <div class="summary-total">
+      <span>Total</span>
+      <span><span class="currency-label">INR</span><span id="summaryTotal">₹0.00</span></span>
+    </div>
+  </aside>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+
+    <div class="footer-col footer-brand">
+      <img src="assets/logo.jpeg" alt="Shailu's Concepts">
+      <p>At Shailu's Concepts, we offer wholesale return gifts for weddings, birthdays, baby showers, housewarmings, corporate events, and festivals. Our theme-based and customized gifts make every occasion special.</p>
+      <div class="footer-rating">
+        <span class="stars">★★★★★</span>
+        <span class="rating-text">4.8 · <a href="https://www.google.com/search?q=Shailu%27s+Concepts+Return+Gifts+for+All+Occasions+proddatur" target="_blank" rel="noopener">33 Google Reviews</a></span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Category</h4>
+      <div class="footer-divider"></div>
+      <ul>
+        <li><a href="#">Return Gifts</a></li>
+        <li><a href="#">Favour Bags</a></li>
+        <li><a href="#">Corporate Gifts</a></li>
+        <li><a href="#">Kids Return Gifts</a></li>
+        <li><a href="#">Customised Gifts</a></li>
+        <li><a href="#">Combos</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Opening Hours</h4>
+      <div class="footer-divider"></div>
+      <ul class="footer-hours">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Monday – Saturday : <br>10.00 am – 7.30 pm</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span>Sunday : Opens 10 am</span>
+        </li>
+      </ul>
+      <p class="follow-label">Follow Us:</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://wa.me/918825498438" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Connect With Us</h4>
+      <div class="footer-divider"></div>
+      <ul class="footer-contact">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Shop No : 39, Shivasankara Shopping Mall, Korrapadu Rd, YMR Colony, Proddatur, Andhra Pradesh – 516360</span>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:shailusconcepts@gmail.com">shailusconcepts@gmail.com</a>
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
+          <a href="tel:+918825498438">+91 88254 98438</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>Copyright &copy; 2025 <strong>Shailu's Concepts</strong>. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // ===== Dropdown helper =====
+  function toggleDropdown(id){
+    var el = document.getElementById(id);
+    var wasOpen = el.classList.contains('open');
+    document.querySelectorAll('.dropdown.open, .has-submenu.open').forEach(function(d){ d.classList.remove('open'); });
+    if(!wasOpen) el.classList.add('open');
+  }
+
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.dropdown.open, .has-submenu.open').forEach(function(d){
+      if(!d.contains(e.target)) d.classList.remove('open');
+    });
+  });
+
+  // ===== Search toggle =====
+  function toggleSearch(){
+    var wrap = document.getElementById('searchWrap');
+    var input = document.getElementById('searchInput');
+    wrap.classList.toggle('expanded');
+    if(wrap.classList.contains('expanded')){
+      input.focus();
+    } else {
+      input.value = '';
+    }
+  }
+
+  // ===== Sticky header shadow on scroll =====
+  var siteHeaderEl = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 10){ siteHeaderEl.classList.add('scrolled'); }
+    else { siteHeaderEl.classList.remove('scrolled'); }
+  });
+
+  // =====================================================
+  // ============  ORDER SUMMARY (from cart)  ===========
+  // =====================================================
+  // Reads the same localStorage key used by index.html's cart so this
+  // page reflects whatever was actually added to the cart. Swap
+  // loadCartForCheckout() for a real API/session call later if needed —
+  // everything else (rendering, totals) stays the same.
+
+  var CART_STORAGE_KEY = 'shailusCart';
+  var FALLBACK_ITEM = {
+    id: 'placeholder',
+    name: 'Decorated Seru For Marriage Big',
+    price: 1650,
+    img: 'https://placehold.co/200x200/f7f3ea/0d3328?text=Gift',
+    qty: 3
+  };
+
+  function loadCartForCheckout(){
+    try{
+      var raw = localStorage.getItem(CART_STORAGE_KEY);
+      var parsed = raw ? JSON.parse(raw) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch(e){ return []; }
+  }
+
+  function renderOrderSummary(){
+    var cart = loadCartForCheckout();
+    var container = document.getElementById('orderItemsContainer');
+    var usingFallback = false;
+
+    if(cart.length === 0){
+      // Flexible fallback: show a sample item as starting-code placeholder
+      // instead of a hard "empty" dead end, so the layout is always visible.
+      cart = [FALLBACK_ITEM];
+      usingFallback = true;
+    }
+
+    container.innerHTML = cart.map(function(item){
+      var priceLabel = item.price > 0 ? ('₹' + Number(item.price).toFixed(2)) : 'Price on request';
+      return '' +
+        '<div class="order-item">' +
+          '<div class="order-item-thumb">' +
+            '<img src="' + item.img + '" alt="' + item.name + '">' +
+            '<span class="order-item-qty">' + item.qty + '</span>' +
+          '</div>' +
+          '<div class="order-item-info"><h4>' + item.name + '</h4></div>' +
+          '<div class="order-item-price">' + priceLabel + '</div>' +
+        '</div>';
+    }).join('');
+
+    var subtotal = cart.reduce(function(sum, c){ return sum + (Number(c.price) * c.qty); }, 0);
+    document.getElementById('summarySubtotal').textContent = '₹' + subtotal.toFixed(2);
+    document.getElementById('summaryTotal').textContent = '₹' + subtotal.toFixed(2);
+
+    if(!usingFallback){
+      document.getElementById('cartBadge').textContent =
+        cart.reduce(function(sum, c){ return sum + c.qty; }, 0);
+    }
+  }
+
+  renderOrderSummary();
+
+  // =====================================================
+  // ===============  DELIVERY / BILLING  ================
+  // =====================================================
+  function setDeliveryMode(mode){
+    document.getElementById('shipBtn').classList.toggle('active', mode === 'ship');
+    document.getElementById('pickupBtn').classList.toggle('active', mode === 'pickup');
+  }
+
+  function setBillingMode(mode){
+    document.getElementById('billingSameLabel').classList.toggle('selected', mode === 'same');
+    document.getElementById('billingDiffLabel').classList.toggle('selected', mode === 'diff');
+  }
+
+  // =====================================================
+  // ===================  PAY NOW  =======================
+  // =====================================================
+  function handlePayNow(){
+    // Starting-code hook: wire this up to your real payment gateway
+    // (Razorpay order creation, etc.) when the backend is ready.
+    alert('Payment integration coming soon!');
+  }
+</script>
+
+</body>
+</html>
