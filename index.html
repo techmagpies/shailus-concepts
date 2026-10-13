@@ -188,8 +188,8 @@
     }
 
     .about-heading h2 {
-      font-size: 38px;
-      letter-spacing: -1.5px;
+      font-size: clamp(28px, 7.2vw, 34px);
+      letter-spacing: -1px;
     }
 
     .about-description p {
@@ -336,19 +336,6 @@
     color:#242424;
     overflow-wrap:anywhere;
   }
-  #newCollectionGrid .collection-pricing{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:baseline;
-    justify-content:center;
-    gap:4px 9px;
-    margin-top:auto;
-    padding-bottom:2px;
-    font-family:Arial,Helvetica,sans-serif;
-    font-size:16px;
-    line-height:1.4;
-  }
-  #newCollectionGrid .collection-price-current{ color:var(--deep-green); font-weight:700; }
   #floatingWhatsAppButton.collection-text-obscured{ visibility:hidden; pointer-events:none; }
 
   /* ============ WHAT MAKES US STAND OUT ============ */
@@ -1554,7 +1541,7 @@
       return;
     }
     var buttonBounds = button.getBoundingClientRect();
-    var overlapsText = Array.from(grid.querySelectorAll('h3, .collection-pricing')).some(function(text){
+    var overlapsText = Array.from(grid.querySelectorAll('h3')).some(function(text){
       var bounds = text.getBoundingClientRect();
       return bounds.width > 0 && bounds.height > 0 &&
         buttonBounds.left < bounds.right && buttonBounds.right > bounds.left &&
@@ -1608,19 +1595,12 @@
       var image = String(product.id) === '4'
         ? 'assets/id4.png'
         : (Array.isArray(product.localImages) ? product.localImages[0] : '');
-      var price = window.ShailusCart.getPrice(product);
-      var pricing = window.ShailusCart.getPricing(product, 1);
-      var hasDiscount = pricing && pricing.discountPercentage > 0 &&
-        pricing.discountedUnitPrice < pricing.originalUnitPrice;
       return '<a class="product-card" href="views.html?id=' + encodeURIComponent(product.id) + '&source=new-collections">' +
         '<div class="img-wrap">' + (image
           ? '<img src="' + escapeCartText(image) + '" alt="' + escapeCartText(product.name) + '" loading="lazy">'
           : '<div class="collection-image-empty">Image unavailable</div>') +
         '</div>' +
         '<h3>' + escapeCartText(product.name) + '</h3>' +
-        (price === null ? '' :
-          '<div class="collection-pricing"><span class="collection-price-current">₹' +
-          (hasDiscount ? pricing.discountedUnitPrice : price).toFixed(2) + '</span></div>') +
         '</a>';
     }).join('');
     scheduleCollectionWhatsAppVisibility();
