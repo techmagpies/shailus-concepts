@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="same-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'self'">
+  <title>Order dashboard | Shailu's Concepts</title>
+  <link rel="stylesheet" href="orders.css">
+  <script src="orders.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html" aria-label="Shailu's Concepts home">
+      <span class="brand-mark">SC</span>
+      <span>Shailu's <strong>Concepts</strong><small>Order dashboard</small></span>
+    </a>
+    <div class="header-actions">
+      <span id="signedInUser" class="signed-in-user" hidden></span>
+      <button id="logoutButton" class="button button-outline" type="button" hidden>Sign out</button>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section id="loginPanel" class="login-panel" aria-labelledby="loginTitle" hidden>
+      <p class="eyebrow">Authorized access only</p>
+      <h1 id="loginTitle">Sign in to manage orders</h1>
+      <p class="muted">Customer and delivery details are available only to approved Shailu's Concepts staff.</p>
+      <form id="loginForm" autocomplete="on">
+        <label for="loginEmail">Work email</label>
+        <input id="loginEmail" name="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="loginPassword">Password</label>
+        <input id="loginPassword" name="password" type="password" autocomplete="current-password" required maxlength="256">
+        <button class="button button-primary" type="submit">Sign in</button>
+      </form>
+      <p id="loginMessage" class="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">Operations</p>
+          <h1>Customer orders</h1>
+          <p class="muted">Order and payment records are calculated and maintained by the server.</p>
+        </div>
+        <button id="refreshButton" class="button button-outline" type="button">Refresh orders</button>
+      </div>
+
+      <form id="filterForm" class="filters" aria-label="Filter orders">
+        <label class="search-field">Order reference or customer contact
+          <input id="searchFilter" type="search" maxlength="160" placeholder="Search orders">
+        </label>
+        <label>Date from<input id="dateFromFilter" type="date"></label>
+        <label>Date to<input id="dateToFilter" type="date"></label>
+        <label>Payment status
+          <select id="paymentFilter">
+            <option value="">All payment statuses</option>
+            <option value="pending">Pending</option>
+            <option value="authorized">Authorized</option>
+            <option value="captured">Captured / paid</option>
+            <option value="failed">Failed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </label>
+        <label>Order status
+          <select id="orderFilter">
+            <option value="">All order statuses</option>
+            <option value="new">New</option>
+            <option value="processing">Processing</option>
+            <option value="shipped">Shipped</option>
+            <option value="delivered">Delivered</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </label>
+        <button class="button button-primary filter-submit" type="submit">Apply filters</button>
+      </form>
+
+      <p id="dashboardMessage" class="message" role="status" aria-live="polite"></p>
+      <div class="orders-meta"><span id="orderCount">No orders loaded</span><span>Amounts shown in INR</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Order</th><th>Created</th><th>Customer</th><th>Payment</th><th>Order status</th><th>Total</th><th><span class="sr-only">Details</span></th></tr>
+          </thead>
+          <tbody id="ordersBody"></tbody>
+        </table>
+      </div>
+      <p id="truncatedMessage" class="muted" hidden>Showing the 300 most recent matching orders. Narrow your filters to view older records.</p>
+    </section>
+  </main>
+
+  <dialog id="orderDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-header">
+      <div><p class="eyebrow">Order details</p><h2 id="dialogTitle"></h2></div>
+      <button id="closeDialogButton" class="icon-button" type="button" aria-label="Close order details">×</button>
+    </div>
+    <div id="orderDetails" class="order-details"></div>
+    <div class="status-editor">
+      <label for="nextOrderStatus">Update order status</label>
+      <div class="status-controls">
+        <select id="nextOrderStatus"></select>
+        <button id="saveStatusButton" class="button button-primary" type="button">Save status</button>
+      </div>
+      <p class="muted">Changing order status does not issue a refund or change payment status.</p>
+    </div>
+    <p id="dialogMessage" class="message" role="status" aria-live="polite"></p>
+  </dialog>
+</body>
+</html>

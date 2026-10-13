@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Gallery | Thambulaa Return Gifts</title>
+    <title>Product Gallery | Shailu's Concepts</title>
 
-    <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../gallery.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="shared-navbar.css">
+    <link rel="stylesheet" href="shared-footer.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -20,57 +22,26 @@
 
 <body>
 
-<div id="header"></div>
+<div id="shared-navbar-mount"></div>
+<script src="shared-navbar.js"></script>
 
-<!-- ================= BANNER ================= -->
-<section class="page-banner">
+<main class="gallery-section">
     <div class="container">
-        <h1>Gift Gallery</h1>
-        <p>Explore our beautiful collection of return gifts and customized products.</p>
-    </div>
-</section>
-
-<!-- ================= SEARCH ================= -->
-<section class="search-bar">
-    <div class="container">
-
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Search products...">
-        </div>
-
-    </div>
-</section>
-
-<!-- ================= FILTER ================= -->
-<section class="gallery-section">
-    <div class="container">
-
-        <div class="gallery-filter">
-
-            <button class="gallery-btn active" data-category="all">All</button>
-            <button class="gallery-btn" data-category="wedding">Wedding</button>
-            <button class="gallery-btn" data-category="birthday">Birthday</button>
-            <button class="gallery-btn" data-category="baby">Baby</button>
-            <button class="gallery-btn" data-category="housewarming">Housewarming</button>
-            <button class="gallery-btn" data-category="corporate">Corporate</button>
-            <button class="gallery-btn" data-category="festival">Festival</button>
-            <button class="gallery-btn" data-category="customized">Customized</button>
-
-        </div>
-
-        <!-- PRODUCTS GRID -->
+        <h1 class="gallery-heading" id="galleryCategoryTitle">All Products</h1>
+        <input type="hidden" id="gallerySearchInput" aria-label="Navbar product search">
+        <p class="gallery-status" id="galleryStatus" role="status" aria-live="polite"></p>
         <div class="gallery-grid" id="galleryGrid"></div>
-
     </div>
-</section>
+</main>
 
 <div id="footer"></div>
 
 <!-- ================= SCRIPTS ================= -->
-<script src="../js/products-data.js" defer></script>
-<script src="../js/gallery.js" defer></script>
+<script src="products-data.js" defer></script>
+<script src="cart-store.js" defer></script>
+<script src="gallery.js" defer></script>
 
+<script src="shared-footer.js"></script>
 </body>
 
 </html>

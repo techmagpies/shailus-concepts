@@ -1,0 +1,14 @@
+{
+  "name": "shailus-concepts-store",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "admin:hash-password": "node scripts/hash-admin-password.js"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.4"
+  }
+}

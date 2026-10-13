@@ -18,7 +18,7 @@
 
   *{ margin:0; padding:0; box-sizing:border-box; }
 
-  html, body{ overflow-x:hidden; max-width:100%; }
+  html, body{ overflow-x:clip; max-width:100%; }
 
   body{
     font-family: 'Poppins', Arial, sans-serif;
@@ -419,13 +419,28 @@
   .billing-option span{ font-size:14.5px; font-weight:500; }
 
   .pay-now-btn{
-    width:100%; background: var(--deep-green); color: var(--gold-light);
+    display:block; width:100%; box-sizing:border-box; text-align:center;
+    text-decoration:none; background: var(--deep-green); color: var(--gold-light);
     border:none; padding:17px; border-radius:6px; font-weight:700;
     font-size:16px; letter-spacing:0.5px; cursor:pointer; margin-top:10px;
     transition: background .2s ease;
   }
 
   .pay-now-btn:hover{ background: var(--green-mid); }
+  .pay-now-btn[hidden]{ display:none; }
+  .pay-now-btn:disabled,.whatsapp-order-btn:disabled{ opacity:.65; cursor:wait; }
+  .payment-status{ min-height:1.4em; margin-top:10px; font-size:13px; line-height:1.5; }
+  .payment-status[data-state="success"]{ color:#17633f; }
+  .payment-status[data-state="error"],.payment-status[data-state="pending"]{ color:#8a3b2e; }
+
+  .whatsapp-order-btn{
+    width:100%; background:#128c7e; color:#fff; border:none;
+    padding:17px; border-radius:6px; font-weight:700; font-size:16px;
+    letter-spacing:0.3px; cursor:pointer; margin-top:10px;
+    transition: background .2s ease;
+  }
+
+  .whatsapp-order-btn:hover{ background:#0f766b; }
 
   .checkout-footnote{
     text-align:center; font-size:12.5px; color:#999; margin-top:30px;
@@ -452,7 +467,7 @@
   }
 
   .order-item-thumb img{
-    width:64px; height:64px; object-fit:cover; border-radius:8px;
+    width:64px; height:64px; object-fit:contain; border-radius:8px;
     border:1px solid #e6e1d3; background:#fff;
   }
 
@@ -675,10 +690,14 @@
     .footer-top { grid-template-columns: 1fr; }
   }
 </style>
+<link rel="stylesheet" href="shared-navbar.css">
+<link rel="stylesheet" href="shared-footer.css">
 </head>
 <body>
 
 <!-- ============ SITE HEADER (sticky) ============ -->
+<div id="shared-navbar-mount"></div>
+<script src="shared-navbar.js"></script>
 <header class="site-header" id="siteHeader">
 
 <!-- ============ TOP BAR ============ -->
@@ -695,14 +714,14 @@
   <div class="brand-center">
     <img src="assets/logo.jpeg" alt="Shailu's Concepts">
     <span class="brand-name">Shailu's Concepts</span>
-    <span class="brand-tagline">Return Gift Store For All Occasions</span>
+    <span class="brand-tagline">ONE STOP DESTINATION FOR ALL UNIQUE RETURN GIFTS</span>
   </div>
 
   <div class="top-right">
     <a class="icon-btn" aria-label="Login" href="login.html" title="Login">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
     </a>
-    <a class="icon-btn" aria-label="Cart" href="index.html">
+    <a class="icon-btn" aria-label="Cart" href="index.html?cart=open" title="View cart on Home">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
       <span class="cart-badge" id="cartBadge">0</span>
     </a>
@@ -716,99 +735,9 @@
 <!-- ============ NAV BAR ============ -->
 <nav class="navbar" id="mainNavBar">
   <div class="nav-row" id="mainNavRow">
-
     <a href="index.html">Home</a>
-
-    <div class="dropdown" id="returnGiftsDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('returnGiftsDropdown')">
-        Return Gifts <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">Jute Bags</a>
-        <a href="index.html">Non-Woven Bags</a>
-        <a href="index.html">Fancy Bags</a>
-        <a href="index.html">Paper Bags</a>
-        <a href="index.html">Imported Bags</a>
-        <a href="index.html">Kids Return Gifts</a>
-        <a href="index.html">New Collection</a>
-        <a href="index.html">Combos</a>
-        <a href="index.html">Customised Return Gifts</a>
-        <a href="index.html">Corporate Gifts</a>
-        <a href="index.html">Favour Bags</a>
-        <a href="index.html">Eco-Friendly Bags</a>
-        <a href="index.html">Wedding Return Gifts</a>
-        <a href="index.html">Festival Return Gifts</a>
-        <a href="index.html">Bulk Orders</a>
-        <a href="index.html">New Arrivals</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="germanSilverDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('germanSilverDropdown')">
-        German Silver <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">German Silver Gift Items</a>
-        <a href="index.html">German Silver Trays</a>
-        <a href="index.html">German Silver Pooja Items</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="weddingDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('weddingDropdown')">
-        Wedding <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">Wedding Return Gifts</a>
-        <a href="index.html">Wedding Hampers</a>
-        <a href="index.html">Engagement Gifts</a>
-        <a href="index.html">Bridal Gift Boxes</a>
-        <a href="index.html">Groom Gift Sets</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="brassDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('brassDropdown')">
-        Brass <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">Brass Diyas</a>
-        <a href="index.html">Brass Pooja Items</a>
-        <a href="index.html">Brass Decor</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="homeDecorDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('homeDecorDropdown')">
-        Home Decor <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">Wall Decor</a>
-        <a href="index.html">Showpieces</a>
-        <a href="index.html">Vases &amp; Planters</a>
-        <a href="index.html">Candle Holders</a>
-        <a href="index.html">Table Decor</a>
-        <a href="index.html">Housewarming Gifts</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="festivalDropdown">
-      <button class="drop-toggle" type="button"
-        onclick="event.stopPropagation(); toggleDropdown('festivalDropdown')">
-        Festival <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="index.html">Diwali Gifts</a>
-      </div>
-    </div>
-
-    <a href="checkout.html" class="active">Checkout</a>
-
+    <a href="index.html#collections">Return Gifts</a>
+    <a href="index.html#collections">New Collection</a>
   </div>
 </nav>
 
@@ -826,7 +755,7 @@
         <a href="login.html" class="sign-in-link">Sign in</a>
       </div>
       <div class="field">
-        <input type="text" placeholder="Email or mobile phone number" required>
+        <input type="text" id="customerContact" placeholder="Email or mobile phone number" required>
       </div>
       <div class="checkbox-row">
         <input type="checkbox" id="newsOffers">
@@ -843,26 +772,26 @@
       </div>
 
       <div class="field">
-        <select>
+        <select id="customerCountry">
           <option>India</option>
         </select>
       </div>
 
       <div class="field-row">
-        <div class="field"><input type="text" placeholder="First name (optional)"></div>
-        <div class="field"><input type="text" placeholder="Last name" required></div>
+        <div class="field"><input type="text" id="customerFirstName" placeholder="First name" autocomplete="given-name" required></div>
+        <div class="field"><input type="text" id="customerLastName" placeholder="Last name" required></div>
       </div>
 
-      <div class="field"><input type="text" placeholder="Address" required></div>
-      <div class="field"><input type="text" placeholder="Apartment, suite, etc. (optional)"></div>
+      <div class="field"><input type="text" id="customerAddress" placeholder="Address" autocomplete="address-line1" required></div>
+      <div class="field"><input type="text" id="customerAddressLine2" placeholder="Apartment, suite, etc. (optional)" autocomplete="address-line2"></div>
 
       <div class="field-row">
-        <div class="field"><input type="text" placeholder="City" required></div>
-        <div class="field"><input type="text" placeholder="PIN code" required></div>
+        <div class="field"><input type="text" id="customerCity" placeholder="City" autocomplete="address-level2" required></div>
+        <div class="field"><input type="text" id="customerPostalCode" placeholder="PIN code" autocomplete="postal-code" inputmode="numeric" pattern="[1-9][0-9]{5}" title="Enter a valid 6-digit Indian PIN code" required></div>
       </div>
 
       <div class="field">
-        <select>
+        <select id="customerState">
           <option>Karnataka</option>
           <option>Andhra Pradesh</option>
           <option>Tamil Nadu</option>
@@ -872,7 +801,7 @@
         </select>
       </div>
 
-      <div class="field"><input type="tel" placeholder="Phone" required></div>
+      <div class="field"><input type="tel" id="customerPhone" placeholder="Phone" autocomplete="tel" inputmode="tel" required></div>
 
       <div class="checkbox-row">
         <input type="checkbox" id="saveInfo">
@@ -889,19 +818,7 @@
 
     <div class="checkout-section">
       <h2>Payment</h2>
-      <p style="font-size:13px;color:#888;margin-bottom:14px;">All transactions are secure and encrypted.</p>
-
-      <div class="payment-box">
-        <div class="payment-option-head">
-          <span>Razorpay Secure (UPI, Cards, Int'l Cards, Wallets)</span>
-          <div class="payment-badges">
-            <span>UPI</span><span>VISA</span><span>+17</span>
-          </div>
-        </div>
-        <div class="payment-option-note">
-          You'll be redirected to Razorpay Secure (UPI, Cards, Int'l Cards, Wallets) to complete your purchase.
-        </div>
-      </div>
+      <p id="paymentLinkInstructions" style="font-size:13px;color:#888;margin-bottom:14px;">Payments are processed securely by Razorpay. Your card, UPI, and payment credentials are entered only in Razorpay Checkout.</p>
     </div>
 
     <div class="checkout-section">
@@ -917,7 +834,9 @@
       </label>
     </div>
 
-    <button type="submit" class="pay-now-btn">Pay now</button>
+    <button type="button" class="pay-now-btn" id="payOnlineButton" onclick="handlePayNow()" disabled>Pay Now</button>
+    <p class="payment-status" id="paymentStatus" role="status" aria-live="polite"></p>
+    <button type="button" class="whatsapp-order-btn" id="whatsappOrderButton" onclick="sendWhatsAppOrder()">Send Order via WhatsApp</button>
 
     <p class="checkout-footnote">All rights reserved Shailu's Concepts</p>
   </form>
@@ -930,6 +849,10 @@
     <div class="summary-row">
       <span>Subtotal</span>
       <span id="summarySubtotal">₹0.00</span>
+    </div>
+    <div class="summary-row" id="summaryDiscountRow">
+      <span>Bulk discount (<span id="summaryDiscountRate">0%</span>)</span>
+      <span id="summaryDiscount">−₹0.00</span>
     </div>
     <div class="summary-row muted">
       <span>Shipping</span>
@@ -961,10 +884,10 @@
       <div class="footer-divider"></div>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">New Arrivals</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="index.html#collections">Return Gifts</a></li>
+        <li><a href="index.html#collections">New Collection</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
       </ul>
     </div>
 
@@ -972,12 +895,8 @@
       <h4>Category</h4>
       <div class="footer-divider"></div>
       <ul>
-        <li><a href="#">Return Gifts</a></li>
-        <li><a href="#">Favour Bags</a></li>
-        <li><a href="#">Corporate Gifts</a></li>
-        <li><a href="#">Kids Return Gifts</a></li>
-        <li><a href="#">Customised Gifts</a></li>
-        <li><a href="#">Combos</a></li>
+        <li><a href="index.html#collections">Browse products</a></li>
+        <li><a href="index.html#collections">Product collection</a></li>
       </ul>
     </div>
 
@@ -999,7 +918,7 @@
         <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         </a>
-        <a href="https://wa.me/918825498438" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="https://wa.me/919704123499" target="_blank" rel="noopener" aria-label="WhatsApp">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
         </a>
       </div>
@@ -1019,7 +938,7 @@
         </li>
         <li>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.02z"/></svg>
-          <a href="tel:+918825498438">+91 88254 98438</a>
+          <a href="tel:+919704123499">+91 97041 23499</a>
         </li>
       </ul>
     </div>
@@ -1031,6 +950,9 @@
   </div>
 </footer>
 
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="products-data.js"></script>
+<script src="cart-store.js"></script>
 <script>
   // ===== Dropdown helper =====
   function toggleDropdown(id){
@@ -1065,67 +987,139 @@
     else { siteHeaderEl.classList.remove('scrolled'); }
   });
 
-  // =====================================================
-  // ============  ORDER SUMMARY (from cart)  ===========
-  // =====================================================
-  // Reads the same localStorage key used by index.html's cart so this
-  // page reflects whatever was actually added to the cart. Swap
-  // loadCartForCheckout() for a real API/session call later if needed —
-  // everything else (rendering, totals) stays the same.
+  var buyNowOnly = new URLSearchParams(window.location.search).get('buyNow') === '1';
+  var checkoutItems = [];
+  var catalogReady = false;
+  var paymentProcessing = false;
+  var paymentVerificationStarted = false;
+  var paymentFailed = false;
+  var paymentPending = false;
+  var paymentVerified = false;
+  var checkoutMessageReference = createCheckoutMessageReference();
 
-  var CART_STORAGE_KEY = 'shailusCart';
-  var FALLBACK_ITEM = {
-    id: 'placeholder',
-    name: 'Decorated Seru For Marriage Big',
-    price: 1650,
-    img: 'https://placehold.co/200x200/f7f3ea/0d3328?text=Gift',
-    qty: 3
-  };
+  function createCheckoutMessageReference(){
+    var date = new Date();
+    var datePart = [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, '0'),
+      String(date.getDate()).padStart(2, '0')
+    ].join('');
+    var randomPart = Math.random().toString(36).slice(2, 8).toUpperCase().padEnd(6, '0');
+    return 'SC-' + datePart + '-' + randomPart;
+  }
 
-  function loadCartForCheckout(){
-    try{
-      var raw = localStorage.getItem(CART_STORAGE_KEY);
-      var parsed = raw ? JSON.parse(raw) : [];
-      return Array.isArray(parsed) ? parsed : [];
-    } catch(e){ return []; }
+  function getPricedCheckoutItems(){
+    return checkoutItems.map(function(item){
+      var product = window.ShailusCart.findProduct(item.id);
+      var pricing = window.ShailusCart.getPricing(product, item.qty, checkoutItems);
+      return pricing ? {item: item, pricing: pricing} : null;
+    }).filter(Boolean);
+  }
+
+  function formatPaise(amount){
+    return '₹' + (amount / 100).toFixed(2);
+  }
+
+  function getCheckoutTotals(pricedItems){
+    var subtotalPaise = pricedItems.reduce(function(total, entry){
+      return total + Math.round(entry.pricing.originalUnitPrice * 100) * entry.pricing.quantity;
+    }, 0);
+    var totalPaise = pricedItems.reduce(function(total, entry){
+      return total + Math.round(entry.pricing.lineTotal * 100);
+    }, 0);
+    return {
+      subtotalPaise: subtotalPaise,
+      discountPaise: subtotalPaise - totalPaise,
+      totalPaise: totalPaise,
+      discountPercentage: pricedItems.length ? pricedItems[0].pricing.discountPercentage : 0
+    };
+  }
+
+  function setPaymentStatus(message, state){
+    var status = document.getElementById('paymentStatus');
+    status.textContent = message;
+    status.dataset.state = state || '';
+  }
+
+  function setPaymentButtonBusy(busy, label){
+    var button = document.getElementById('payOnlineButton');
+    button.disabled = busy || paymentPending || paymentVerified || !checkoutItems.length;
+    button.textContent = label || 'Pay Now';
+  }
+
+  function escapeCheckoutText(value){
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function(character){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character];
+    });
+  }
+
+  function loadCheckoutItems(){
+    if(buyNowOnly){
+      try{
+        var buyNowItem = JSON.parse(sessionStorage.getItem('shailusBuyNow') || 'null');
+        var canonical = buyNowItem && window.ShailusCart.makeItem(buyNowItem.id, Number(buyNowItem.qty), buyNowItem.img);
+        return canonical ? [canonical] : [];
+      } catch(error){
+        console.error('Unable to load the selected Buy Now item.', error);
+        return [];
+      }
+    }
+    return window.ShailusCart.load();
   }
 
   function renderOrderSummary(){
-    var cart = loadCartForCheckout();
     var container = document.getElementById('orderItemsContainer');
-    var usingFallback = false;
-
-    if(cart.length === 0){
-      // Flexible fallback: show a sample item as starting-code placeholder
-      // instead of a hard "empty" dead end, so the layout is always visible.
-      cart = [FALLBACK_ITEM];
-      usingFallback = true;
+    var payButton = document.getElementById('payOnlineButton');
+    var whatsappButton = document.getElementById('whatsappOrderButton');
+    var pricedItems = getPricedCheckoutItems();
+    payButton.disabled = paymentProcessing || paymentVerified || !pricedItems.length;
+    if(!pricedItems.length){
+      container.innerHTML = '<p class="cart-empty">' +
+        (buyNowOnly ? 'This Buy Now item is no longer available. Please choose the product again.' : 'Your cart is empty.') +
+        ' <a href="index.html#collections">Browse products</a></p>';
+      whatsappButton.disabled = true;
+    } else {
+      container.innerHTML = pricedItems.map(function(entry){
+        var item = entry.item;
+        var pricing = entry.pricing;
+        return '<div class="order-item" data-product-id="' + escapeCheckoutText(item.id) + '"><div class="order-item-thumb">' +
+          (item.img ? '<img src="' + escapeCheckoutText(item.img) + '" alt="' + escapeCheckoutText(item.name) + '">' : '') +
+          '<span class="order-item-qty">' + item.qty + '</span></div>' +
+          '<div class="order-item-info"><h4>' + escapeCheckoutText(item.name) + '</h4>' +
+          '<div>₹' + pricing.discountedUnitPrice.toFixed(2) + ' per piece</div></div>' +
+          '<div class="order-item-price">Line total: ₹' + pricing.lineTotal.toFixed(2) + '</div></div>';
+      }).join('');
+      whatsappButton.disabled = false;
     }
-
-    container.innerHTML = cart.map(function(item){
-      var priceLabel = item.price > 0 ? ('₹' + Number(item.price).toFixed(2)) : 'Price on request';
-      return '' +
-        '<div class="order-item">' +
-          '<div class="order-item-thumb">' +
-            '<img src="' + item.img + '" alt="' + item.name + '">' +
-            '<span class="order-item-qty">' + item.qty + '</span>' +
-          '</div>' +
-          '<div class="order-item-info"><h4>' + item.name + '</h4></div>' +
-          '<div class="order-item-price">' + priceLabel + '</div>' +
-        '</div>';
-    }).join('');
-
-    var subtotal = cart.reduce(function(sum, c){ return sum + (Number(c.price) * c.qty); }, 0);
-    document.getElementById('summarySubtotal').textContent = '₹' + subtotal.toFixed(2);
-    document.getElementById('summaryTotal').textContent = '₹' + subtotal.toFixed(2);
-
-    if(!usingFallback){
-      document.getElementById('cartBadge').textContent =
-        cart.reduce(function(sum, c){ return sum + c.qty; }, 0);
-    }
+    var totals = getCheckoutTotals(pricedItems);
+    document.getElementById('summarySubtotal').textContent = formatPaise(totals.subtotalPaise);
+    document.getElementById('summaryDiscountRate').textContent = totals.discountPercentage + '%';
+    document.getElementById('summaryDiscount').textContent = '−' + formatPaise(totals.discountPaise);
+    document.getElementById('summaryTotal').textContent = formatPaise(totals.totalPaise);
+    document.getElementById('cartBadge').textContent = window.ShailusCart.count(
+      buyNowOnly ? window.ShailusCart.load() : checkoutItems
+    );
+    payButton.textContent = paymentVerified ? 'Payment verified' : 'Pay Now';
+    payButton.disabled = paymentProcessing || paymentVerified || !pricedItems.length;
   }
 
-  renderOrderSummary();
+  window.productsReady.then(function(){
+    catalogReady = true;
+    checkoutItems = loadCheckoutItems();
+    renderOrderSummary();
+  }).catch(function(error){
+    console.error('Checkout could not load the product catalog.', error);
+    document.getElementById('orderItemsContainer').innerHTML =
+      '<p class="cart-empty">Products could not be loaded. Please refresh the page before placing your order.</p>';
+    document.getElementById('payOnlineButton').disabled = true;
+    document.getElementById('whatsappOrderButton').disabled = true;
+  });
+  window.addEventListener('storage', function(event){
+    if(catalogReady && !buyNowOnly && (event.key === window.ShailusCart.storageKey || event.key === null)){
+      checkoutItems = window.ShailusCart.load();
+      renderOrderSummary();
+    }
+  });
 
   // =====================================================
   // ===============  DELIVERY / BILLING  ================
@@ -1144,11 +1138,339 @@
   // ===================  PAY NOW  =======================
   // =====================================================
   function handlePayNow(){
-    // Starting-code hook: wire this up to your real payment gateway
-    // (Razorpay order creation, etc.) when the backend is ready.
-    alert('Payment integration coming soon!');
+    if(paymentProcessing || paymentVerified) return;
+    if(!checkoutItems.length){
+      setPaymentStatus('Your cart is empty or the selected Buy Now item is unavailable.', 'error');
+      return;
+    }
+    if(window.location.protocol !== 'https:' &&
+       window.location.hostname !== 'localhost' &&
+       window.location.hostname !== '127.0.0.1'){
+      setPaymentStatus('Secure HTTPS is required to start online payment.', 'error');
+      return;
+    }
+    var form = document.getElementById('checkoutForm');
+    if(!validateCustomerFields() || !form.reportValidity()) return;
+    if(typeof window.Razorpay !== 'function'){
+      setPaymentStatus('Razorpay Checkout could not be loaded. Check your connection and try again.', 'error');
+      return;
+    }
+    createRazorpayPayment();
+  }
+
+  function getCustomerCheckoutDetails(){
+    return {
+      name: [
+        document.getElementById('customerFirstName').value.trim(),
+        document.getElementById('customerLastName').value.trim()
+      ].filter(Boolean).join(' '),
+      contact: document.getElementById('customerContact').value.trim(),
+      phone: document.getElementById('customerPhone').value.trim(),
+      address: [
+        document.getElementById('customerAddress').value.trim(),
+        document.getElementById('customerAddressLine2').value.trim()
+      ].filter(Boolean).join(', '),
+      city: document.getElementById('customerCity').value.trim(),
+      postalCode: document.getElementById('customerPostalCode').value.trim(),
+      state: document.getElementById('customerState').value,
+      country: document.getElementById('customerCountry').value
+    };
+  }
+
+  async function postPaymentFunction(name, payload){
+    var response = await fetch('/.netlify/functions/' + name, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    var result;
+    try{
+      result = await response.json();
+    } catch(error){
+      throw new Error('The payment service returned an invalid response.');
+    }
+    if(!response.ok){
+      var requestError = new Error(result && result.error || 'The payment request could not be completed.');
+      requestError.statusCode = response.status;
+      requestError.details = result;
+      throw requestError;
+    }
+    return result;
+  }
+
+  function applyServerQuote(quote){
+    document.getElementById('summarySubtotal').textContent = formatPaise(quote.subtotalPaise);
+    document.getElementById('summaryDiscountRate').textContent = quote.discountPercentage + '%';
+    document.getElementById('summaryDiscount').textContent = '−' + formatPaise(quote.discountPaise);
+    document.getElementById('summaryTotal').textContent = formatPaise(quote.totalPaise);
+    quote.items.forEach(function(item){
+      var row = Array.from(document.querySelectorAll('#orderItemsContainer .order-item')).find(function(candidate){
+        return candidate.dataset.productId === String(item.id);
+      });
+      if(!row) return;
+      row.querySelector('.order-item-info div').textContent =
+        formatPaise(item.discountedUnitPricePaise) + ' per piece';
+      row.querySelector('.order-item-price').textContent =
+        'Line total: ' + formatPaise(item.lineTotalPaise);
+    });
+  }
+
+  function finishVerifiedPayment(result, expectedOrder){
+    if(result.verified !== true ||
+       result.orderId !== expectedOrder.orderId ||
+       result.amount !== expectedOrder.amount ||
+       result.currency !== expectedOrder.currency ||
+       result.status !== 'captured' ||
+       (expectedOrder.orderRef && result.orderRef !== expectedOrder.orderRef)){
+      throw new Error('Payment could not be verified. Do not retry; contact the store to confirm its status.');
+    }
+    paymentVerified = true;
+    paymentPending = false;
+    paymentProcessing = false;
+    checkoutItems = [];
+    sessionStorage.removeItem('shailusBuyNow');
+    window.ShailusCart.save([]);
+    document.getElementById('cartBadge').textContent = '0';
+    setPaymentButtonBusy(false, 'Payment verified');
+    setPaymentStatus('Payment verified successfully. Order reference: ' + result.orderRef +
+      '. Payment ID: ' + result.paymentId + '.', 'success');
+  }
+
+  async function reconcileCheckoutStatus(expectedOrder, checkoutClosed){
+    try{
+      var status = await postPaymentFunction('sync-payment-status', {
+        orderId: expectedOrder.orderId,
+        checkoutClosed: checkoutClosed === true
+      });
+      if(status.verified === true){
+        finishVerifiedPayment(status, expectedOrder);
+        return;
+      }
+      paymentProcessing = false;
+      if(status.status === 'failed'){
+        paymentFailed = true;
+        setPaymentButtonBusy(false);
+        setPaymentStatus('Razorpay confirmed that payment failed. You can retry or choose another method.', 'error');
+      } else if(status.status === 'cancelled'){
+        setPaymentButtonBusy(false);
+        setPaymentStatus('Payment was cancelled. Your order was not marked as paid.', 'error');
+      } else {
+        paymentPending = true;
+        setPaymentButtonBusy(false, 'Verification pending');
+        setPaymentStatus((checkoutClosed ? 'The payment window was closed. ' : '') +
+          'Razorpay reports the payment as ' + (status.status || 'pending') +
+          '. Do not retry until the status is confirmed; contact the store if it remains pending.', 'pending');
+      }
+    } catch(error){
+      paymentProcessing = false;
+      paymentPending = true;
+      setPaymentButtonBusy(false, 'Verification pending');
+      setPaymentStatus(error.message || 'Payment status is pending. Contact the store before retrying.', 'pending');
+    }
+  }
+
+  async function verifyRazorpayPayment(paymentResponse, expectedOrder){
+    paymentVerificationStarted = true;
+    setPaymentButtonBusy(true, 'Verifying payment…');
+    setPaymentStatus('Payment received by Razorpay. Verifying securely…', 'pending');
+    try{
+      var result = await postPaymentFunction('verify-payment', paymentResponse);
+      if(result.paymentId !== paymentResponse.razorpay_payment_id){
+        throw new Error('Payment response does not match the payment being verified.');
+      }
+      finishVerifiedPayment(result, expectedOrder);
+    } catch(error){
+      paymentProcessing = false;
+      if(error.details && error.details.status === 'failed'){
+        paymentFailed = true;
+        setPaymentButtonBusy(false);
+        setPaymentStatus(error.message || 'Payment failed. You can try another payment method.', 'error');
+      } else {
+        paymentPending = true;
+        setPaymentButtonBusy(false, 'Verification pending');
+        setPaymentStatus(error.message || 'Payment verification is pending. Contact the store before retrying.', 'pending');
+      }
+    }
+  }
+
+  async function createRazorpayPayment(){
+    paymentProcessing = true;
+    paymentVerificationStarted = false;
+    paymentFailed = false;
+    setPaymentButtonBusy(true, 'Preparing secure checkout…');
+    setPaymentStatus('Creating a secure payment order…', 'pending');
+    try{
+      var order = await postPaymentFunction('create-order', {
+        items: checkoutItems.map(function(item){ return {id: String(item.id), qty: Number(item.qty)}; }),
+        customer: getCustomerCheckoutDetails()
+      });
+      if(typeof order.keyId !== 'string' || !order.keyId ||
+         typeof order.orderId !== 'string' || !order.orderId ||
+         typeof order.orderRef !== 'string' || !/^SC-\d{8}-[A-F\d]{24}$/.test(order.orderRef) ||
+         !Number.isSafeInteger(order.amount) || order.amount < 1 ||
+         order.currency !== 'INR' || !order.quote ||
+         order.quote.totalPaise !== order.amount ||
+         !Array.isArray(order.quote.items)){
+        throw new Error('The secure payment service returned an invalid order.');
+      }
+      applyServerQuote(order.quote);
+      setPaymentStatus('', '');
+      var emailOrPhone = document.getElementById('customerContact').value.trim();
+      var checkout = new window.Razorpay({
+        key: order.keyId,
+        amount: order.amount,
+        currency: order.currency,
+        name: 'Shailu’s Concepts',
+        description: 'Order payment',
+        order_id: order.orderId,
+        prefill: {
+          name: getCustomerCheckoutDetails().name,
+          email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailOrPhone) ? emailOrPhone : '',
+          contact: document.getElementById('customerPhone').value.trim()
+        },
+        theme: {color: '#0d3328'},
+        handler: function(paymentResponse){
+          verifyRazorpayPayment(paymentResponse, order);
+        },
+        modal: {
+          ondismiss: function(){
+            if(!paymentVerificationStarted && !paymentFailed){
+              reconcileCheckoutStatus(order, true);
+            } else if(!paymentVerificationStarted){
+              paymentProcessing = false;
+              setPaymentButtonBusy(false);
+            }
+          }
+        }
+      });
+      checkout.on('payment.failed', function(){
+        paymentFailed = true;
+        reconcileCheckoutStatus(order, false);
+      });
+      checkout.open();
+      setPaymentButtonBusy(true, 'Payment in progress…');
+    } catch(error){
+      paymentProcessing = false;
+      setPaymentButtonBusy(false);
+      setPaymentStatus(error.message || 'Unable to start payment. Please try again.', 'error');
+    }
+  }
+
+  function sendWhatsAppOrder(){
+    var form = document.getElementById('checkoutForm');
+    if(!validateCustomerFields()) return;
+    if(!form.reportValidity()) return;
+    var pricedItems = getPricedCheckoutItems();
+    if(!pricedItems.length){
+      alert('Your cart is empty or the selected Buy Now item is unavailable.');
+      return;
+    }
+
+    var lines = pricedItems.map(function(entry){
+      var item = entry.item;
+      var pricing = entry.pricing;
+      return (
+        '- ' + item.name +
+        ' | Qty: ' + pricing.quantity +
+        ' | Original unit: ₹' + pricing.originalUnitPrice.toFixed(2) +
+        ' | Discount: ' + pricing.discountPercentage + '%' +
+        ' | Unit after discount: ₹' + pricing.discountedUnitPrice.toFixed(2) +
+        ' | Line total: ₹' + pricing.lineTotal.toFixed(2)
+      );
+    });
+
+    var fullName = [
+      document.getElementById('customerFirstName').value.trim(),
+      document.getElementById('customerLastName').value.trim()
+    ].filter(Boolean).join(' ');
+    var address = [
+      document.getElementById('customerAddress').value.trim(),
+      document.getElementById('customerAddressLine2').value.trim(),
+      document.getElementById('customerCity').value.trim(),
+      document.getElementById('customerPostalCode').value.trim()
+    ].filter(Boolean).join(', ');
+    var total = window.ShailusCart.total(pricedItems.map(function(entry){ return entry.item; }));
+    var message = [
+      '*Shailu’s Concepts - Order Request*',
+      'Checkout reference (temporary, not a saved order ID): ' + checkoutMessageReference,
+      '',
+      '*Products:*',
+      lines.join('\n'),
+      '',
+      '*Order total: ₹' + total.toFixed(2) + '*',
+      '',
+      '*Customer details*',
+      'Name: ' + (fullName || 'Not provided'),
+      'Contact: ' + document.getElementById('customerContact').value.trim(),
+      'Phone: ' + document.getElementById('customerPhone').value.trim(),
+      'Address: ' + address,
+      'State: ' + document.getElementById('customerState').value,
+      'Country: ' + document.getElementById('customerCountry').value,
+      '',
+      'Order status: Request sent; not yet confirmed.',
+      'Payment status: Not paid via this WhatsApp order request; verify separately in the Razorpay Dashboard.',
+      'Please confirm the order and payment status with the customer before fulfillment.'
+    ].join('\n');
+    var link = document.createElement('a');
+    link.href = 'https://wa.me/919704123499?text=' + encodeURIComponent(message);
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+  }
+
+  function validateCustomerFields(){
+    var contact = document.getElementById('customerContact');
+    var phone = document.getElementById('customerPhone');
+    var postalCode = document.getElementById('customerPostalCode');
+    var requiredTextFields = [
+      document.getElementById('customerFirstName'),
+      document.getElementById('customerLastName'),
+      document.getElementById('customerAddress'),
+      document.getElementById('customerCity')
+    ];
+    var valid = true;
+
+    requiredTextFields.forEach(function(field){
+      field.setCustomValidity(field.value.trim() ? '' : 'This field is required.');
+      if(!field.validity.valid) valid = false;
+    });
+
+    function isIndianPhone(value){
+      var digits = value.replace(/[\s()+-]/g, '');
+      if(digits.startsWith('91') && digits.length === 12) digits = digits.slice(2);
+      return /^[6-9]\d{9}$/.test(digits);
+    }
+
+    var contactValue = contact.value.trim();
+    var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue);
+    contact.setCustomValidity(
+      isEmail || isIndianPhone(contactValue)
+        ? ''
+        : 'Enter a valid email address or Indian mobile number.'
+    );
+    if(!contact.validity.valid) valid = false;
+
+    phone.setCustomValidity(
+      isIndianPhone(phone.value.trim())
+        ? ''
+        : 'Enter a valid 10-digit Indian mobile number.'
+    );
+    if(!phone.validity.valid) valid = false;
+
+    postalCode.setCustomValidity(
+      /^[1-9]\d{5}$/.test(postalCode.value.trim())
+        ? ''
+        : 'Enter a valid 6-digit Indian PIN code.'
+    );
+    if(!postalCode.validity.valid) valid = false;
+
+    if(!valid) document.getElementById('checkoutForm').reportValidity();
+    return valid;
   }
 </script>
 
+<script src="shared-footer.js"></script>
 </body>
 </html>

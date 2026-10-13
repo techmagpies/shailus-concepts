@@ -1,0 +1,3665 @@
+[{
+  "_id": {
+    "$oid": "6ab13af40d078f8d82196a52"
+  },
+  "productId": 4,
+  "name": "Elegant Red Vacuum Water Bottle",
+  "category": "water bottle",
+  "image": "assets/id4.png",
+  "images": [],
+  "price": 120,
+  "badge": "New Collections",
+  "rating": 5,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "A compelling product description for a bottle combines sensory details, practical features, and unique selling points (USPs) tailored to your target audience.",
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangle",
+  "colour": "RED",
+  "material": "Iron",
+  "moq": 1,
+  "customization": "Logo , names",
+  "createdAt": {
+    "$date": "2026-09-21T14:11:00.996Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:45:28.507Z"
+  },
+  "__v": 1,
+  "relatedProducts": []
+},
+{
+  "_id": {
+    "$oid": "6ab88fee4e1fc2a3774376ce"
+  },
+  "productId": 1,
+  "name": "lord Venkateswara Swamy",
+  "category": "return gift",
+  "image": "/uploads/products/1790489072217-875129301.png",
+  "images": [],
+  "price": 2,
+  "badge": "New Collections",
+  "rating": 4.5,
+  "newArrival": true,
+  "bestSeller": true,
+  "description": "Elegant Lord Venkateswara Swamy idol with traditional detailing, perfect for return gifts, pooja occasions, weddings, and festive celebrations.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Idol / Standing",
+  "colour": "Silver / Gold / Antique Silver — whichever is correct",
+  "material": "German Silver / Brass / Metal — whichever is actually used",
+  "moq": 1,
+  "customization": "Custom packaging / engraving / name tag, if available",
+  "createdAt": {
+    "$date": "2026-09-27T03:39:26.196Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T09:01:15.717Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ab89f314e1fc2a3774376cf"
+  },
+  "productId": 3,
+  "name": "Mikado Pick-Up Sticks Game",
+  "category": "Kids Gifts",
+  "image": "/uploads/products/1790492763565-613333500.png",
+  "images": [],
+  "price": 85,
+  "badge": "New Collections",
+  "rating": 4.5,
+  "newArrival": true,
+  "bestSeller": true,
+  "description": "Mikado Pick-Up Sticks is a fun and engaging traditional skill game for kids and families. The set contains colourful wooden sticks packed in a compact box, making it easy to carry and store. It helps improve concentration, hand-eye coordination, patience and fine motor skills. A fun return gift option for birthdays, parties, school events and celebrations.",
+  "relatedProducts": [],
+  "dimensions": "8 × 2 × 1 inches",
+  "shape": "Rectangular Box",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "Custom name or logo printing available",
+  "createdAt": {
+    "$date": "2026-09-27T04:44:33.781Z"
+  },
+  "updatedAt": {
+    "$date": "2026-09-27T07:06:03.605Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ab8a08a4e1fc2a3774376d0"
+  },
+  "productId": 2,
+  "name": "Ammavari Ashtottara Shatanamavali Gift Box",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1790492232726-108577512.png",
+  "images": [
+    "/uploads/products/1790492205967-795398753.png"
+  ],
+  "price": 200,
+  "badge": "New Collections",
+  "rating": 2.2,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Ammavari Ashtottara Shatanamavali Gift Box is a beautifully designed devotional notebook featuring sacred Ashtottara Shatanamavali content along with elegant images of Goddess Durga, Goddess Saraswati and Goddess Lakshmi",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Gold / Multicolour",
+  "material": "Paper / Cardboard / Decorative Metal Finish",
+  "moq": 1,
+  "customization": "Custom Name / Message Available",
+  "createdAt": {
+    "$date": "2026-09-27T04:50:18.844Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:42:49.485Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6ab8a21c4e1fc2a3774376d1"
+  },
+  "productId": 5,
+  "name": "Decorative Brass Cow Design Kumkum Box",
+  "category": "Pooja & Devotional Gifts",
+  "image": "/uploads/products/1790485020109-490128553.png",
+  "images": [],
+  "price": 398.9,
+  "badge": "New Collections",
+  "rating": 0,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Decorative Brass Cow Design Kumkum Box is an elegant traditional container featuring an intricately embossed antique-gold finish and a colourful decorative lid with a beautiful cow motif",
+  "relatedProducts": [],
+  "dimensions": "4 × 4 × 3 Inches",
+  "shape": "Round / Cylindrical",
+  "colour": "Antique Gold / Multicolour",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Custom Design / Name Available",
+  "createdAt": {
+    "$date": "2026-09-27T04:57:00.153Z"
+  },
+  "updatedAt": {
+    "$date": "2026-09-27T04:57:00.153Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ab8c4d8d0a75f7774fe802f"
+  },
+  "productId": 6,
+  "name": "Royal Peacock Decorative Serving Tray",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790493912040-713699900.png",
+  "images": [],
+  "price": 499,
+  "badge": "",
+  "rating": 4.4,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Royal Peacock Decorative Serving Tray is an elegant round tray featuring a beautiful peacock design with vibrant colours and an ornate golden filigree border",
+  "relatedProducts": [],
+  "dimensions": "12 × 12 × 2 Inches",
+  "shape": "Round",
+  "colour": "Gold / Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-09-27T07:25:12.131Z"
+  },
+  "updatedAt": {
+    "$date": "2026-09-27T07:25:12.131Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ab8c5f3d0a75f7774fe8030"
+  },
+  "productId": 7,
+  "name": "Cute Ladybug Wooden Kids Photo Frame",
+  "category": "Kids Gifts / Photo Frames",
+  "image": "/uploads/products/1790494195306-136510185.png",
+  "images": [],
+  "price": 85,
+  "badge": "",
+  "rating": 0,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Cute Ladybug Wooden Kids Photo Frame is a colourful handmade-style photo frame designed especially for children.",
+  "relatedProducts": [],
+  "dimensions": "19 × 16 × 2.5 cm",
+  "shape": "calloped Square",
+  "colour": "Orange / Green / Pink",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "Custom Photo Available",
+  "createdAt": {
+    "$date": "2026-09-27T07:29:55.348Z"
+  },
+  "updatedAt": {
+    "$date": "2026-09-27T07:29:55.348Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe8a1fd0a75f7774fe8031"
+  },
+  "productId": 9,
+  "name": "Pearl Beaded Decorative Trinket Box",
+  "category": "Brass",
+  "image": "/uploads/products/1790872095917-161821811.png",
+  "images": [
+    "/uploads/products/1790872095956-177112359.png"
+  ],
+  "price": 299,
+  "badge": "New Collections",
+  "rating": 3.5,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Pearl Beaded Decorative Trinket Box is an elegant round decorative box covered with pearl-like beads and detailed with antique-gold and silver-toned accents.",
+  "relatedProducts": [],
+  "dimensions": "4 × 4 × 3.5 Inches",
+  "shape": "Round",
+  "colour": "Pearl White / Gold",
+  "material": "metal / Decorative Pearl Beads",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-01T16:28:15.994Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:43:29.474Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe8e701bca109b521a42b7"
+  },
+  "productId": 10,
+  "name": "Peacock Lotus Decorative Tray",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790873200647-891518551.png",
+  "images": [],
+  "price": 499,
+  "badge": "",
+  "rating": 2,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Peacock Lotus Decorative Brass Tray is a beautiful round decorative tray featuring a colourful traditional artwork of peacocks, blooming lotus flowers and lush green foliage.",
+  "relatedProducts": [],
+  "dimensions": "10 × 10 × 1.5",
+  "shape": "Round",
+  "colour": "Gold / Multicolour",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-01T16:46:40.702Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-01T16:46:40.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe90ae1bca109b521a42b8"
+  },
+  "productId": 11,
+  "name": "Antique Peacock Embossed Decorative Box",
+  "category": "Meenakarri",
+  "image": "/uploads/products/1790873774264-863184616.png",
+  "images": [
+    "/uploads/products/1790873774323-519422142.png"
+  ],
+  "price": 699,
+  "badge": "New Collections",
+  "rating": 0,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Antique Peacock Embossed Decorative Box is an intricately designed round storage box featuring a raised peacock motif surrounded by colourful red and green stone-like embellishments",
+  "relatedProducts": [],
+  "dimensions": "7 × 7 × 4",
+  "shape": "Round",
+  "colour": "Antique Gold / Green / Red",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-01T16:56:14.356Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:41:48.570Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe950c1bca109b521a42b9"
+  },
+  "productId": 12,
+  "name": "Peacock Embossed Decorative Serving Tray",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1790874892660-452699205.png",
+  "images": [
+    "/uploads/products/1790874892719-223761655.png"
+  ],
+  "price": 229,
+  "badge": "New Collections",
+  "rating": 5,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "Peacock Embossed Decorative Serving Tray is an elegant rectangular tray featuring an intricate peacock design with antique-gold detailing and vibrant red and green decorative accents.",
+  "relatedProducts": [],
+  "dimensions": "",
+  "shape": "",
+  "colour": "Silver / Gold / Antique Silver — whichever is correct",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-01T17:14:52.774Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T15:41:10.793Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe973d1bca109b521a42ba"
+  },
+  "productId": 8,
+  "name": "kids water bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1790875453253-60721072.png",
+  "images": [
+    "/uploads/products/1790875453274-660016849.png"
+  ],
+  "price": 230,
+  "badge": "New Collections",
+  "rating": 0,
+  "newArrival": true,
+  "bestSeller": false,
+  "description": "useful no leack proof water bottle",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9",
+  "shape": "Rectangular",
+  "colour": "Blue",
+  "material": "plastic",
+  "moq": 1,
+  "customization": "name customization avalable",
+  "createdAt": {
+    "$date": "2026-10-01T17:24:13.299Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-01T17:24:13.299Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe97e91bca109b521a42bb"
+  },
+  "productId": 13,
+  "name": "Traditional Wooden Village Woman Doll",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790875625730-563957955.png",
+  "images": [
+    "/uploads/products/1790875625761-745620790.png"
+  ],
+  "price": 340,
+  "badge": "Best seller",
+  "rating": 5,
+  "newArrival": false,
+  "bestSeller": true,
+  "description": "raditional Wooden Village Woman Doll is a beautifully hand-painted wooden figurine inspired by traditional Indian village life and folk craftsmanship.",
+  "relatedProducts": [],
+  "dimensions": "12 × 5 × 4 Inches (approx.)",
+  "shape": "Standing Figurine",
+  "colour": "Brown / Orange / Green / Maroon",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "Custom Painting Available",
+  "createdAt": {
+    "$date": "2026-10-01T17:27:05.814Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-01T17:27:05.814Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe99af1bca109b521a42bc"
+  },
+  "productId": 14,
+  "name": "Hand-Painted Cow Decorative Gift Set",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790876079277-258165052.jpg",
+  "images": [
+    "/uploads/products/1790876079278-197134353.jpg"
+  ],
+  "price": 700,
+  "badge": "Best seller",
+  "rating": 5,
+  "newArrival": false,
+  "bestSeller": true,
+  "description": "Hand-Painted Cow Decorative Gift Set is a traditional decorative set featuring beautifully painted containers in a warm mustard-yellow finish.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 5 Inches (approx. for the set)",
+  "shape": "Round / Cylindrical",
+  "colour": "Metal / Decorative Ceramic",
+  "material": "",
+  "moq": 1,
+  "customization": "Custom Painting / Design Available",
+  "createdAt": {
+    "$date": "2026-10-01T17:34:39.289Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-01T17:34:39.289Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abe9c241bca109b521a42bd"
+  },
+  "productId": 15,
+  "name": "Peacock Design Teal Gift Box",
+  "category": "Combos",
+  "image": "/uploads/products/1790876708511-985003775.png",
+  "images": [
+    "/uploads/products/1790876708562-768528347.png"
+  ],
+  "price": 200,
+  "badge": "Best seller",
+  "rating": 4,
+  "newArrival": false,
+  "bestSeller": true,
+  "description": "Peacock Design Teal Gift Box is an elegant reusable gift box featuring a beautiful teal finish with intricate gold detailing, floral artwork and decorative patterns.",
+  "relatedProducts": [],
+  "dimensions": "10 × 8 × 4(approx.)",
+  "shape": "Round / Cylindrical",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Custom Name / Message Available",
+  "createdAt": {
+    "$date": "2026-10-01T17:45:08.590Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-01T17:45:08.590Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abf4db41bca109b521a42be"
+  },
+  "productId": 16,
+  "name": "Tier Decorative Serving Stand",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790922164552-919768909.png",
+  "images": [],
+  "price": 450,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Golden 3-Tier Glass Serving Stand is an elegant decorative serving piece featuring three round glass plates with intricate gold-toned floral detailing.",
+  "relatedProducts": [],
+  "dimensions": "14 × 12 × 18",
+  "shape": "Multi-Level / Round",
+  "colour": "Gold / Transparent",
+  "material": "Metal with Glass Plates",
+  "moq": 1,
+  "customization": "Custom Gift Packing Available",
+  "createdAt": {
+    "$date": "2026-10-02T06:22:44.588Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-02T06:22:44.588Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abf4ecf1bca109b521a42bf"
+  },
+  "productId": 17,
+  "name": "Luxury Crystal Bowl Decorative Centerpiece",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1790922447617-541109758.png",
+  "images": [],
+  "price": 560,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Luxury Crystal Bowl Decorative Centerpiece is an elegant decorative bowl featuring a transparent crystal/glass bowl mounted on an ornate gold-tone base.",
+  "relatedProducts": [],
+  "dimensions": "12 × 10 × 14",
+  "shape": "Round / Bowl",
+  "colour": "Gold / Transparent",
+  "material": "Glass / Crystal + Metal",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-02T06:27:27.640Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-02T06:27:27.640Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abf523a1bca109b521a42c0"
+  },
+  "productId": 18,
+  "name": "Antique Brass Storage Pot",
+  "category": "Thoughtful Return Gifts",
+  "image": "/uploads/products/1790923322443-954196880.png",
+  "images": [
+    "/uploads/products/1790923322472-569827906.png"
+  ],
+  "price": 480,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Antique Brass Decorative Storage Pot is a traditional round brass container featuring a beautifully stepped, concentric design and a fitted decorative lid.",
+  "relatedProducts": [],
+  "dimensions": "6 × 6 × 4",
+  "shape": "Round / Bulbous",
+  "colour": "Antique Gold / Brass",
+  "material": "Brass",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-02T06:42:02.525Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-02T06:42:02.525Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abf53b01bca109b521a42c1"
+  },
+  "productId": 19,
+  "name": "Antique Brass Decorative Bowl Set",
+  "category": "Thoughtful Return Gifts",
+  "image": "/uploads/products/1790923696393-62442591.png",
+  "images": [
+    "/uploads/products/1790923696425-685113095.png"
+  ],
+  "price": 240,
+  "badge": "",
+  "rating": 4.3,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Antique Brass Decorative Bowl Set features two beautifully crafted brass bowls placed on an ornate rectangular tray with scalloped edges and traditional embossed detailing.",
+  "relatedProducts": [],
+  "dimensions": "8 × 5 × 2 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-02T06:48:16.465Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-02T06:48:16.465Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac1d9555f1c1e634fab3530"
+  },
+  "productId": 20,
+  "name": "Traditional Wooden Couple Doll Set / Decorative Doll Set",
+  "category": "Home Decor & Gifts",
+  "image": "/uploads/products/1791088981319-201709060.png",
+  "images": [],
+  "price": 230,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": true,
+  "description": "Traditional Wooden Couple Doll Set is a beautifully hand-painted decorative set featuring traditional Indian-style male and female figures with a central round container",
+  "relatedProducts": [],
+  "dimensions": "8 × 5 × 4 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "Custom colour/design available",
+  "createdAt": {
+    "$date": "2026-10-04T04:43:01.370Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-04T04:43:01.370Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac32cfc5f1c1e634fab3531"
+  },
+  "productId": 21,
+  "name": "Purple Lotus Brass Diya Holder",
+  "category": "Thoughtful Return Gifts",
+  "image": "/uploads/products/1791176571119-535162190.png",
+  "images": [
+    "/uploads/products/1791176571129-348545536.png"
+  ],
+  "price": 230,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant purple lotus-shaped diya holder featuring layered lotus petals with a polished golden/brass diya bowl at the centre.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2",
+  "shape": "Lotus / Round",
+  "colour": "Purple / Gold",
+  "material": "Metal / Brass",
+  "moq": 1,
+  "customization": "Custom packaging / gifting available",
+  "createdAt": {
+    "$date": "2026-10-05T04:52:12.448Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T05:02:51.181Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6ac32ed65f1c1e634fab3532"
+  },
+  "productId": 22,
+  "name": "Silver Goddess Lakshmi Crystal Frame",
+  "category": "German Silver",
+  "image": "/uploads/products/1791176406779-58319740.png",
+  "images": [],
+  "price": 460,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Goddess Lakshmi Crystal Frame is an elegant devotional gift featuring a beautifully embossed image of Goddess Lakshmi in a silver finish, enclosed in a transparent crystal-style frame.",
+  "relatedProducts": [],
+  "dimensions": "6 × 5 × 1.5",
+  "shape": "Rectangular",
+  "colour": "Silver / Transparent",
+  "material": "Silver Finish / Crystal Frame",
+  "moq": 1,
+  "customization": "Custom Name / Message Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:00:06.849Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:47:31.853Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac331d25f1c1e634fab3533"
+  },
+  "productId": 23,
+  "name": "Silver Kamadhenu Cow & Calf Idol",
+  "category": "German Silver",
+  "image": "/uploads/products/1791177170851-789761436.png",
+  "images": [],
+  "price": 1200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Kamadhenu Cow & Calf Idol is a beautifully detailed devotional décor piece featuring a sacred cow and calf with intricate traditional patterns and an elegant silver finish.",
+  "relatedProducts": [],
+  "dimensions": "6 × 4 × 3 Inches",
+  "shape": "Cow & Calf Idol",
+  "colour": "Silver",
+  "material": "German Silver",
+  "moq": 1,
+  "customization": "Custom Name / Message Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:12:50.893Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:47:55.447Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac332995f1c1e634fab3534"
+  },
+  "productId": 24,
+  "name": "Silver Decorative Serving Bowl",
+  "category": "German Silver",
+  "image": "/uploads/products/1791177369364-933904348.png",
+  "images": [
+    "/uploads/products/1791177369381-667561479.png"
+  ],
+  "price": 700,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Decorative Serving Bowl is an elegant round bowl featuring an ornate embossed floral and traditional pattern around the exterior and inner rim.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 3 Inches",
+  "shape": "Round",
+  "colour": "Silver",
+  "material": "German Silver",
+  "moq": 1,
+  "customization": "Custom Engraving / Design Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:16:09.403Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:48:09.089Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3348f5f1c1e634fab3535"
+  },
+  "productId": 25,
+  "name": "Silver Lord Venkateswara Foot Design Decorative Box",
+  "category": "German Silver",
+  "image": "/uploads/products/1791177871870-263538364.png",
+  "images": [],
+  "price": 690,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "An intricately designed silver-finish devotional decorative box featuring a pair of Lord Venkateswara's sacred feet on top.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 5 × 5 × 4 inches",
+  "shape": "Round",
+  "colour": "Silver",
+  "material": "German Silver",
+  "moq": 1,
+  "customization": "Custom Name / Design Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:24:31.914Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:48:20.505Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac336eb5f1c1e634fab3536"
+  },
+  "productId": 26,
+  "name": "Silver Finish Shankha Chakra Namam Decorative Stand",
+  "category": "German Silver",
+  "image": "/uploads/products/1791178475632-251016577.png",
+  "images": [],
+  "price": 600,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Finish Shankha Chakra Namam Decorative Stand is a traditional devotional décor piece featuring three important Vaishnavite symbols — Shankha (conch), Namam (Vaishnava tilak), and Chakra (discus) — arranged on an ornate decorative base.",
+  "relatedProducts": [],
+  "dimensions": "8 × 2 × 5 inches",
+  "shape": "Round",
+  "colour": "Silver",
+  "material": "German Silver",
+  "moq": 1,
+  "customization": "Custom Design / Name Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:34:35.674Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:48:30.024Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac337755f1c1e634fab3537"
+  },
+  "productId": 27,
+  "name": "Silver Finish Lord Ganesha Decorative Frame",
+  "category": "German Silver",
+  "image": "/uploads/products/1791178613477-504491809.png",
+  "images": [
+    "/uploads/products/1791179015429-465561055.png"
+  ],
+  "price": 400,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Finish Lord Ganesha Decorative Frame features an intricately embossed image of Lord Ganesha with elegant silver detailing and colourful gold, red and green accents.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Silver",
+  "material": "German Silver",
+  "moq": 1,
+  "customization": "Custom Design / Name Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:36:53.529Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T05:48:43.605Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6ac33c7f5f1c1e634fab3538"
+  },
+  "productId": 28,
+  "name": "Silver Leaf Design Decorative Bowl",
+  "category": "Thoughtful Return Gifts",
+  "image": "/uploads/products/1791179903589-312577802.png",
+  "images": [],
+  "price": 390,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Silver Leaf Design Decorative Bowl is an elegant round bowl featuring intricate leaf-pattern engraving and an ornate decorative border.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2.5",
+  "shape": "Round",
+  "colour": "Silver",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Custom Design Available",
+  "createdAt": {
+    "$date": "2026-10-05T05:58:23.644Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T05:58:23.644Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac33df95f1c1e634fab3539"
+  },
+  "productId": 29,
+  "name": "Colorful Buddha Meditation Figurine Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791180281392-448004405.png",
+  "images": [],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful Buddha Meditation Figurine Set featuring three beautifully painted seated Buddha figures in vibrant orange, blue and red shades.",
+  "relatedProducts": [],
+  "dimensions": "10 × 4 × 4 Inches",
+  "shape": "Buddha Figurine / Seated",
+  "colour": "Multicolours",
+  "material": "Resin / Polyresin",
+  "moq": 1,
+  "customization": "Custom Colour / Design Available",
+  "createdAt": {
+    "$date": "2026-10-05T06:04:41.405Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T06:04:41.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac38b755f1c1e634fab353a"
+  },
+  "productId": 30,
+  "name": "Traditional Kondapalli Bommalu Couple Pen Stand",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791200117202-875871987.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Traditional Kondapalli Bommalu Couple Pen Stand featuring beautifully hand-painted traditional Indian figurines in vibrant maroon, green and yellow colours.",
+  "relatedProducts": [],
+  "dimensions": "8 × 5 × 5 inches",
+  "shape": "Figurine / Couple Set",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T11:35:17.347Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T11:35:17.347Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac38cac5f1c1e634fab353b"
+  },
+  "productId": 31,
+  "name": "Traditional Kondapalli Hand-Painted Wooden Figurine",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791200428133-152062619.png",
+  "images": [
+    "/uploads/products/1791200428166-970582395.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Traditional Kondapalli Hand-Painted Wooden Figurine featuring a vibrant folk-art character with a detailed red decorative headpiece, expressive facial features and a beautifully painted mustard-yellow base.",
+  "relatedProducts": [],
+  "dimensions": "8 × 4 × 4 inches",
+  "shape": "Round",
+  "colour": "Yellow, Red, Green & White",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T11:40:28.190Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T11:40:28.190Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac38d8c5f1c1e634fab353c"
+  },
+  "productId": 32,
+  "name": "Hand-Painted Kondapalli Wooden Decorative Pot",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791200652636-758154286.png",
+  "images": [
+    "/uploads/products/1791200652679-313213279.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Hand-Painted Kondapalli Wooden Decorative Pot featuring a vibrant mustard-yellow finish with traditional green and maroon folk-art patterns.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T11:44:12.708Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T11:44:12.708Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac38ebf5f1c1e634fab353d"
+  },
+  "productId": 33,
+  "name": "Hand-Painted Red Wooden Decorative Storage Pot",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791200958997-822851211.png",
+  "images": [
+    "/uploads/products/1791200959040-791835342.png"
+  ],
+  "price": 150,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Hand-Painted Red Wooden Decorative Storage Pot featuring a glossy deep-red finish and a contrasting golden-yellow wooden knob.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T11:49:19.108Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T11:49:19.108Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac38ffc5f1c1e634fab353e"
+  },
+  "productId": 34,
+  "name": "Hand-Painted Maroon & Mustard Wooden Decorative Jar",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791201276804-675338710.png",
+  "images": [
+    "/uploads/products/1791201276841-705049136.png"
+  ],
+  "price": 240,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Hand-Painted Maroon & Mustard Wooden Decorative Jar featuring a glossy maroon body with a distinctive mustard-gold striped center and a layered decorative lid finished with a green finial.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T11:54:36.904Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T11:54:36.904Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac391e05f1c1e634fab353f"
+  },
+  "productId": 35,
+  "name": "Traditional Kondapalli Hand-Painted Decorative Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791201760389-6500494.png",
+  "images": [],
+  "price": 150,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A vibrant handcrafted Kondapalli-inspired decorative set featuring beautifully painted wooden pieces in mustard yellow, deep red, and green.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:02:40.422Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:02:40.422Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac392da5f1c1e634fab3540"
+  },
+  "productId": 36,
+  "name": "Traditional Kondapalli Bommalu Couple Doll Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791202010742-152120301.png",
+  "images": [
+    "/uploads/products/1791202010773-663478441.png"
+  ],
+  "price": 149.91,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully handcrafted Kondapalli Bommalu couple set featuring a traditional male and female pair with vibrant hand-painted details.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:06:50.819Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:06:50.819Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac393f95f1c1e634fab3541"
+  },
+  "productId": 37,
+  "name": "Traditional Kondapalli Decorative Couple Figurines",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791202297883-541513088.png",
+  "images": [
+    "/uploads/products/1791202297912-823807352.png"
+  ],
+  "price": 150,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A vibrant pair of hand-painted Kondapalli-inspired wooden figurines featuring contrasting red and green finishes with traditional black, white and gold detailing.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:11:37.945Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:11:37.945Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac394e25f1c1e634fab3542"
+  },
+  "productId": 38,
+  "name": "Traditional Kondapalli pair Decorative Figurine",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791202530240-508608205.png",
+  "images": [
+    "/uploads/products/1791202530280-430254369.png"
+  ],
+  "price": 288,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully handcrafted Kondapalli-inspired wooden decorative figurine featuring a glossy red and black finish with intricate gold detailing, a jeweled central accent, and traditional decorative motifs",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:15:30.312Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:15:30.312Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac397f55f1c1e634fab3543"
+  },
+  "productId": 39,
+  "name": "Kondapalli Hand-Painted Bird Decorative Box Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791203317056-209012967.png",
+  "images": [
+    "/uploads/products/1791203317107-584112383.png"
+  ],
+  "price": 150,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A charming set of hand-painted Kondapalli-inspired wooden decorative boxes featuring rich mustard-yellow and deep maroon colours, each topped with a beautifully crafted green bird motif.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:28:37.144Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:28:37.144Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac398f15f1c1e634fab3544"
+  },
+  "productId": 40,
+  "name": "Kondapalli Hand-Painted Cow & Calf Decorative Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791203569323-693347820.png",
+  "images": [
+    "/uploads/products/1791203569396-793643467.png"
+  ],
+  "price": 120,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A charming handcrafted Kondapalli Bommalu cow and calf set, featuring glossy cream-colored wooden figures with bold black horns, expressive hand-painted faces, and traditional detailing.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round / Cylindrical",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:32:49.428Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:32:49.428Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39a115f1c1e634fab3545"
+  },
+  "productId": 41,
+  "name": "Traditional Kondapalli Village Celebration Doll Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791203856970-721037002.png",
+  "images": [],
+  "price": 139,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A vibrant handcrafted Kondapalli Bommalu village scene featuring traditionally dressed women carrying trays, musicians playing instruments, and colourful village characters arranged on a beautifully hand-painted wooden platform.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:37:37.012Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:37:37.012Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39af05f1c1e634fab3546"
+  },
+  "productId": 42,
+  "name": "Traditional Kondapalli Village Sweet Stall Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791204080229-31583128.png",
+  "images": [],
+  "price": 280,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A vibrant handcrafted Kondapalli Bommalu miniature village market set featuring a beautifully painted turquoise-blue wooden stall surrounded by miniature fruits, bananas, sweets, and colourful serving plates.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:41:20.277Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:41:20.277Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39be15f1c1e634fab3547"
+  },
+  "productId": 43,
+  "name": "Traditional Kondapalli Wooden Musical Ensemble",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791204321552-395934443.png",
+  "images": [
+    "/uploads/products/1791204321590-447592869.png"
+  ],
+  "price": 290,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully handcrafted Kondapalli-style wooden musical ensemble featuring traditional Indian musicians playing drums and wind instruments.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:45:21.627Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:45:21.627Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39c725f1c1e634fab3548"
+  },
+  "productId": 44,
+  "name": "Traditional Kondapalli Village Family & Festive Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791204466386-362247741.png",
+  "images": [],
+  "price": 130,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Hand-painted Kondapalli wooden village figurines depicting traditional Indian life, beautifully arranged with colorful miniature food and decorative elements. A charming cultural décor piece for homes and gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:47:46.444Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:47:46.444Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39db45f1c1e634fab3549"
+  },
+  "productId": 45,
+  "name": "Traditional Kondapalli Women Grinding & Cooking Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791204788346-490771213.png",
+  "images": [
+    "/uploads/products/1791204788380-269553231.png"
+  ],
+  "price": 120,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Hand-painted Kondapalli wooden figurines portraying traditional village women preparing food, beautifully arranged on a decorative kolam platform. A vibrant piece showcasing Indian folk-art heritage.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:53:08.454Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:53:08.454Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac39ec45f1c1e634fab354a"
+  },
+  "productId": 46,
+  "name": "Kondapalli Bommalu – Traditional Village Scene Decorative Set",
+  "category": "Kondapalli bommalu",
+  "image": "/uploads/products/1791205060119-472128064.png",
+  "images": [
+    "/uploads/products/1791205060177-205442671.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully handcrafted Kondapalli Bommalu village-style decorative set featuring traditional wooden figures seated beneath a festive leafy garland.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T12:57:40.231Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T12:57:40.231Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3b65e5f1c1e634fab354b"
+  },
+  "productId": 47,
+  "name": "Antique Brass Embossed Decorative Storage Pot",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791211101996-66447897.png",
+  "images": [
+    "/uploads/products/1791211102040-203486451.png"
+  ],
+  "price": 600,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted traditional brass storage pot featuring intricate embossed detailing around the upper body and a decorative matching lid.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Available on request",
+  "createdAt": {
+    "$date": "2026-10-05T14:38:22.055Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T14:38:22.055Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3bea65f1c1e634fab354c"
+  },
+  "productId": 48,
+  "name": "Antique Brass Round Storage Container",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791213222275-785565367.png",
+  "images": [
+    "/uploads/products/1791213222283-613664672.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A traditional round brass container with a matching embossed lid and classic antique finish.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Available on request",
+  "createdAt": {
+    "$date": "2026-10-05T15:13:42.321Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T15:13:42.321Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3c16b5f1c1e634fab354d"
+  },
+  "productId": 49,
+  "name": "Traditional Brass Lotus Coin Diya / Decorative Oil Lamp",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791213931712-194646406.png",
+  "images": [
+    "/uploads/products/1791213931733-4066548.png"
+  ],
+  "price": 210,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Traditional antique-finish brass lotus diya with intricate engraved detailing, perfect for festive décor, pooja spaces, and gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Antique Silver",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "Available on bulk orders",
+  "createdAt": {
+    "$date": "2026-10-05T15:25:31.758Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T15:25:31.758Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3d07e5f1c1e634fab354e"
+  },
+  "productId": 50,
+  "name": "Traditional Golden Lotus Decorative Bowl",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791217790157-364431194.png",
+  "images": [
+    "/uploads/products/1791217790223-644413468.png"
+  ],
+  "price": 480,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant lotus-shaped golden decorative bowl with a polished finish and scalloped petal design, perfect for festive décor, pooja settings, gifting, and traditional home styling.",
+  "relatedProducts": [],
+  "dimensions": "4 × 4 × 3.5 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Available for bulk orders",
+  "createdAt": {
+    "$date": "2026-10-05T16:29:50.279Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T16:29:50.279Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3d1305f1c1e634fab354f"
+  },
+  "productId": 51,
+  "name": "Antique Gold Geometric Embossed Brass Bowl",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791217968624-501250324.png",
+  "images": [
+    "/uploads/products/1791217968713-910337782.png"
+  ],
+  "price": 450,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant handcrafted brass bowl featuring a rich antique-gold finish and intricate geometric embossed detailing around the outer surface.",
+  "relatedProducts": [],
+  "dimensions": "8 × 2 × 1 inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "Available for bulk orders",
+  "createdAt": {
+    "$date": "2026-10-05T16:32:48.774Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T16:32:48.774Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3d23c5f1c1e634fab3550"
+  },
+  "productId": 52,
+  "name": "Antique Gold Hammered Brass Pedestal Bowl",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791218236405-841323226.png",
+  "images": [
+    "/uploads/products/1791218236447-252181828.png"
+  ],
+  "price": 350,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted brass pedestal bowl featuring a wide flared rim, subtle hammered texture, and a polished antique-gold finish.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T16:37:16.483Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T16:37:16.483Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3d327db99bf92ac0d3b5b"
+  },
+  "productId": 53,
+  "name": "Antique Brass Decorative Bowl with Tassel Detailing",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791218471385-262769306.png",
+  "images": [
+    "/uploads/products/1791218471433-511123924.png"
+  ],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "An elegant antique-finish decorative brass bowl featuring a beautifully scalloped rim, hammered detailing, and an intricate twisted cord with traditional tassel accents.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T16:41:11.522Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T16:41:11.522Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac3d7b9db99bf92ac0d3b5c"
+  },
+  "productId": 54,
+  "name": "Traditional Brass Bowl Tea glass",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791219641452-632730052.png",
+  "images": [
+    "/uploads/products/1791219641496-525087195.png"
+  ],
+  "price": 270,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted traditional brass bowl featuring a polished antique-gold finish and a simple, elegant design.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-05T17:00:41.555Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-05T17:00:41.555Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac4ffd239825e193ad159a9"
+  },
+  "productId": 55,
+  "name": "Decorative Golden Brass Plate / Tray",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791295442028-288837900.png",
+  "images": [
+    "/uploads/products/1791295442042-717034243.png"
+  ],
+  "price": 250,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "legant Golden Brass Decorative Plate\r\nAdd a touch of traditional elegance to your home with this beautifully crafted golden brass decorative plate.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:04:02.131Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:04:02.131Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5016c39825e193ad159aa"
+  },
+  "productId": 56,
+  "name": "Decorative Cow & Calf Golden Brass Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791295852915-833864470.png",
+  "images": [],
+  "price": 399,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully designed decorative brass plate featuring a traditional cow and calf artwork against a vibrant teal background.",
+  "relatedProducts": [],
+  "dimensions": "4 × 4 × 3.5 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:10:52.946Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:10:52.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac501d339825e193ad159ab"
+  },
+  "productId": 57,
+  "name": "Classic Golden Brass Decorative Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791295955386-768271524.png",
+  "images": [],
+  "price": 600,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add timeless elegance to your décor with this beautifully crafted golden brass decorative plate. Featuring a polished reflective finish and layered concentric borders, this plate has a simple yet sophisticated traditional design.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:12:35.396Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:12:35.396Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5023939825e193ad159ac"
+  },
+  "productId": 58,
+  "name": "Golden Floral Engraved Brass Decorative Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791296057551-650333132.png",
+  "images": [],
+  "price": 290,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Enhance your traditional décor with this beautifully crafted golden brass decorative plate, featuring an intricate floral and leafy engraving across the center.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:14:17.601Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:14:17.601Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5034539825e193ad159ad"
+  },
+  "productId": 59,
+  "name": "Royal Peacock Design Golden Brass Decorative Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791296325843-437365061.png",
+  "images": [
+    "/uploads/products/1791296325899-117161611.png"
+  ],
+  "price": 380,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Bring a touch of traditional elegance to your décor with this beautifully detailed golden brass decorative plate, featuring a stunning pair of colorful peacocks surrounded by floral and leafy motifs.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:18:45.913Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:18:45.913Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac505f139825e193ad159ae"
+  },
+  "productId": 60,
+  "name": "Royal Design Golden Brass Decorative Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791297009411-387738236.png",
+  "images": [
+    "/uploads/products/1791297009453-802085722.png"
+  ],
+  "price": 490,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add a rich traditional touch to your décor with this beautifully embossed golden brass decorative plate. The plate features an intricate raised floral centerpiece surrounded by concentric rings of delicate beadwork, ornamental patterns, and a richly textured outer border.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:30:09.490Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:30:09.490Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac506ae39825e193ad159af"
+  },
+  "productId": 61,
+  "name": "Pink Lotus Cow & Calf Brass Decorative Plate",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791297198472-403867339.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Bring a graceful traditional touch to your home with this beautifully designed brass decorative plate featuring a cow and calf surrounded by blooming pink lotus flowers.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:33:18.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:33:18.538Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5094039825e193ad159b0"
+  },
+  "productId": 62,
+  "name": "Royal Brass 7-Cup Masala & Dry Fruit Box",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791297856010-100567544.png",
+  "images": [
+    "/uploads/products/1791297856071-100628543.png"
+  ],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add a touch of traditional elegance to your dining and gifting collection with this beautifully crafted golden brass 7-cup compartment box.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:44:16.106Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:44:16.106Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac50aac39825e193ad159b1"
+  },
+  "productId": 63,
+  "name": "Royal Brass 7-Cup Spice & Dry Fruit Box",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791298220542-679971776.png",
+  "images": [
+    "/uploads/products/1791298220652-414996608.png"
+  ],
+  "price": 600,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add a luxurious traditional touch to your dining and gifting collection with this beautifully crafted round brass 7-compartment box.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T14:50:20.702Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T14:50:20.702Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5164239825e193ad159b2"
+  },
+  "productId": 64,
+  "name": "Embossed Decorative Box",
+  "category": "Meenakarri",
+  "image": "/uploads/products/1791301186042-91656664.png",
+  "images": [],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add a sophisticated traditional touch to your décor with this beautifully crafted antique-finish decorative plate.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T15:39:46.087Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T15:39:46.087Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5181c39825e193ad159b3"
+  },
+  "productId": 65,
+  "name": "Royal Cow Motif Embossed Decorative Thali",
+  "category": "Meenakari Gifts",
+  "image": "/uploads/products/1791301660842-126633449.png",
+  "images": [
+    "/uploads/products/1791301660864-331992077.png"
+  ],
+  "price": 299,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Bring traditional Indian elegance to your home with this beautifully crafted decorative metal thali featuring a traditional cow motif.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold / Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-06T15:47:40.891Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-06T15:47:40.891Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5cd2d39825e193ad159b5"
+  },
+  "productId": 66,
+  "name": "Premium Stainless Steel Nested Bowl Set",
+  "category": "Meenakarri",
+  "image": "/uploads/products/1791348013472-836856918.png",
+  "images": [
+    "/uploads/products/1791348013494-583617937.png"
+  ],
+  "price": 240,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A practical and elegant two-piece stainless steel bowl set featuring a large deep bowl with a smaller flared bowl nested inside.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Silver",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T04:40:13.525Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T04:40:13.525Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5ed5adbfdd6a44aefdaa6"
+  },
+  "productId": 67,
+  "name": "Decorative Handcrafted Cow-Themed Box",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1791356249970-912576428.png",
+  "images": [
+    "/uploads/products/1791356250022-448611671.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add a touch of traditional Indian artistry to your home with this beautifully handcrafted decorative wooden box.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "squre",
+  "colour": "Multicolour",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "name and color",
+  "createdAt": {
+    "$date": "2026-10-07T06:57:30.058Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T06:57:30.058Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5ef13dbfdd6a44aefdaa7"
+  },
+  "productId": 68,
+  "name": "Traditional Cow & Calf Decorative Wooden Tray",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1791356691448-168509446.png",
+  "images": [
+    "/uploads/products/1791356691512-148006616.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Bring traditional Indian artistry into your home with this beautifully designed wooden tray featuring an elegant cow-and-calf artwork.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "name and colors",
+  "createdAt": {
+    "$date": "2026-10-07T07:04:51.533Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:04:51.533Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f0e5dbfdd6a44aefdaa8"
+  },
+  "productId": 89,
+  "name": "Traditional Twin Elephant Decorative Wooden Tray",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1791357157832-342183512.png",
+  "images": [
+    "/uploads/products/1791357157902-50488769.png",
+    "/uploads/products/1791359537646-182936520.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Add an elegant touch of Indian artistry to your space with this beautifully crafted wooden tray featuring two richly decorated elephants facing each other against a deep black background.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "name and colors",
+  "createdAt": {
+    "$date": "2026-10-07T07:12:37.976Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:52:17.736Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6ac5f23cdbfdd6a44aefdaa9"
+  },
+  "productId": 70,
+  "name": "Golden Brass Diya Thali Set",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791357500199-811940024.png",
+  "images": [],
+  "price": 500,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted golden brass diya thali featuring a large central bowl surrounded by eight intricately detailed diya holders. Each diya has a decorative scalloped edge and traditional pointed-tip design, creating an elegant floral arrangement. Perfect for Diwali celebrations, pooja rituals, festive décor, and traditional gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:18:20.223Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:18:20.223Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f293dbfdd6a44aefdaaa"
+  },
+  "productId": 71,
+  "name": "Peacock Brass Diya Thali Set",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791357587303-3857942.png",
+  "images": [],
+  "price": 400,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully designed brass diya set featuring a central bowl surrounded by decorative diya holders and two intricately crafted peacock motifs.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold / Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:19:47.331Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:19:47.331Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f313dbfdd6a44aefdaab"
+  },
+  "productId": 72,
+  "name": "Golden Brass 7-Diya Thali Set",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791357715928-229925509.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted golden brass diya set featuring six intricately detailed diyas arranged around a larger central bowl.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:21:55.965Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:21:55.965Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f38edbfdd6a44aefdaac"
+  },
+  "productId": 73,
+  "name": "Brass Lotus Leaf Diya",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791357838775-106667177.png",
+  "images": [],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted brass diya featuring a detailed lotus-leaf shaped base, a raised central oil lamp, and an elegant pedestal design.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Brass / Metal",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:23:58.795Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:23:58.795Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f4dfdbfdd6a44aefdaad"
+  },
+  "productId": 74,
+  "name": "Copper Jar with Floral Lid",
+  "category": "Antique Gold / Brass",
+  "image": "/uploads/products/1791358175235-83031321.png",
+  "images": [
+    "/uploads/products/1791358175245-89190375.png"
+  ],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted copper-toned decorative jar featuring a rounded hammered finish and an elegant golden lid.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "Gold",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:29:35.254Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:29:35.254Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f5b3dbfdd6a44aefdaae"
+  },
+  "productId": 75,
+  "name": "Traditional Cow & Calf Decorative Keepsake Box",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1791358387615-868350609.png",
+  "images": [
+    "/uploads/products/1791358387665-79753740.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautifully crafted decorative keepsake box featuring an intricate embossed bronze-toned design and a vibrant traditional Indian artwork of a white cow and calf on the lid.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:33:07.741Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:33:07.741Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f6c3dbfdd6a44aefdaaf"
+  },
+  "productId": 78,
+  "name": "Antique Copper Decorative Jewelry Box",
+  "category": "Wooden Trays & Boxes",
+  "image": "/uploads/products/1791358659403-181409942.png",
+  "images": [
+    "/uploads/products/1791358659454-162667164.png"
+  ],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "An elegant handcrafted jewelry box featuring intricate antique copper-toned floral and leaf embossing with detailed borders and a traditional brass latch.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "squre",
+  "colour": "Multicolour / Natural Wood",
+  "material": "Wood",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T07:37:39.496Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:37:39.496Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f931dbfdd6a44aefdab0"
+  },
+  "productId": 77,
+  "name": "Teal & Gold Geometric Decorative Storage Jar",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791359281927-834941008.png",
+  "images": [],
+  "price": 290,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A stylish teal decorative storage jar featuring an elegant metallic-gold geometric pattern inspired by Art Deco design. The cylindrical shape, matching lid, and rich teal-and-gold finish give it a sophisticated look, making it ideal for storing small essentials while adding a luxurious touch to home décor.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Metal / tin with a glossy lacquered finish",
+  "moq": 1,
+  "customization": "cololr",
+  "createdAt": {
+    "$date": "2026-10-07T07:48:01.997Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:48:01.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5f99ddbfdd6a44aefdab1"
+  },
+  "productId": 80,
+  "name": "Navy Blue Elephant Decorative Storage Jar",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791359389311-229109499.png",
+  "images": [],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A stylish navy blue decorative storage jar featuring a vibrant multicolour mandala design on the lid and an intricately decorated elephant motif on the body. Golden geometric borders and floral patterns add an elegant traditional touch. Perfect for storing small essentials and enhancing home décor.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "metal / Decorative Pearl Beads",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T07:49:49.382Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:49:49.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac5fa91dbfdd6a44aefdab2"
+  },
+  "productId": 76,
+  "name": "Royal Peacock & Sacred Cow Decorative Storage Canister",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791359633681-340186389.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Description: Elegant decorative storage canister featuring a champagne-gold lid and intricate Indian-inspired artwork with peacocks, floral motifs, a sacred cow, and ornate gold detailing.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Metal",
+  "moq": 1,
+  "customization": "name and color",
+  "createdAt": {
+    "$date": "2026-10-07T07:53:53.769Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T07:53:53.769Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac610addbfdd6a44aefdab3"
+  },
+  "productId": 79,
+  "name": "Copper Geometric Decorative Storage Canister",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791365293177-720812768.png",
+  "images": [],
+  "price": 390,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A sleek copper-finish storage canister featuring an elegant geometric cube pattern embossed across the body and a smooth fitted lid.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round / Cylindrical",
+  "colour": "Gold",
+  "material": "copper",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-07T09:28:13.262Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T09:28:13.262Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61150dbfdd6a44aefdab4"
+  },
+  "productId": 81,
+  "name": "Copper Round Storage Canister",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791365456764-361866200.png",
+  "images": [],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A simple and elegant copper-finish storage canister with a smooth cylindrical body and a distinctive tiered, fitted lid.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round / Cylindrical",
+  "colour": "Gold",
+  "material": "copper",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-07T09:30:56.812Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T09:30:56.812Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61262dbfdd6a44aefdab5"
+  },
+  "productId": 82,
+  "name": "Decorative Floral Storage Canister Set – 3 Piece",
+  "category": "Crockery Return Gifts",
+  "image": "/uploads/products/1791365730314-376066866.png",
+  "images": [
+    "/uploads/products/1791365730351-23316410.png"
+  ],
+  "price": 300,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A beautiful set of three decorative metal canisters featuring vibrant red, lavender, and pink finishes with intricate floral and lotus-inspired artwork.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Round / Cylindrical",
+  "colour": "Gold / Multicolour",
+  "material": "copper",
+  "moq": 1,
+  "customization": "name",
+  "createdAt": {
+    "$date": "2026-10-07T09:35:30.390Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T09:35:30.390Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61452dbfdd6a44aefdab6"
+  },
+  "productId": 83,
+  "name": "Premium Decorative Corporate Gift Bottle Set",
+  "category": "Corporate Gifts",
+  "image": "/uploads/products/1791366226330-827391709.jpeg",
+  "images": [],
+  "price": 600,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant decorative gift bottles presented in beautifully designed gift boxes, available in multiple colors and artistic patterns.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round / Cylindrical",
+  "colour": "Multicolour",
+  "material": "Metal / Brass Finish",
+  "moq": 1,
+  "customization": "name , customized  note",
+  "createdAt": {
+    "$date": "2026-10-07T09:43:46.353Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T09:43:46.353Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61718dbfdd6a44aefdab7"
+  },
+  "productId": 84,
+  "name": "Premium Decorative Corporate Gift Bottle Set",
+  "category": "Corporate Gifts",
+  "image": "/uploads/products/1791366936197-729937008.jpeg",
+  "images": [],
+  "price": 400,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant decorative gift bottles presented in beautifully designed gift boxes, available in multiple colors and artistic patterns.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round / Cylindrical",
+  "colour": "Multicolour",
+  "material": "Decorative metal container with printed/embossed gift packagingDecorative metal container with printed/embossed gift packaging",
+  "moq": 1,
+  "customization": "name and customized note",
+  "createdAt": {
+    "$date": "2026-10-07T09:55:36.220Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T09:55:36.220Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac618dfdbfdd6a44aefdab8"
+  },
+  "productId": 85,
+  "name": "Premium Decorative Dry Fruit Gift Box Set",
+  "category": "Combos",
+  "image": "/uploads/products/1791367391185-759782402.jpeg",
+  "images": [],
+  "price": 500,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant premium gift boxes featuring artistic traditional designs, colorful fabric interiors, and decorative detailing. Each box can be presented as a sophisticated dry-fruit or festive gift hamper, making it suitable for corporate gifting, weddings, festivals, client appreciation, and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Decorative printed gift box with fabric lining and assorted dry-fruit containers",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:03:11.201Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:03:11.201Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6195ddbfdd6a44aefdab9"
+  },
+  "productId": 86,
+  "name": "Premium Decorative Dry Fruit Gift Box Set",
+  "category": "Combos",
+  "image": "/uploads/products/1791367517666-847696524.jpeg",
+  "images": [],
+  "price": 500,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant premium gift boxes featuring artistic traditional designs, colorful fabric interiors, and decorative detailing. Each box can be presented as a sophisticated dry-fruit or festive gift hamper, making it suitable for corporate gifting, weddings, festivals, client appreciation, and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "fabric lining and assorted dry-fruit containers",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:05:17.688Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:05:49.382Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61bd7dbfdd6a44aefdaba"
+  },
+  "productId": 87,
+  "name": "Embroidered Designer Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791368151024-123113038.png",
+  "images": [],
+  "price": 380,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A colorful set of six elegant fabric pouches featuring beautiful gold-toned chevron embroidery and coordinated zipper closures.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric with metallic embroidered detailing and zipper closure",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:15:51.105Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:15:51.105Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61c47dbfdd6a44aefdabb"
+  },
+  "productId": 90,
+  "name": "Embroidered Designer Pouches – Set of 6",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791368263370-414888287.jpeg",
+  "images": [],
+  "price": 390,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "A colorful set of six elegant fabric pouches featuring beautiful gold-toned chevron embroidery and coordinated zipper closures.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric with metallic embroidered detailing and zipper closure",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:17:43.385Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:17:43.385Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61d22dbfdd6a44aefdabc"
+  },
+  "productId": 100,
+  "name": "Designer Embroidered Zipper Pouch",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791368482076-512190301.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "legant multi-purpose zipper pouches featuring a decorative metallic-gold checkered pattern. Available in attractive pastel and vibrant shades such as peach, pink, red, and green.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Satin/Polyester Fabric",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:21:22.135Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:21:22.135Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61df2dbfdd6a44aefdabd"
+  },
+  "productId": 101,
+  "name": "Traditional Embroidered Fabric blouse cloth",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791368690529-163783640.png",
+  "images": [],
+  "price": 150,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful traditional pouches featuring vibrant fabrics and intricate gold embroidery, perfect for gifting, festive occasions, and storing small essentials.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric with Zari Embroidery",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:24:50.584Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:24:50.584Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61eeadbfdd6a44aefdabe"
+  },
+  "productId": 91,
+  "name": "Embroidered Travel & Makeup Organizer",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791368938980-479002215.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish zippered organizer with multiple compartments, ideal for cosmetics, jewellery, toiletries, and travel essentials",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:28:58.997Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:28:58.997Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61f34dbfdd6a44aefdabf"
+  },
+  "productId": 92,
+  "name": "Embroidered Travel & Makeup Organizer",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791369012669-455237526.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish zippered organizer with multiple compartments, ideal for cosmetics, jewellery, toiletries, and travel essentials.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour",
+  "material": "Fabric, PVC & Zari Embroidery",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:30:12.682Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:30:12.682Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac61faedbfdd6a44aefdac0"
+  },
+  "productId": 93,
+  "name": "Embroidered Potli Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791369134100-668671566.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful traditional potli pouches with intricate geometric embroidery, decorative beads, drawstring closure, and small bells. Perfect for return gifts, festive occasions, and weddings.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Lotus / Round",
+  "colour": "Multicolour",
+  "material": "Fabric with Zari Embroidery & Beadwork",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:32:14.123Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:32:14.123Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6201ddbfdd6a44aefdac1"
+  },
+  "productId": 94,
+  "name": "Embroidered Travel & Makeup Organizer",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791369245959-753379121.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish zippered organizer with multiple compartments, ideal for cosmetics, jewellery, toiletries, and travel essentials.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Round",
+  "colour": "Multicolour",
+  "material": "Fabric, PVC & Zari Embroidery",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:34:05.971Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:34:05.971Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac620fadbfdd6a44aefdac2"
+  },
+  "productId": 95,
+  "name": "Embroidered Sequin Handbags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791369466800-424456600.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful embroidered handbags with floral designs, sequin detailing, and gold-trimmed handles. Stylish and lightweight, perfect for festive occasions, gifting, and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric with Sequin & Zari Embroidery",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:37:46.858Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:37:46.858Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac62161dbfdd6a44aefdac3"
+  },
+  "productId": 96,
+  "name": "Embroidered Sequin jutebags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791369569968-689581408.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful embroidered handbags with floral designs, sequin detailing, and gold-trimmed handles. Stylish and lightweight, perfect for festive occasions, gifting, and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric with Sequin & Zari Embroidery",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:39:29.980Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:39:29.980Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6221edbfdd6a44aefdac4"
+  },
+  "productId": 97,
+  "name": "Embroidered Floral Gift Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791369758342-411998595.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant embroidered pouches with floral designs, bead detailing and gold-tone accents. Perfect for return gifts, festive occasions, weddings and small keepsakes.",
+  "relatedProducts": [],
+  "dimensions": "8 * 5 * 9 inch",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Satin/Velvet Fabric, Embroidery, Beads & Metallic Thread",
+  "moq": 1,
+  "customization": "-",
+  "createdAt": {
+    "$date": "2026-10-07T10:42:38.405Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:42:38.405Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6237fdbfdd6a44aefdac5"
+  },
+  "productId": 98,
+  "name": "Lace Window Gift jute Bags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791370111030-352301778.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant reusable gift bags featuring a clear front window, delicate lace detailing and sturdy braided handles. Ideal for return gifts, festive gifting, hampers and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "white",
+  "material": "Cotton Fabric with Transparent PVC Window & Lace Trim",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:48:31.074Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:48:31.074Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac62490dbfdd6a44aefdac6"
+  },
+  "productId": 99,
+  "name": "heavy embroidery bangle box",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791370384699-991015411.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant bangle box designed to store and present bangles neatly. Features a stylish decorative finish and spacious interior, making it perfect for weddings, festive gifting, jewellery storage, and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "4 inches",
+  "shape": "Round",
+  "colour": "Multicolour",
+  "material": "",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:53:04.716Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:53:04.716Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac625cfdbfdd6a44aefdac7"
+  },
+  "productId": 69,
+  "name": "Embroidered Pearl Handle Gift Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791370703340-22525863.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant mini pouches featuring intricate floral embroidery, pearl detailing and multi-strand pearl handles. Perfect for festive gifting, weddings, return gifts and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "Fabric, Pearl Beads, Sequins & Metallic Embroidery",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T10:58:23.404Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T10:58:23.404Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac62701dbfdd6a44aefdac8"
+  },
+  "productId": 88,
+  "name": "Embroidered Patchwork juteBags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791371009893-862401264.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful handmade tote bags featuring vibrant patchwork patterns, intricate sequin detailing and sturdy fabric handles. Perfect for festive gifting, shopping, return gifts and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 × 8 × 2",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "",
+  "moq": 1,
+  "customization": "color",
+  "createdAt": {
+    "$date": "2026-10-07T11:03:29.961Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T11:03:29.961Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63202dbfdd6a44aefdac9"
+  },
+  "productId": 102,
+  "name": "Floral Embroidered jute Bags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791373826016-473508194.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful fabric tote bags decorated with vibrant floral embroidery, sequin detailing and gold-trimmed handles. Lightweight and stylish, perfect for festive gifting, shopping, return gifts and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "",
+  "colour": "Multicolour",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T11:50:26.061Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T11:50:26.061Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63287dbfdd6a44aefdaca"
+  },
+  "productId": 103,
+  "name": "Colorful Tribal Print Jute Gift Bag Set",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791373959241-856196939.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Vibrant reusable gift bags featuring traditional tribal-inspired artwork, sturdy braided handles, and colorful borders. Ideal for return gifts, festive gifting, weddings, and special occasions.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "jute",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T11:52:39.283Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T11:52:39.283Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac632eedbfdd6a44aefdacb"
+  },
+  "productId": 104,
+  "name": "Embroidered Potli Gift Bags",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791374062971-479662758.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Beautiful festive potli bags featuring delicate golden embroidery, pearl detailing, and drawstring closures. Available in vibrant colors, perfect for return gifts, weddings, festive occasions, and traditional gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T11:54:22.983Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T11:54:22.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63434dbfdd6a44aefdacc"
+  },
+  "productId": 105,
+  "name": "Embroidered Floral jutebags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791374388137-631297231.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful fabric handbags with floral embroidery, sequin detailing, and gold-trimmed handles. Perfect for festive occasions, gifting, and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 × 6 × 1.5 Inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T11:59:48.185Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T11:59:48.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac634bfdbfdd6a44aefdacd"
+  },
+  "productId": 106,
+  "name": "Embroidered Floral Storage Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791374527576-939156433.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish floral-embroidered pouches with transparent sides, zipper closure, and colorful fabric borders. Ideal for organizing jewellery, cosmetics, accessories, and gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "squre",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:02:07.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:02:07.591Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63524dbfdd6a44aefdace"
+  },
+  "productId": 107,
+  "name": "Traditional Embroidered Tote Bags",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791374628638-302511825.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful traditional tote bags with geometric embroidery, decorative borders, and sturdy handles. Perfect for everyday use, return gifts, festive occasions, and shopping.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "Multicolour",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:03:48.699Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:03:48.699Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6358cdbfdd6a44aefdacf"
+  },
+  "productId": 108,
+  "name": "Embroidered Round Utility Pouches",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791374732972-370211231.jpeg",
+  "images": [],
+  "price": 120,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Colorful round fabric pouches with floral embroidery, sequin detailing, and secure zipper closures. Ideal for storing jewellery, cosmetics, small accessories, and gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:05:32.982Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:05:32.982Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63642dbfdd6a44aefdad0"
+  },
+  "productId": 109,
+  "name": "Heavy Embroidered Bangle Box",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791374914336-54175272.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Beautiful embroidered bangle box with floral detailing, perfect for storing bangles and keeping jewellery organized. Ideal for gifting and festive occasions.",
+  "relatedProducts": [],
+  "dimensions": "6 inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:08:34.391Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:08:34.391Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63706dbfdd6a44aefdad1"
+  },
+  "productId": 110,
+  "name": "Embroidered Floral Jute Bag",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791375110455-577740282.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant fabric tote bag featuring colorful floral embroidery and sturdy handles. Lightweight, spacious, and perfect for gifting, shopping, and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:11:50.510Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:11:50.510Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6378bdbfdd6a44aefdad2"
+  },
+  "productId": 111,
+  "name": "Colorful Jute Shopping Bag",
+  "category": "Jute Bags",
+  "image": "/uploads/products/1791375243786-52693555.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish and eco-friendly jute bags with colorful borders and sturdy braided handles. Ideal for shopping, return gifts, festive gifting, and everyday use.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Rectangular",
+  "colour": "",
+  "material": "jute",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:14:03.832Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:14:03.832Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac637eddbfdd6a44aefdad3"
+  },
+  "productId": 112,
+  "name": "Embroidered Potli Gift Bag Set",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791375341552-293351750.jpeg",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Elegant colorful potli bags featuring delicate embroidery and traditional decorative beadwork. Perfect for weddings, festive occasions, return gifts, and jewellery or small-item storage.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "Round",
+  "colour": "",
+  "material": "Fabric with embroidery",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:15:41.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:15:41.568Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac638a3dbfdd6a44aefdad4"
+  },
+  "productId": 113,
+  "name": "Compact Jewellery Organizer Box",
+  "category": "Traditional Gifts",
+  "image": "/uploads/products/1791375523686-332307229.png",
+  "images": [],
+  "price": 200,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish square jewellery organizer with multiple compartments for neatly storing rings, earrings, chains, and other small accessories. Available in attractive colors and ideal for travel or gifting.",
+  "relatedProducts": [],
+  "dimensions": "8 Inches",
+  "shape": "squre",
+  "colour": "",
+  "material": "",
+  "moq": 1,
+  "customization": "",
+  "createdAt": {
+    "$date": "2026-10-07T12:18:43.731Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:18:43.731Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63bb4dbfdd6a44aefdad5"
+  },
+  "productId": 114,
+  "name": "Cute XOXO Glass Sipper Bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1791376308457-452847890.png",
+  "images": [],
+  "price": 82,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Cute pastel glass jar with a pink lid, lavender straw, and raised “XOXO” design. Perfect for everyday drinks and gifting.",
+  "relatedProducts": [],
+  "dimensions": "350–400 ml approx",
+  "shape": "",
+  "colour": "Pink & Lavender",
+  "material": "Glass with plastic lid and straw",
+  "moq": 1,
+  "customization": "Name",
+  "createdAt": {
+    "$date": "2026-10-07T12:31:48.481Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:31:48.481Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63c1cdbfdd6a44aefdad6"
+  },
+  "productId": 115,
+  "name": "Pastel Lavender Handle Water Bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1791376412868-643061103.png",
+  "images": [],
+  "price": 125,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish pastel water bottle with a large loop handle, secure lid, and convenient hanging strap. Lightweight and easy to carry for daily use.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 500–600 ml",
+  "shape": "Tall, Round/Cylindrical",
+  "colour": "Lavender & Pink",
+  "material": "Plastic",
+  "moq": 1,
+  "customization": "Name",
+  "createdAt": {
+    "$date": "2026-10-07T12:33:32.879Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:33:32.879Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac63d73dbfdd6a44aefdad7"
+  },
+  "productId": 116,
+  "name": "Amber Glass Storage Bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1791376755047-40361388.png",
+  "images": [],
+  "price": 45,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Sleek cylindrical glass bottle with a vibrant amber finish and a matching lavender cap. Ideal for storing drinks, juices, or other beverages.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 500 ml",
+  "shape": "Cylindrical",
+  "colour": "Amber Orange with Lavender Cap",
+  "material": "Orange with Lavender Cap",
+  "moq": 1,
+  "customization": "Name and logo",
+  "createdAt": {
+    "$date": "2026-10-07T12:39:15.086Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T12:39:15.086Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac64714dbfdd6a44aefdad8"
+  },
+  "productId": 117,
+  "name": "Cute Cartoon Infuser Tumbler",
+  "category": "water bottle",
+  "image": "/uploads/products/1791379220604-139103598.png",
+  "images": [],
+  "price": 130,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Fun transparent tumbler featuring a cute cartoon face, mint-green lid, flower straw topper, and side hanging charm. Great for kids and gifting.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 400–500 ml",
+  "shape": "Round/Cylindrical",
+  "colour": "Transparent, Mint Green & Dark Green",
+  "material": "Glass with plastic lid, straw & infuser",
+  "moq": 1,
+  "customization": "Custom colors, names, stickers, or designs can be available on request.",
+  "createdAt": {
+    "$date": "2026-10-07T13:20:20.615Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T13:20:20.615Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6479fdbfdd6a44aefdad9"
+  },
+  "productId": 118,
+  "name": "Eagle Glass Water Bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1791379358977-694995593.png",
+  "images": [],
+  "price": 69,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Stylish glass water bottle with a protective lavender cover, secure screw lid, and convenient loop handle. Features an elegant “Eagle – Fly High” design.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 500 ml",
+  "shape": "Round / Cylindrical",
+  "colour": "Lavender/Purple",
+  "material": "Glass / Crystal + Metal",
+  "moq": 1,
+  "customization": "Custom colors, names, logos",
+  "createdAt": {
+    "$date": "2026-10-07T13:22:39.078Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T13:22:39.078Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6ac6482fdbfdd6a44aefdada"
+  },
+  "productId": 119,
+  "name": "Wheat Fiber Water Bottle",
+  "category": "water bottle",
+  "image": "/uploads/products/1791379503052-641360652.png",
+  "images": [],
+  "price": 99,
+  "badge": "",
+  "rating": 0,
+  "newArrival": false,
+  "bestSeller": false,
+  "description": "Lightweight reusable water bottle with a secure lid and convenient carry handle. Ideal for everyday use, office, school, and travel.",
+  "relatedProducts": [],
+  "dimensions": "Approx. 500–600 ml",
+  "shape": "Cylindrical",
+  "colour": "Blue with Grey Lid",
+  "material": "Wheat Fiber / BPA-Free Plastic",
+  "moq": 1,
+  "customization": "name logo",
+  "createdAt": {
+    "$date": "2026-10-07T13:25:03.101Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-07T13:25:03.101Z"
+  },
+  "__v": 0
+}]

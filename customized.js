@@ -20,40 +20,31 @@ const addressInput = document.getElementById("address");
    LOAD PRODUCTS
 ========================================== */
 
-const customizedProducts = products.filter(product =>
-    product.category === "customized"
-);
-
-customizedProducts.forEach(product => {
-
-    productSelect.innerHTML += `
-        <option value="${product.name}">
-            ${product.name}
-        </option>
-    `;
-
-});
-
-
-/* ==========================================
-   AUTO SELECT PRODUCT FROM URL
-========================================== */
-
 const params = new URLSearchParams(window.location.search);
 
 const productId = Number(params.get("id"));
 
-if (productId) {
+function populateCustomizedProducts(catalog) {
+    const customizableProducts = catalog.filter(product =>
+        typeof product.customization === "string" && product.customization.trim()
+    );
+    customizableProducts.forEach(product => {
+        const option = document.createElement("option");
+        option.value = product.name;
+        option.textContent = product.name;
+        productSelect.appendChild(option);
+    });
 
-    const selectedProduct = products.find(product => product.id === productId);
+    if (!productId) return;
 
-    if (selectedProduct) {
+    const selectedProduct = catalog.find(product => product.id === productId);
 
-        productSelect.value = selectedProduct.name;
-
-    }
-
+    if (selectedProduct) productSelect.value = selectedProduct.name;
 }
+
+window.productsReady.then(populateCustomizedProducts).catch(error => {
+    console.error("Customized-order product options could not be loaded.", error);
+});
 
 
 /* ==========================================
@@ -83,7 +74,7 @@ form.addEventListener("submit", function (e) {
     const details = detailsInput.value.trim();
     const address = addressInput.value.trim();
 
-    const ownerNumber = "91XXXXXXXXXX"; // Replace with owner's WhatsApp number
+    const ownerNumber = "919704123499";
 
     const message =
 

@@ -366,8 +366,13 @@
     }
   }
 </style>
+<link rel="stylesheet" href="shared-navbar.css">
+<link rel="stylesheet" href="shared-footer.css">
 </head>
 <body>
+
+<div id="shared-navbar-mount"></div>
+<script src="shared-navbar.js"></script>
 
 <!-- ============ TOP BAR ============ -->
 <div class="top-bar">
@@ -380,17 +385,17 @@
   <div class="brand-center">
     <img src="assets\logo.jpeg" alt="Shailu's Concepts">
     <span class="brand-name">Shailu's Concepts</span>
-    <span class="brand-tagline">Return Gift Store For All Occasions</span>
+    <span class="brand-tagline">ONE STOP DESTINATION FOR ALL UNIQUE RETURN GIFTS</span>
   </div>
 
   <div class="top-right">
-    <button class="icon-btn" aria-label="Account">
+    <a class="icon-btn" aria-label="Login" href="login.html" title="Login">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </button>
-    <button class="icon-btn" aria-label="Cart">
+    </a>
+    <a class="icon-btn" aria-label="Cart" href="index.html?cart=open" title="View cart on Home">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      <span class="cart-badge">0</span>
-    </button>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </a>
     <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" onclick="document.getElementById('mainNavRow').classList.toggle('mobile-open')">
       <span></span>
       <span></span>
@@ -403,77 +408,22 @@
 <nav class="nav-bar">
   <div class="nav-row" id="mainNavRow">
 
-    <a href="#" class="active">Home</a>
-    <a href="#">New Arrivals</a>
-
-    <div class="dropdown" id="returnGiftsDropdown">
-      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('returnGiftsDropdown').classList.toggle('open')">
-        Return Gifts <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="#">Category</a>
-
-        <div class="has-submenu" id="bagsSubmenu">
-          <button class="sub-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('bagsSubmenu').classList.toggle('open')">
-            Bags <span class="arrow">›</span>
-          </button>
-          <div class="submenu">
-            <a href="#">Jute Bags</a>
-            <a href="#">Non-Woven Bags</a>
-            <a href="#">Fancy Bags</a>
-            <a href="#">Paper Bags</a>
-            <a href="#">Imported Bags</a>
-          </div>
-        </div>
-
-        <a href="#">Kids Return Gifts</a>
-        <a href="#">Return Gifts</a>
-        <a href="#">New Collection</a>
-        <a href="#">Combos</a>
-        <a href="#">Customised Return Gifts</a>
-        <hr>
-        <a href="#">Corporate Gifts</a>
-      </div>
-    </div>
-
-    <div class="dropdown" id="favourBagsDropdown">
-      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('favourBagsDropdown').classList.toggle('open')">
-        Favour Bags <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="#">Jute Bags</a>
-        <a href="#">Paper Bags</a>
-        <a href="#">Fancy Pouches</a>
-        <a href="#">Eco-Friendly Bags</a>
-      </div>
-    </div>
-
-    <a href="#">Corporate Gifts</a>
-
-    <div class="dropdown" id="eventDropdown">
-      <button class="drop-toggle" type="button" onclick="event.stopPropagation(); document.getElementById('eventDropdown').classList.toggle('open')">
-        Gifting For Moments <span class="arrow">▾</span>
-      </button>
-      <div class="dropdown-menu">
-        <a href="#">Weddings</a>
-        <a href="#">Birthdays</a>
-        <a href="#">Baby Showers</a>
-        <a href="#">Festivals</a>
-        <a href="#">Housewarming</a>
-      </div>
-    </div>
-
-    <a href="#">About Us</a>
-
-    <div class="nav-row" style="display:contents;">
-      <a href="https://thambulaaareturngifts.com/terms/" target="_blank" rel="noopener">Terms And Conditions</a>
-      <a href="https://thambulaaareturngifts.com/privacy/" target="_blank" rel="noopener">Privacy Policy</a>
-    </div>
+    <a href="index.html">Home</a>
+    <a href="index.html#collections">Return Gifts</a>
+    <a href="index.html#collections">New Collection</a>
 
   </div>
 </nav>
 
+<script src="products-data.js"></script>
+<script src="cart-store.js"></script>
 <script>
+  document.getElementById('cartBadge').textContent = window.ShailusCart.count();
+  window.addEventListener('storage', function(event){
+    if(event.key === window.ShailusCart.storageKey || event.key === null){
+      document.getElementById('cartBadge').textContent = window.ShailusCart.count();
+    }
+  });
   // Close any open dropdown/submenu when clicking outside the nav
   document.addEventListener('click', function(e){
     var dropdowns = document.querySelectorAll('.dropdown.open, .has-submenu.open');
@@ -485,5 +435,6 @@
   });
 </script>
 
+<script src="shared-footer.js"></script>
 </body>
 </html>

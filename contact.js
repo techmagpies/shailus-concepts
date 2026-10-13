@@ -5,14 +5,13 @@
 const params = new URLSearchParams(window.location.search);
 const productId = parseInt(params.get("id"));
 
-const allProducts = window.products || [];
+let allProducts = [];
 
 // DOM elements
 const productSelect = document.getElementById("product");
 const form = document.getElementById("contactForm");
 
-// WhatsApp number (CHANGE THIS)
-const WHATSAPP_NUMBER = "917093640638";
+const WHATSAPP_NUMBER = "919704123499";
 
 // ==========================================
 // 1. LOAD PRODUCTS INTO DROPDOWN
@@ -98,7 +97,10 @@ form.addEventListener("submit", function (e) {
 // INIT
 // ==========================================
 
-document.addEventListener("DOMContentLoaded", () => {
+window.productsReady.then(products => {
+    allProducts = products;
     loadProducts();
     autoSelectProduct();
+}).catch(error => {
+    console.error("Contact form product options could not be loaded.", error);
 });
