@@ -181,7 +181,7 @@ async function login(emailInput, password, event){
       cookie: COOKIE_NAME + '=' + encodeURIComponent(sign(payload, secret)) + '; ' + cookieOptions()
     };
   } catch(error){
-    console.error('Admin login processing failed during ' + stage + '.');
+    ordersStore.logError('Admin login processing failed during ' + stage, error);
     throw error;
   }
 }

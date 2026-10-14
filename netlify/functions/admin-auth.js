@@ -2,6 +2,7 @@
 
 const auth = require('../lib/admin-auth');
 const adminHttp = require('../lib/admin-http');
+const ordersStore = require('../lib/orders-store');
 
 exports.handler = async function(event){
   if(!adminHttp.trustedRequest(event)){
@@ -10,6 +11,7 @@ exports.handler = async function(event){
   const method = adminHttp.method(event);
   let logoutRequested = false;
   try{
+    ordersStore.initialize(event);
     if(method === 'GET'){
       const user = await auth.authenticate(event);
       return user

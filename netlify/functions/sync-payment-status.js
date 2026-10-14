@@ -26,6 +26,7 @@ exports.handler = async function(event){
   if(methodResponse) return methodResponse;
 
   try{
+    ordersStore.initialize(event);
     const body = http.parseBody(event);
     const orderId = body.orderId;
     if(typeof orderId !== 'string' || !/^order_[A-Za-z0-9]+$/.test(orderId) ||

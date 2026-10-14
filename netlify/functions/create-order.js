@@ -85,6 +85,7 @@ exports.handler = async function(event){
   if(methodResponse) return methodResponse;
 
   try{
+    ordersStore.initialize(event);
     const body = http.parseBody(event);
     const keyId = process.env.RAZORPAY_KEY_ID;
     const keySecret = process.env.RAZORPAY_KEY_SECRET;

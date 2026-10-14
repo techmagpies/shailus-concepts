@@ -33,6 +33,7 @@ exports.handler = async function(event){
     return adminHttp.response(405, {error: 'Method not allowed.'}, {Allow: 'GET'});
   }
   try{
+    ordersStore.initialize(event);
     const user = await auth.authenticate(event);
     if(!user) return adminHttp.response(401, {error: 'Sign in to view orders.'});
     const query = event.queryStringParameters || {};

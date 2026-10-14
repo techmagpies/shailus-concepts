@@ -1,12 +1,43 @@
 'use strict';
 
-const {getStore} = require('@netlify/blobs');
+const {connectLambda, getStore} = require('@netlify/blobs');
 
 const STORE_NAME = 'shailus-concepts-orders';
 let storeProvider = function(){ return getStore(STORE_NAME); };
 
 function storage(){
   return storeProvider();
+}
+
+function sanitizedError(error){
+  const name = error && typeof error.name === 'string'
+    ? error.name.replace(/[^A-Za-z0-9_]/g, '').slice(0, 80) || 'Error'
+    : 'UnknownError';
+  const message = error && typeof error.message === 'string' ? error.message : 'Unknown storage error.';
+  const safeMessage = message
+    .replace(/https?:\/\/[^\s"'<>]+/gi, '[url]')
+    .replace(/\b(token|password|secret|authorization|cookie|salt|hash)\b\s*[:=]\s*[^\s,;]+/gi, '$1=[redacted]')
+    .replace(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi, '[email]')
+    .replace(/[A-Fa-f0-9]{32,}/g, '[redacted]')
+    .replace(/[\r\n\t]+/g, ' ')
+    .replace(/[^A-Za-z0-9 .,:;_()[\]{}'\/=-]/g, '?')
+    .slice(0, 240);
+  return {name: name, message: safeMessage};
+}
+
+function initialize(event){
+  if(!event || typeof event.blobs !== 'string' || !event.blobs) return;
+  try{
+    connectLambda(event);
+  } catch(error){
+    logError('Netlify Blobs context initialization failed', error);
+    throw error;
+  }
+}
+
+function logError(context, error){
+  const details = sanitizedError(error);
+  console.error(context + ' (' + details.name + '): ' + details.message);
 }
 
 function orderKey(orderId){
@@ -91,6 +122,8 @@ module.exports = {
   getByReference: getByReference,
   isSessionRevoked: isSessionRevoked,
   listOrders: listOrders,
+  initialize: initialize,
+  logError: logError,
   revokeSession: revokeSession,
   updateAuxiliary: updateAuxiliary,
   updateOrder: updateOrder,

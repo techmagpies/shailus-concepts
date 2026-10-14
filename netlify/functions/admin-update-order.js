@@ -20,6 +20,7 @@ exports.handler = async function(event){
     return adminHttp.response(405, {error: 'Method not allowed.'}, {Allow: 'POST'});
   }
   try{
+    ordersStore.initialize(event);
     const user = await auth.authenticate(event);
     if(!user) return adminHttp.response(401, {error: 'Sign in to update orders.'});
     const body = adminHttp.parseBody(event);

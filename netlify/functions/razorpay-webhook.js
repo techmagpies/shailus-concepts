@@ -32,6 +32,7 @@ exports.handler = async function(event){
     return {statusCode: 405, headers: {'Cache-Control': 'no-store', Allow: 'POST'}, body: ''};
   }
   try{
+    ordersStore.initialize(event);
     const webhookSecret = process.env.RAZORPAY_WEBHOOK_SECRET;
     if(!webhookSecret){
       return {statusCode: 503, headers: {'Cache-Control': 'no-store'}, body: 'Webhook is not configured.'};

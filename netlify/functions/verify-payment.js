@@ -37,6 +37,7 @@ exports.handler = async function(event){
   if(methodResponse) return methodResponse;
 
   try{
+    ordersStore.initialize(event);
     const body = http.parseBody(event);
     const orderId = body.razorpay_order_id;
     const paymentId = body.razorpay_payment_id;

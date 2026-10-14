@@ -623,6 +623,64 @@ test('admin login authenticates hashed credentials, protects APIs, expires and r
   }
 });
 
+test('admin login initializes Netlify Blobs Lambda context before rate-limit storage', async function(){
+  resetStore();
+  await setAdminEnvironment();
+  const previousContext = process.env.NETLIFY_BLOBS_CONTEXT;
+  try{
+    const request = event({
+      action: 'login', email: 'owner@example.test', password: 'Test-Owner-Password-123'
+    });
+    request.blobs = Buffer.from(JSON.stringify({
+      url: 'https://blobs.example.test',
+      token: 'test-blobs-token'
+    })).toString('base64');
+    request.headers['x-nf-site-id'] = 'test-site-id';
+    request.headers['x-nf-deploy-id'] = 'test-deploy-id';
+
+    const login = await adminAuthFunction.handler(request);
+    assert.equal(login.statusCode, 200);
+    const context = JSON.parse(Buffer.from(process.env.NETLIFY_BLOBS_CONTEXT, 'base64').toString('utf8'));
+    assert.equal(context.siteID, 'test-site-id');
+    assert.equal(context.token, 'test-blobs-token');
+    assert.doesNotThrow(function(){
+      require('@netlify/blobs').getStore('configuration-test-store');
+    });
+
+    const session = await adminAuthFunction.handler(event(undefined, 'GET', cookieFrom(login)));
+    assert.equal(session.statusCode, 200);
+    assert.equal(JSON.parse(session.body).user.email, 'owner@example.test');
+  } finally{
+    if(previousContext === undefined) delete process.env.NETLIFY_BLOBS_CONTEXT;
+    else process.env.NETLIFY_BLOBS_CONTEXT = previousContext;
+  }
+});
+
+test('admin login logs storage exception details without credential values', async function(){
+  resetStore();
+  await setAdminEnvironment();
+  const previousError = console.error;
+  const messages = [];
+  ordersStore.setStoreProvider(function(){
+    throw Object.assign(new Error('Storage failed for token=private-value owner@example.test'), {
+      name: 'StorageTestError'
+    });
+  });
+  console.error = function(){ messages.push(Array.from(arguments).join(' ')); };
+  try{
+    const result = await adminAuthFunction.handler(event({
+      action: 'login', email: 'owner@example.test', password: 'Test-Owner-Password-123'
+    }));
+    assert.equal(result.statusCode, 503);
+    assert.match(messages.join('\n'), /StorageTestError/);
+    assert.match(messages.join('\n'), /token=\[redacted\]/);
+    assert.doesNotMatch(messages.join('\n'), /private-value|owner@example\.test|Test-Owner-Password-123/);
+  } finally{
+    console.error = previousError;
+    ordersStore.setStoreProvider(function(){ return memoryStore; });
+  }
+});
+
 test('staff can list/update allowed order statuses but cannot set payment status or arbitrary totals', async function(){
   resetStore();
   await setAdminEnvironment();
