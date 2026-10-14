@@ -5,6 +5,7 @@ The dashboard page is public static content, but it contains no order data. Ever
 ## Netlify Blobs
 
 `@netlify/blobs` stores order snapshots in the site-wide `shailus-concepts-orders` store. Site-wide blobs persist across deploys; deployed Functions receive site-scoped Blobs access from Netlify.
+The project uses Node.js 22.12.0 or newer because `@netlify/blobs` 11.1.4 requires that runtime.
 
 Local `netlify dev` in an unlinked project has no Blobs site context, so storage-backed sign-in and order requests return unavailable. After creating a Netlify site, link the project with `netlify link` to exercise Blobs locally. A linked development session accesses that Netlify site's store; use a separate test site for local test orders and never point simulated or synthetic payments at a store containing real customer records. Automated tests use an in-memory conditional-write adapter and do not claim to exercise Netlify's hosted storage service. Do not publish `.netlify` state or copy order data into the repository.
 

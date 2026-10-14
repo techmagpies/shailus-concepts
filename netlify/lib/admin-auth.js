@@ -143,37 +143,47 @@ function requestIp(event){
 }
 
 async function login(emailInput, password, event){
-  const secret = sessionSecret();
-  const users = getUsers();
-  const email = typeof emailInput === 'string' ? emailInput.trim().toLowerCase() : '';
-  const ip = requestIp(event);
-  if(await checkLoginRateLimit(email.slice(0, 254), ip, secret, Date.now())){
-    return {ok: false, statusCode: 429, error: 'Too many sign-in attempts. Try again later.'};
+  let stage = 'session-secret';
+  try{
+    const secret = sessionSecret();
+    stage = 'admin-users';
+    const users = getUsers();
+    const email = typeof emailInput === 'string' ? emailInput.trim().toLowerCase() : '';
+    const ip = requestIp(event);
+    stage = 'login-rate-limit-storage';
+    if(await checkLoginRateLimit(email.slice(0, 254), ip, secret, Date.now())){
+      return {ok: false, statusCode: 429, error: 'Too many sign-in attempts. Try again later.'};
+    }
+    const user = users.find(function(entry){ return entry.email === email; });
+    const salt = user ? user.salt : DUMMY_SALT;
+    const expectedHash = user ? user.passwordHash : DUMMY_HASH;
+    const candidate = typeof password === 'string' && password.length <= 256
+      ? password : 'invalid-password';
+    stage = 'password-verification';
+    const derived = await scrypt(candidate, Buffer.from(salt, 'hex'), 64);
+    const matches = constantTimeHexEqual(expectedHash, derived.toString('hex'));
+    if(!user || !matches){
+      return {ok: false, statusCode: 401, error: 'Email or password is incorrect.'};
+    }
+    stage = 'login-rate-limit-reset-storage';
+    await resetLoginRateLimit(email, ip, secret);
+    const now = Math.floor(Date.now() / 1000);
+    const payload = {
+      sub: user.email,
+      role: user.role,
+      sid: crypto.randomBytes(18).toString('base64url'),
+      exp: now + SESSION_SECONDS,
+      credentialVersion: crypto.createHash('sha256').update(user.passwordHash).digest('hex')
+    };
+    return {
+      ok: true,
+      user: {email: user.email, role: user.role},
+      cookie: COOKIE_NAME + '=' + encodeURIComponent(sign(payload, secret)) + '; ' + cookieOptions()
+    };
+  } catch(error){
+    console.error('Admin login processing failed during ' + stage + '.');
+    throw error;
   }
-  const user = users.find(function(entry){ return entry.email === email; });
-  const salt = user ? user.salt : DUMMY_SALT;
-  const expectedHash = user ? user.passwordHash : DUMMY_HASH;
-  const candidate = typeof password === 'string' && password.length <= 256
-    ? password : 'invalid-password';
-  const derived = await scrypt(candidate, Buffer.from(salt, 'hex'), 64);
-  const matches = constantTimeHexEqual(expectedHash, derived.toString('hex'));
-  if(!user || !matches){
-    return {ok: false, statusCode: 401, error: 'Email or password is incorrect.'};
-  }
-  await resetLoginRateLimit(email, ip, secret);
-  const now = Math.floor(Date.now() / 1000);
-  const payload = {
-    sub: user.email,
-    role: user.role,
-    sid: crypto.randomBytes(18).toString('base64url'),
-    exp: now + SESSION_SECONDS,
-    credentialVersion: crypto.createHash('sha256').update(user.passwordHash).digest('hex')
-  };
-  return {
-    ok: true,
-    user: {email: user.email, role: user.role},
-    cookie: COOKIE_NAME + '=' + encodeURIComponent(sign(payload, secret)) + '; ' + cookieOptions()
-  };
 }
 
 async function authenticate(event){
