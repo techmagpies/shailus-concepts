@@ -10,13 +10,17 @@ function paymentResponseIsValid(order, payment, record, orderId, paymentId){
     razorpay.matchesStoredPayment(payment, order, paymentId);
 }
 
-async function savePaymentStatus(orderId, status, paymentId){
+async function savePaymentStatus(orderId, status, paymentId, paymentMethod){
   return ordersStore.updateOrder(orderId, function(order){
     if(order.paymentStatus === 'captured' && status !== 'captured') return null;
     if(order.paymentStatus === 'captured' && order.razorpayPaymentId !== paymentId){
       throw new Error('A different payment is already confirmed for this order.');
     }
-    if(order.paymentStatus === status && order.razorpayPaymentId === (paymentId || null)) return null;
+    const method = typeof paymentMethod === 'string' && /^[a-z][a-z0-9_-]{0,31}$/i.test(paymentMethod)
+      ? paymentMethod
+      : null;
+    if(order.paymentStatus === status && order.razorpayPaymentId === (paymentId || null) &&
+       (!method || order.paymentMethod === method)) return null;
     const now = new Date().toISOString();
     const history = Array.isArray(order.paymentHistory) ? order.paymentHistory.slice(-29) : [];
     history.push({at: now, status: status, paymentId: paymentId || null});
@@ -24,6 +28,7 @@ async function savePaymentStatus(orderId, status, paymentId){
       updatedAt: now,
       paymentStatus: status,
       razorpayPaymentId: paymentId || null,
+      paymentMethod: method || order.paymentMethod || null,
       paymentHistory: history
     });
   });
@@ -69,7 +74,7 @@ exports.handler = async function(event){
       if(record.paymentStatus === 'captured'){
         throw Object.assign(new Error('The confirmed payment status could not be reconciled.'), {statusCode: 409});
       }
-      await savePaymentStatus(orderId, 'authorized', paymentId);
+      await savePaymentStatus(orderId, 'authorized', paymentId, payment.method);
       try{
         await razorpay.request('/payments/' + encodeURIComponent(paymentId) + '/capture', 'POST',
           keyId, keySecret, {amount: record.totalPaise, currency: record.currency});
@@ -86,7 +91,7 @@ exports.handler = async function(event){
     }
 
     if(payment.status === 'failed'){
-      await savePaymentStatus(orderId, 'failed', paymentId);
+      await savePaymentStatus(orderId, 'failed', paymentId, payment.method);
       return http.response(409, cors.headers, {
         verified: false,
         status: 'failed',
@@ -96,7 +101,8 @@ exports.handler = async function(event){
 
     if(payment.status !== 'captured' || order.status !== 'paid' ||
        order.amount_paid !== record.totalPaise || order.amount_due !== 0){
-      await savePaymentStatus(orderId, payment.status === 'authorized' ? 'authorized' : 'pending', paymentId);
+      await savePaymentStatus(orderId, payment.status === 'authorized' ? 'authorized' : 'pending',
+        paymentId, payment.method);
       return http.response(409, cors.headers, {
         verified: false,
         status: payment.status || order.status || 'pending',
@@ -104,7 +110,7 @@ exports.handler = async function(event){
       });
     }
 
-    const saved = await savePaymentStatus(orderId, 'captured', paymentId);
+    const saved = await savePaymentStatus(orderId, 'captured', paymentId, payment.method);
     const persisted = saved || await ordersStore.getByRazorpayOrderId(orderId);
     if(!persisted || persisted.paymentStatus !== 'captured' ||
        persisted.razorpayPaymentId !== paymentId){

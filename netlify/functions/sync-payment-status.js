@@ -64,7 +64,7 @@ exports.handler = async function(event){
       status = 'cancelled';
     }
 
-    const saved = await savePaymentStatus(orderId, status, paymentId);
+    const saved = await savePaymentStatus(orderId, status, paymentId, payment && payment.method);
     const finalStatus = saved ? saved.paymentStatus : (await ordersStore.getByRazorpayOrderId(orderId)).paymentStatus;
     const updatedRecord = saved || await ordersStore.getByRazorpayOrderId(orderId);
     return http.response(200, cors.headers, {

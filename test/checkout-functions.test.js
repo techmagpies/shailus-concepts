@@ -24,6 +24,7 @@ const SECRET = 'test-razorpay-secret-only';
 const ORDER_REF = 'SC-20261013-A1B2C3D4E5F60718293A4B5C';
 const CUSTOMER = {
   name: 'Test Customer',
+  email: 'customer@example.com',
   contact: 'customer@example.com',
   phone: '9704123499',
   address: '1 Test Street',
@@ -127,7 +128,8 @@ function razorpayPayment(overrides){
     amount: 9600,
     currency: 'INR',
     status: 'captured',
-    created_at: 1
+    created_at: 1,
+    method: 'card'
   }, overrides || {});
 }
 
@@ -150,6 +152,7 @@ function record(overrides){
     currency: 'INR',
     razorpayOrderId: 'order_test123',
     razorpayPaymentId: null,
+    paymentMethod: null,
     paymentStatus: 'pending',
     orderStatus: 'new',
     statusHistory: [{at: '2026-10-13T10:00:00.000Z', status: 'new', updatedBy: 'system'}]
@@ -297,6 +300,11 @@ test('create-order rejects invalid input/origins and does not create an order wh
     for(const items of [[{id: 'not-a-product', qty: 1}], [{id: '4', qty: 0}], [{id: '4', qty: 1.2}]]){
       assert.equal((await createOrder.handler(event({items: items, customer: CUSTOMER}))).statusCode, 400);
     }
+    const missingEmail = Object.assign({}, CUSTOMER);
+    delete missingEmail.email;
+    assert.equal((await createOrder.handler(event({
+      items: [{id: '4', qty: 1}], customer: missingEmail
+    }))).statusCode, 400);
     const blocked = await createOrder.handler(event({items: [{id: '4', qty: 1}], customer: CUSTOMER}, 'POST',
       {origin: 'https://unapproved.example'}));
     assert.equal(blocked.statusCode, 403);
@@ -343,7 +351,28 @@ test('verify-payment persists only the server-confirmed payment and rejects inva
     const result = JSON.parse(valid.body);
     assert.equal(result.verified, true);
     assert.equal(result.orderRef, ORDER_REF);
-    assert.equal((await ordersStore.getByRazorpayOrderId('order_test123')).paymentStatus, 'captured');
+    const saved = await ordersStore.getByRazorpayOrderId('order_test123');
+    assert.equal(saved.paymentStatus, 'captured');
+    assert.equal(saved.razorpayPaymentId, 'pay_test123');
+    assert.equal(saved.paymentMethod, 'card');
+
+    await setAdminEnvironment();
+    const login = await adminAuthFunction.handler(event({
+      action: 'login', email: 'owner@example.test', password: 'Test-Owner-Password-123'
+    }));
+    const listed = await adminOrders.handler(event(undefined, 'GET', cookieFrom(login)));
+    assert.equal(listed.statusCode, 200);
+    const adminOrder = JSON.parse(listed.body).orders[0];
+    assert.equal(adminOrder.customer.name, CUSTOMER.name);
+    assert.equal(adminOrder.customer.email, CUSTOMER.contact);
+    assert.equal(adminOrder.customer.phone, CUSTOMER.phone);
+    assert.equal(adminOrder.customer.address, CUSTOMER.address);
+    assert.equal(adminOrder.items[0].quantity, 1);
+    assert.equal(adminOrder.items[0].unitPricePaise, 12000);
+    assert.equal(adminOrder.totalPaise, 9600);
+    assert.equal(adminOrder.razorpayPaymentId, 'pay_test123');
+    assert.equal(adminOrder.paymentMethod, 'card');
+    assert.equal(adminOrder.paymentStatus, 'captured');
 
     resetStore();
     await seedOrder();
@@ -535,6 +564,7 @@ test('signed Razorpay webhooks reconcile payment status server-side and safely h
     const saved = await ordersStore.getByRazorpayOrderId('order_test123');
     assert.equal(saved.paymentStatus, 'captured');
     assert.equal(saved.razorpayPaymentId, 'pay_test123');
+    assert.equal(saved.paymentMethod, 'card');
     assert.equal(saved.paymentHistory.length, 1);
 
     resetStore();
@@ -697,6 +727,8 @@ test('staff can list/update allowed order statuses but cannot set payment status
   assert.equal(list.statusCode, 200);
   const listed = JSON.parse(list.body);
   assert.equal(listed.orders[0].customer.address, CUSTOMER.address);
+  assert.equal(listed.orders[0].customer.email, CUSTOMER.contact);
+  assert.equal(listed.orders[0].paymentMethod, null);
   const updated = await adminUpdateOrder.handler(event({
     orderRef: ORDER_REF,
     orderStatus: 'processing',

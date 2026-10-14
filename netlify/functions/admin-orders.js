@@ -16,9 +16,11 @@ function validDate(value){
 
 function matchesFilters(order, query){
   const search = String(query.search || '').trim().toLowerCase();
-  const contact = (order.customer.contact + ' ' + order.customer.phone).toLowerCase();
-  const date = order.createdAt.slice(0, 10);
-  return (!search || order.orderRef.toLowerCase().includes(search) || contact.includes(search)) &&
+  const customer = order.customer || {};
+  const searchable = [order.orderRef, customer.name, customer.email, customer.contact, customer.phone]
+    .filter(function(value){ return typeof value === 'string'; }).join(' ').toLowerCase();
+  const date = String(order.createdAt || '').slice(0, 10);
+  return (!search || searchable.includes(search)) &&
     (!query.dateFrom || date >= query.dateFrom) &&
     (!query.dateTo || date <= query.dateTo) &&
     (!query.paymentStatus || order.paymentStatus === query.paymentStatus) &&
@@ -43,10 +45,23 @@ exports.handler = async function(event){
        (query.search && query.search.length > 160)){
       return adminHttp.response(400, {error: 'One or more order filters are invalid.'});
     }
-    const orders = (await ordersStore.listOrders())
+    const storedOrders = await ordersStore.listOrders();
+    if(!Array.isArray(storedOrders)) throw new TypeError('Stored orders are invalid.');
+    const orders = storedOrders
       .filter(function(order){ return order && matchesFilters(order, query); })
       .sort(function(left, right){ return right.createdAt.localeCompare(left.createdAt); });
-    const limited = orders.slice(0, 300);
+    const completeOrders = orders.map(function(order){
+      const customer = order.customer || {};
+      const email = typeof customer.email === 'string' && customer.email
+        ? customer.email
+        : (typeof customer.contact === 'string' &&
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(customer.contact) ? customer.contact : '');
+      return Object.assign({}, order, {
+        customer: Object.assign({}, customer, {email: email}),
+        paymentMethod: typeof order.paymentMethod === 'string' ? order.paymentMethod : null
+      });
+    });
+    const limited = completeOrders.slice(0, 300);
     return adminHttp.response(200, {
       orders: limited,
       total: orders.length,

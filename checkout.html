@@ -755,7 +755,7 @@
         <a href="login.html" class="sign-in-link">Sign in</a>
       </div>
       <div class="field">
-        <input type="text" id="customerContact" placeholder="Email or mobile phone number" required>
+        <input type="email" id="customerContact" autocomplete="email" placeholder="Email address" required>
       </div>
       <div class="checkbox-row">
         <input type="checkbox" id="newsOffers">
@@ -1164,6 +1164,7 @@
         document.getElementById('customerFirstName').value.trim(),
         document.getElementById('customerLastName').value.trim()
       ].filter(Boolean).join(' '),
+      email: document.getElementById('customerContact').value.trim(),
       contact: document.getElementById('customerContact').value.trim(),
       phone: document.getElementById('customerPhone').value.trim(),
       address: [
@@ -1446,9 +1447,7 @@
     var contactValue = contact.value.trim();
     var isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactValue);
     contact.setCustomValidity(
-      isEmail || isIndianPhone(contactValue)
-        ? ''
-        : 'Enter a valid email address or Indian mobile number.'
+      isEmail ? '' : 'Enter a valid email address.'
     );
     if(!contact.validity.valid) valid = false;
 

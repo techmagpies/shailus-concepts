@@ -18,6 +18,10 @@ function normalizeCustomer(customer){
   }
   const name = requiredText(customer.name, 'Customer name', 120);
   const contact = requiredText(customer.contact, 'Customer contact', 254);
+  const email = requiredText(customer.email, 'Customer email', 254);
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    throw new TypeError('Customer email is invalid.');
+  }
   const phone = requiredText(customer.phone, 'Phone number', 32);
   const address = requiredText(customer.address, 'Delivery address', 256);
   const city = requiredText(customer.city, 'City', 100);
@@ -32,7 +36,7 @@ function normalizeCustomer(customer){
      !/^[6-9]\d{9}$/.test(contact.replace(/[\s()+-]/g, '').replace(/^91(?=\d{10}$)/, ''))){
     throw new TypeError('Customer contact must be a valid email or Indian mobile number.');
   }
-  return {name: name, contact: contact, phone: phone, address: address, city: city,
+  return {name: name, email: email, contact: contact, phone: phone, address: address, city: city,
     postalCode: postalCode, state: state, country: country};
 }
 
@@ -122,6 +126,7 @@ exports.handler = async function(event){
       currency: order.currency,
       razorpayOrderId: razorpayOrder.id,
       razorpayPaymentId: null,
+      paymentMethod: null,
       paymentStatus: 'pending',
       orderStatus: 'new',
       statusHistory: [{at: createdAt, status: 'new', updatedBy: 'system'}]

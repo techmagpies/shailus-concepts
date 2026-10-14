@@ -80,7 +80,7 @@ exports.handler = async function(event){
     } else {
       return {statusCode: 409, headers: {'Cache-Control': 'no-store'}, body: 'Payment status is not confirmed.'};
     }
-    await savePaymentStatus(payment.order_id, status, payment.id);
+    await savePaymentStatus(payment.order_id, status, payment.id, confirmedPayment.method);
     return {statusCode: 200, headers: {'Cache-Control': 'no-store'}, body: 'Payment status synchronized.'};
   } catch(error){
     if(error instanceof TypeError){

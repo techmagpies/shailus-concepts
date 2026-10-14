@@ -144,7 +144,11 @@
     try{
       const query = filterQuery();
       const result = await request('/.netlify/functions/admin-orders' + (query ? '?' + query : ''));
-      renderOrders(result.orders || []);
+      if(!Array.isArray(result.orders) || !Number.isSafeInteger(result.total) ||
+         typeof result.truncated !== 'boolean'){
+        throw new Error('The order service returned an invalid response. Refresh or contact support.');
+      }
+      renderOrders(result.orders);
       document.getElementById('truncatedMessage').hidden = !result.truncated;
       setMessage(dashboardMessage, '', true);
     } catch(error){
@@ -177,14 +181,16 @@
     [
       ['Created', formatDate(order.createdAt)],
       ['Customer', order.customer.name],
-      ['Email / contact', order.customer.contact],
+      ['Email', order.customer.email || 'Not provided'],
+      ['Contact', order.customer.contact],
       ['Phone', order.customer.phone],
       ['Delivery address', [order.customer.address, order.customer.city, order.customer.state,
         order.customer.postalCode, order.customer.country].filter(Boolean).join(', ')],
       ['Payment status', order.paymentStatus],
       ['Order status', order.orderStatus],
       ['Razorpay order ID', order.razorpayOrderId],
-      ['Razorpay payment ID', order.razorpayPaymentId || 'Not available']
+      ['Razorpay payment ID', order.razorpayPaymentId || 'Not available'],
+      ['Payment method', order.paymentMethod || 'Not available']
     ].forEach(function(field){ addField(overviewGrid, field[0], field[1]); });
     overview.append(overviewGrid);
 
