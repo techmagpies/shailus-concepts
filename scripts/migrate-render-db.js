@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const {Pool} = require('pg');
+const {logError} = require('./log-safe-error');
 
 async function applySchema(database){
   const schema = fs.readFileSync(path.join(__dirname, '..', 'migrations', '001_render_storage.sql'), 'utf8');
@@ -22,7 +23,7 @@ async function main(){
 
 if(require.main === module){
   main().catch(function(error){
-    console.error('Render database migration failed:', error && error.name || 'Error');
+    logError('Render database migration failed', error);
     process.exitCode = 1;
   });
 }

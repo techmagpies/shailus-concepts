@@ -4,6 +4,7 @@ const express = require('express');
 const ordersStore = require('./netlify/lib/orders-store');
 const postgresStore = require('./netlify/lib/render-postgres-store');
 const {applySchema} = require('./scripts/migrate-render-db');
+const {logError} = require('./scripts/log-safe-error');
 
 const handlers = {
   'admin-auth': require('./netlify/functions/admin-auth'),
@@ -137,13 +138,17 @@ function createApp(options){
 }
 
 async function start(){
-  if(!process.env.DATABASE_URL) throw new Error('DATABASE_URL is required.');
+  const port = validateStartupConfig(process.env);
   ordersStore.setStoreProvider(function(){ return postgresStore.store; });
-  await applySchema(postgresStore.pool);
-  await postgresStore.healthCheck();
-  const port = Number(process.env.PORT);
-  if(!Number.isInteger(port) || port < 1 || port > 65535){
-    throw new Error('Render PORT is invalid.');
+  try{
+    await applySchema(postgresStore.pool);
+  } catch(error){
+    throw new Error('PostgreSQL schema initialization failed.', {cause: error});
+  }
+  try{
+    await postgresStore.healthCheck();
+  } catch(error){
+    throw new Error('PostgreSQL connectivity check failed after schema initialization.', {cause: error});
   }
   const server = createApp({healthCheck: postgresStore.healthCheck}).listen(port, function(){
     console.log('Render API listening on port ' + port + '.');
@@ -161,9 +166,33 @@ async function start(){
   return server;
 }
 
+function validateStartupConfig(environment){
+  const config = environment || process.env;
+  const databaseUrl = config.DATABASE_URL;
+  if(typeof databaseUrl !== 'string' || databaseUrl.trim() === ''){
+    throw new Error('DATABASE_URL is required for persistent order and admin storage.');
+  }
+  let parsedDatabaseUrl;
+  try{
+    parsedDatabaseUrl = new URL(databaseUrl);
+  } catch(error){
+    throw new Error('DATABASE_URL must be a valid PostgreSQL connection URL.');
+  }
+  if(!['postgres:', 'postgresql:'].includes(parsedDatabaseUrl.protocol) ||
+     !parsedDatabaseUrl.hostname){
+    throw new Error('DATABASE_URL must use the PostgreSQL protocol and include a host.');
+  }
+
+  const port = Number(config.PORT);
+  if(!Number.isInteger(port) || port < 1 || port > 65535){
+    throw new Error('PORT must be an integer from 1 through 65535; Render provides this value.');
+  }
+  return port;
+}
+
 if(require.main === module){
   start().catch(function(error){
-    console.error('Render API startup failed:', error && error.name || 'Error');
+    logError('Render API startup failed', error);
     process.exitCode = 1;
   });
 }
@@ -171,5 +200,6 @@ if(require.main === module){
 module.exports = {
   createApp: createApp,
   start: start,
+  validateStartupConfig: validateStartupConfig,
   routes: routes
 };

@@ -8,7 +8,8 @@ const path = require('node:path');
 const vm = require('node:vm');
 const {newDb, DataType} = require('pg-mem');
 const YAML = require('yaml');
-const {createApp, routes} = require('../render-server');
+const {createApp, routes, validateStartupConfig} = require('../render-server');
+const {formatError} = require('../scripts/log-safe-error');
 const postgresStore = require('../netlify/lib/render-postgres-store');
 const {applySchema} = require('../scripts/migrate-render-db');
 const {exportStore, assertPrivateOutputPath} = require('../scripts/export-netlify-blobs');
@@ -276,6 +277,36 @@ test('Render health endpoint reports availability and database failures', async 
   } finally{
     await close(unhealthy.server);
   }
+});
+
+test('Render startup validates required database and Render port configuration', function(){
+  assert.throws(function(){
+    validateStartupConfig({PORT: '10000'});
+  }, /DATABASE_URL is required/);
+  assert.throws(function(){
+    validateStartupConfig({DATABASE_URL: 'https://database.example', PORT: '10000'});
+  }, /PostgreSQL protocol/);
+  assert.throws(function(){
+    validateStartupConfig({DATABASE_URL: 'postgres://user:password@db.example/orders', PORT: '0'});
+  }, /PORT must be an integer/);
+  assert.equal(validateStartupConfig({
+    DATABASE_URL: 'postgres://user:password@db.example/orders',
+    PORT: '10000'
+  }), 10000);
+});
+
+test('Startup error diagnostics include stacks and redact configured secrets', function(){
+  const error = new Error('Connection to postgres://dbuser:dbpassword@database.example/orders failed');
+  const log = formatError(error, {
+    ADMIN_SESSION_SECRET: 'session-secret-value',
+    ADMIN_USERS_JSON: '[{"passwordHash":"private-hash"}]',
+    RAZORPAY_KEY_SECRET: 'razorpay-secret-value',
+    RAZORPAY_WEBHOOK_SECRET: 'webhook-secret-value'
+  });
+  assert.match(log, /Connection to postgres:\/\/\[REDACTED\]@database\.example\/orders failed/);
+  assert.match(log, /render-migration\.test\.js/);
+  assert.doesNotMatch(log, /dbpassword|session-secret-value|private-hash|razorpay-secret-value|webhook-secret-value/);
+  assert.match(formatError(new Error('cause message'), {}).split('\n')[0], /cause message/);
 });
 
 test('Render API preserves secure host-only SameSite=Strict admin cookies', async function(){
