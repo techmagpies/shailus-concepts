@@ -39,7 +39,8 @@ function initializeGallery() {
         "water-bottles": ["water-bottle"],
         "corporate-gifts": ["corporate-gifts"],
         "meenakari": ["meenakarri", "meenakari-gifts"],
-        "pichwai-items": []
+        "pichwai": ["pichwai"],
+        "pichwai-items": ["pichwai"]
     };
     const aliasHeadings = {
         "brass-return-gifts": "Brass Return Gifts",
@@ -48,32 +49,9 @@ function initializeGallery() {
         "water-bottles": "Water Bottles",
         "crockery-return-gifts": "Crockery Return Gifts",
         "meenakari": "Meenakari",
-        "pichwai-items": "Pichwai Items"
+        "pichwai": "Pichwai",
+        "pichwai-items": "Pichwai"
     };
-    const crockeryImages = {
-        1: ["assets/crockery id1-a.jpeg", "assets/crockery id1-b.png"],
-        2: ["assets/crockery id2-a.jpeg", "assets/crockery id2-b.png", "assets/crockery id2-c.png", "assets/crockery id2-d.png"],
-        3: ["assets/crockery id3.jpeg"],
-        4: ["assets/crockery id4.png"],
-        5: ["assets/crockery id5.png"],
-        6: ["assets/crockery id6.jpg"],
-        7: ["assets/crockery id7.jpg"],
-        8: ["assets/crockery id8-a.jpg"],
-        9: ["assets/crockery id9-a.jpg", "assets/crockery id9-b.jpg"],
-        10: ["assets/crockery id10.jpg"],
-        11: ["assets/crockery id11.jpg"],
-        12: ["assets/crockery id12.jpg"],
-        13: ["assets/crockery id13.jpeg"],
-        14: ["assets/crockery id14.png"],
-        15: ["assets/crockery id15-a.png", "assets/crockery id15-b.png"],
-        16: ["assets/crockery id16.png"],
-        17: ["assets/crockery id17.png"],
-        18: ["assets/crockery id18.png"],
-        19: ["assets/crockery id19.png"],
-        21: ["assets/crockery id21.png"],
-        22: ["assets/crockery id22.png"]
-    };
-
     function categorySlug(value) {
         return String(value || "").trim().toLowerCase()
             .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -107,50 +85,6 @@ function initializeGallery() {
 
     categoryHeading.textContent = heading;
     document.title = heading + " | Shailu's Concepts";
-    if (requestedSlug === "crockery-return-gifts") {
-        const imageSection = document.createElement("section");
-        imageSection.className = "crockery-image-section";
-        imageSection.setAttribute("aria-labelledby", "crockeryImagesHeading");
-        imageSection.innerHTML = '<h2 id="crockeryImagesHeading">Crockery Images</h2>' +
-            '<div class="crockery-image-grid">' +
-            Object.entries(crockeryImages).map(([id, images]) =>
-                '<article class="crockery-image-card" data-image-id="' + id + '">' +
-                '<div class="crockery-image-main"><img src="' + escapeGalleryHtml(images[0]) +
-                '" alt="Crockery ID ' + id + '" loading="lazy"></div>' +
-                '<h3>Crockery ID ' + id + '</h3>' +
-                (images.length > 1
-                    ? '<div class="crockery-image-thumbnails" aria-label="More images for Crockery ID ' + id + '">' +
-                      images.map((image, index) =>
-                          '<button type="button" class="' + (index === 0 ? "active" : "") +
-                          '" data-image-index="' + index + '" aria-label="Show image ' + (index + 1) +
-                          ' for Crockery ID ' + id + '"' + (index === 0 ? ' aria-pressed="true"' : ' aria-pressed="false"') + '>' +
-                          '<img src="' + escapeGalleryHtml(image) + '" alt="" loading="lazy"></button>'
-                      ).join("") + '</div>'
-                    : '') +
-                '</article>'
-            ).join("") + '</div>';
-        galleryGrid.before(imageSection);
-        const productsHeading = document.createElement("h2");
-        productsHeading.className = "crockery-products-heading";
-        productsHeading.textContent = "Crockery Products";
-        galleryGrid.before(productsHeading);
-        imageSection.addEventListener("click", function(event) {
-            const button = event.target.closest("button[data-image-index]");
-            if (!button) return;
-            const card = button.closest(".crockery-image-card");
-            const images = crockeryImages[card.dataset.imageId];
-            const image = card.querySelector(".crockery-image-main img");
-            const index = Number(button.dataset.imageIndex);
-            image.src = images[index];
-            image.alt = "Crockery ID " + card.dataset.imageId + ", image " + (index + 1);
-            card.querySelectorAll(".crockery-image-thumbnails button").forEach(function(thumbnail, thumbnailIndex) {
-                const active = thumbnailIndex === index;
-                thumbnail.classList.toggle("active", active);
-                thumbnail.setAttribute("aria-pressed", String(active));
-            });
-        });
-    }
-
     let searchText = "";
     let renderVersion = 0;
 
@@ -173,7 +107,10 @@ function initializeGallery() {
                         ? '<img src="' + escapeGalleryHtml(image) + '" alt="' + escapeGalleryHtml(product.name) + '" loading="lazy">'
                         : '<span class="image-empty">Image unavailable</span>') +
                     '</div><div class="gallery-info"><span class="gallery-category">' +
-                    escapeGalleryHtml(product.category) + '</span><h2>' +
+                    escapeGalleryHtml(product.category) + '</span>' +
+                    (product.priceProvisional === true
+                        ? '<span class="provisional-price-note">Provisional price</span>'
+                        : '') + '<h2>' +
                     escapeGalleryHtml(product.name) + '</h2><p>' +
                     (price === null ? "Price unavailable" : "₹" + price.toFixed(2)) +
                     '</p></div></a><div class="gallery-actions">' +

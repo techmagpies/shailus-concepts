@@ -56,7 +56,7 @@ function calculateOrder(items, products){
     };
   });
 
-  const discountPercentage = combinedQuantity <= 30 ? 20 : (combinedQuantity > 50 ? 30 : 0);
+  const discountPercentage = combinedQuantity <= 30 ? 0 : (combinedQuantity > 50 ? 30 : 20);
   let subtotalPaise = 0;
   let totalPaise = 0;
   orderItems.forEach(function(item){

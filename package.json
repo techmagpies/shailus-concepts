@@ -6,9 +6,19 @@
   },
   "scripts": {
     "test": "node --test",
-    "admin:hash-password": "node scripts/hash-admin-password.js"
+    "admin:hash-password": "node scripts/hash-admin-password.js",
+    "start": "node render-server.js",
+    "db:migrate": "node scripts/migrate-render-db.js",
+    "db:export-netlify": "node scripts/export-netlify-blobs.js",
+    "db:import-netlify": "node scripts/import-netlify-blobs.js"
   },
   "dependencies": {
-    "@netlify/blobs": "^11.1.4"
+    "@netlify/blobs": "^11.1.4",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "pg-mem": "^3.0.14",
+    "yaml": "^2.9.1"
   }
 }

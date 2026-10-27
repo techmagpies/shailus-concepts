@@ -346,6 +346,9 @@
     margin-bottom:3px; white-space:normal; overflow-wrap:anywhere;
   }
   .cart-item-info .ci-price{ display:block; color:var(--deep-green); font-size:11px; line-height:1.4; font-weight:500; overflow-wrap:anywhere; }
+  .cart-item-info .ci-price s{ color:#777; margin-right:4px; }
+  .cart-item-info .ci-price strong{ font-weight:700; }
+  .cart-item-info .bulk-discount-label{ color:#21643c; font-weight:700; }
 
   .cart-item-actions{ grid-column:2; display:flex; align-items:center; justify-content:space-between; gap:10px; }
   .cart-qty{ display:flex; align-items:center; gap:8px; }
@@ -1141,7 +1144,10 @@
     const badgeMarkup = product.badge
       ? '<p class="availability">' + escapeHtml(product.badge) + '</p>' : '';
     const priceMarkup = info.price === null ? '' :
-      '<div class="price-block"><div class="price">' + formatPrice(info.price) + '</div></div>';
+      '<div class="price-block"><div class="price">' + formatPrice(info.price) + '</div>' +
+        (product.priceProvisional === true
+          ? '<p class="availability">Provisional price — confirm before ordering</p>'
+          : '') + '</div>';
     const descriptionMarkup =
       '<div class="description-panel"><strong>Description:</strong> ' +
         (info.description ? escapeHtml(info.description) : '<span class="spec-empty-text">—</span>') + '</div>' +
@@ -1254,7 +1260,19 @@
       return candidate && String(candidate.id) !== String(product.id) &&
         candidate.name && matches.indexOf(candidate) === index;
     });
-    const matches = (openedFromNewCollections
+    const productNineMatches = productCatalog.filter(function(candidate){
+      if(String(candidate.id) === '9' || !candidate.name) return false;
+      const category = String(candidate.category || '');
+      const material = String(candidate.material || '');
+      const isBrass = /brass/i.test(category) ||
+        (/brass/i.test(material) && !/whichever is actually used/i.test(material));
+      const isTraditionalGift = /^(traditional gifts|pooja & devotional gifts)$/i.test(category) &&
+        /box|kumkum|pooja|devotional|idol/i.test(candidate.name);
+      return isBrass || isTraditionalGift;
+    }).slice(0, 8);
+    const matches = String(product.id) === '9'
+      ? productNineMatches
+      : (openedFromNewCollections
       ? productCatalog.filter(function(candidate){
           return candidate.newArrival === true;
         })
@@ -1329,8 +1347,15 @@
             ? '<img src="' + escapeHtml(item.img) + '" alt="' + escapeHtml(item.name) + '" loading="lazy">'
             : '<div class="cart-item-image-missing" role="img" aria-label="Image unavailable for ' + escapeHtml(item.name) + '">Image unavailable</div>') +
           '<div class="cart-item-info"><h4>' + escapeHtml(item.name) + '</h4>' +
-          '<div class="ci-price">Qty: ' + pricing.quantity + ' × ' + formatPrice(pricing.originalUnitPrice) + '</div>' +
-          '<div class="ci-price">Discount: ' + pricing.discountPercentage + '% · Unit: ' + formatPrice(pricing.discountedUnitPrice) + ' · Total: ' + formatPrice(pricing.lineTotal) + '</div></div>' +
+            '<div class="ci-price">Unit price: ' +
+              (pricing.discountPercentage
+                ? '<s>' + formatPrice(pricing.originalUnitPrice) + '</s><strong>' + formatPrice(pricing.discountedUnitPrice) + '</strong> each'
+                : '<strong>' + formatPrice(pricing.originalUnitPrice) + '</strong> each') + '</div>' +
+            '<div class="ci-price">' +
+              (pricing.discountPercentage
+                ? '<span class="bulk-discount-label">Bulk discount: ' + pricing.discountPercentage + '% off</span>'
+                : 'No bulk discount') +
+              ' · Qty: ' + pricing.quantity + ' · Line total: <strong>' + formatPrice(pricing.lineTotal) + '</strong></div></div>' +
           '<div class="cart-item-actions"><div class="cart-qty">' +
           '<button type="button" onclick="changeCartQty(\'' + escapeHtml(item.id) + '\', -1)" aria-label="Decrease ' + escapeHtml(item.name) + ' quantity">−</button>' +
           '<span>' + (Number(item.qty) || 0) + '</span>' +

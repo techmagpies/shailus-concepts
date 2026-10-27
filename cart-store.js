@@ -30,9 +30,9 @@
     const originalUnitPrice = getPrice(product);
     if(originalUnitPrice === null || !Number.isSafeInteger(quantity) || quantity < 1) return null;
     const combinedQuantity = items === undefined ? quantity : count(items);
-    const discountPercentage = combinedQuantity >= 1 && combinedQuantity <= 30
-      ? 20
-      : (combinedQuantity > 50 ? 30 : 0);
+    const discountPercentage = combinedQuantity <= 30
+      ? 0
+      : (combinedQuantity > 50 ? 30 : 20);
     const discountedUnitPrice = roundMoney(originalUnitPrice * (1 - discountPercentage / 100));
     return {
       originalUnitPrice: originalUnitPrice,

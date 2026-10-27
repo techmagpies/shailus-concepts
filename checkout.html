@@ -951,6 +951,7 @@
 </footer>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="api-config.js"></script>
 <script src="products-data.js"></script>
 <script src="cart-store.js"></script>
 <script>
@@ -1086,7 +1087,13 @@
           (item.img ? '<img src="' + escapeCheckoutText(item.img) + '" alt="' + escapeCheckoutText(item.name) + '">' : '') +
           '<span class="order-item-qty">' + item.qty + '</span></div>' +
           '<div class="order-item-info"><h4>' + escapeCheckoutText(item.name) + '</h4>' +
-          '<div>₹' + pricing.discountedUnitPrice.toFixed(2) + ' per piece</div></div>' +
+          '<div>' +
+            (pricing.discountPercentage
+              ? '<s>₹' + pricing.originalUnitPrice.toFixed(2) + '</s> <strong>₹' +
+                pricing.discountedUnitPrice.toFixed(2) + '</strong> per piece · ' +
+                pricing.discountPercentage + '% off'
+              : '<strong>₹' + pricing.originalUnitPrice.toFixed(2) +
+                '</strong> per piece · No bulk discount') + '</div></div>' +
           '<div class="order-item-price">Line total: ₹' + pricing.lineTotal.toFixed(2) + '</div></div>';
       }).join('');
       whatsappButton.disabled = false;
@@ -1179,7 +1186,7 @@
   }
 
   async function postPaymentFunction(name, payload){
-    var response = await fetch('/.netlify/functions/' + name, {
+    var response = await fetch(window.ShailusApi.url(name), {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)

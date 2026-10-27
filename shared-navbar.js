@@ -6,11 +6,13 @@
 
   var categories = [
     ['Brass return gifts', 'brass-return-gifts'],
+    ['Pichwai Products', 'pichwai-items'],
     ['Kids Gifts', 'kids-gifts'],
     ['Wooden Trays & Boxes', 'wooden-trays-boxes'],
     ['Home Decor & Gifts', 'home-decor-gifts'],
     ['Crockery Return Gifts', 'crockery-return-gifts'],
     ['German Silver', 'german-silver'],
+    ['Meenakari', 'meenakari'],
     ['Kondapalli Bommalu', 'kondapalli-bommalu'],
     ['Traditional Gifts', 'traditional-gifts'],
     ['Return Gifts', 'return-gifts'],

@@ -27,85 +27,6 @@ body {
     text-align: center;
 }
 
-.crockery-image-section {
-    margin: 0 0 36px;
-}
-
-.crockery-image-section > h2,
-.crockery-products-heading {
-    margin: 28px 0 16px;
-    color: var(--gallery-green);
-    font: 700 clamp(20px, 3vw, 26px)/1.25 'Playfair Display', Georgia, serif;
-    text-align: center;
-}
-
-.crockery-image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
-    gap: 18px;
-}
-
-.crockery-image-card {
-    min-width: 0;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid rgba(201, 164, 85, .2);
-    border-radius: 12px;
-    box-shadow: 0 7px 20px rgba(13, 51, 40, .08);
-}
-
-.crockery-image-main {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background: var(--gallery-cream);
-    border-radius: 8px;
-}
-
-.crockery-image-main img,
-.crockery-image-thumbnails img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.crockery-image-card h3 {
-    margin: 10px 0;
-    color: var(--gallery-green);
-    font: 700 15px/1.3 'Playfair Display', Georgia, serif;
-    text-align: center;
-}
-
-.crockery-image-thumbnails {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 2px 2px 6px;
-}
-
-.crockery-image-thumbnails button {
-    flex: 0 0 52px;
-    width: 52px;
-    height: 52px;
-    padding: 2px;
-    overflow: hidden;
-    background: #fff;
-    border: 1px solid rgba(201, 164, 85, .35);
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.crockery-image-thumbnails button.active {
-    border: 2px solid var(--gallery-gold);
-}
-
-.crockery-image-thumbnails button:focus-visible {
-    outline: 2px solid var(--gallery-green);
-    outline-offset: 2px;
-}
-
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
@@ -179,6 +100,13 @@ body {
     color: var(--gallery-gold);
     font-size: 11px;
     font-weight: 600;
+}
+
+.gallery-info .provisional-price-note {
+    margin: 3px 0 0;
+    color: #6a6251;
+    font-size: 11px;
+    font-weight: 500;
 }
 
 .gallery-info h2 {

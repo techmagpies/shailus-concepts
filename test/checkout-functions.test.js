@@ -194,10 +194,10 @@ test('product 4 uses the supplied local image and one canonical product name', f
 test('combined-quantity discount boundaries and multiple products use one shared rate', function(){
   const products = [{productId: 1, name: 'A', price: 100}, {productId: 2, name: 'B', price: 100}];
   const cases = [
-    {quantity: 1, discount: 20, unit: 8000},
-    {quantity: 30, discount: 20, unit: 8000},
-    {quantity: 31, discount: 0, unit: 10000},
-    {quantity: 50, discount: 0, unit: 10000},
+    {quantity: 1, discount: 0, unit: 10000},
+    {quantity: 30, discount: 0, unit: 10000},
+    {quantity: 31, discount: 20, unit: 8000},
+    {quantity: 50, discount: 20, unit: 8000},
     {quantity: 51, discount: 30, unit: 7000}
   ];
   cases.forEach(function(entry){
@@ -206,8 +206,8 @@ test('combined-quantity discount boundaries and multiple products use one shared
     assert.equal(order.items[0].discountedUnitPricePaise, entry.unit);
   });
   const combined35 = checkoutService.calculateOrder([{id: '1', qty: 20}, {id: '2', qty: 15}], products);
-  assert.equal(combined35.discountPercentage, 0);
-  assert.deepEqual(combined35.items.map(function(item){ return item.discountedUnitPricePaise; }), [10000, 10000]);
+  assert.equal(combined35.discountPercentage, 20);
+  assert.deepEqual(combined35.items.map(function(item){ return item.discountedUnitPricePaise; }), [8000, 8000]);
   const combined55 = checkoutService.calculateOrder([{id: '1', qty: 30}, {id: '2', qty: 25}], products);
   assert.equal(combined55.discountPercentage, 30);
   assert.deepEqual(combined55.items.map(function(item){ return item.discountedUnitPricePaise; }), [7000, 7000]);
@@ -261,13 +261,13 @@ test('create-order persists trusted product and customer snapshots before return
     }));
     assert.equal(result.statusCode, 200);
     const body = JSON.parse(result.body);
-    assert.equal(body.amount, 9600);
-    assert.equal(body.quote.discountPercentage, 20);
+    assert.equal(body.amount, 12000);
+    assert.equal(body.quote.discountPercentage, 0);
     assert.equal(body.orderRef, request.body.receipt);
     assert.match(body.orderRef, /^SC-\d{8}-[A-F\d]{24}$/);
     assert.equal(body.keyId, process.env.RAZORPAY_KEY_ID);
     assert.equal(JSON.stringify(body).includes(SECRET), false);
-    assert.equal(request.body.amount, 9600);
+    assert.equal(request.body.amount, 12000);
     assert.equal(request.body.currency, 'INR');
     assert.deepEqual(Object.keys(request.body.notes).sort(),
       ['combined_quantity', 'discount_percentage', 'order_reference', 'source']);
@@ -276,7 +276,7 @@ test('create-order persists trusted product and customer snapshots before return
     assert.equal(saved.orderStatus, 'new');
     assert.equal(saved.items[0].name, 'Elegant Red Vacuum Water Bottle');
     assert.equal(saved.items[0].unitPricePaise, 12000);
-    assert.equal(saved.items[0].discountedUnitPricePaise, 9600);
+    assert.equal(saved.items[0].discountedUnitPricePaise, 12000);
     assert.deepEqual(saved.customer, CUSTOMER);
   } finally{
     global.fetch = previousFetch;

@@ -4,3 +4,5 @@
 .netlify/
 node_modules/
 *.bak
+orders-snapshot*.enc.json
+netlify-blobs-snapshot*.enc.json

@@ -42,7 +42,10 @@
   @media (max-width: 700px){ .side-rail{ display:none; } }
 
   /* ============ HERO ============ */
-  .hero{ position: relative; height:clamp(360px,44vw,620px); min-height:360px; overflow: hidden; }
+  .hero{
+    position: relative; display:block; width:100%; max-width:none; height:clamp(360px,44vw,620px);
+    min-height:360px; margin:0; padding:0; border:0; overflow:hidden;
+  }
   .hero-image-col{
     position: absolute; inset: 0; width: 100%; height: 100%; overflow:hidden;
     background:var(--deep-green); isolation:isolate;
@@ -53,7 +56,8 @@
     filter:blur(22px); opacity:.72; transform:scale(1.04);
   }
   .hero-image-col img{
-    position: absolute; top: 0; left: 0; z-index:0; width: 100%; height: 100%; object-fit: contain;
+    position: absolute; top: 0; left: 0; z-index:0; width: 100%; height: 100%;
+    object-fit:cover; object-position:center;
     opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility .8s ease;
   }
   .hero-image-col img.active{ opacity: 1; visibility: visible; }
@@ -518,6 +522,9 @@
   .cart-item-info{ grid-column:2; min-width:0; }
   .cart-item-info h4{ font-size:13px; color:var(--deep-green); font-weight:700; margin-bottom:3px; white-space:normal; overflow-wrap:anywhere; }
   .cart-item-info .ci-price{ display:block; color:var(--deep-green); font-size:11px; line-height:1.4; font-weight:500; overflow-wrap:anywhere; }
+  .cart-item-info .ci-price s{ color:#777; margin-right:4px; }
+  .cart-item-info .ci-price strong{ font-weight:700; }
+  .cart-item-info .bulk-discount-label{ color:#21643c; font-weight:700; }
   .cart-item-actions{ grid-column:2; display:flex; align-items:center; justify-content:space-between; gap:10px; }
   .cart-qty{ display:flex; align-items:center; gap:8px; }
   .cart-qty button{ width:22px; height:22px; border-radius:50%; border:1px solid var(--deep-green); background:none; color: var(--deep-green); cursor:pointer; font-size:13px; display:flex; align-items:center; justify-content:center; line-height:1; }
@@ -746,6 +753,8 @@
   .sc-card .ph{ height:230px; overflow:hidden; }
   .sc-card .ph img{ width:100%; height:100%; object-fit:cover; display:block; }
   .sc-card h3{ font-family:'Playfair Display', Georgia, serif; font-size:16px; color: var(--deep-green); padding:16px 14px 20px; }
+  .sc-card .sc-price{ margin:-12px 14px 4px; color:var(--gold); font-weight:700; }
+  .sc-card .sc-price-note{ margin:0 14px 14px; color:#6a6251; font-size:11px; }
   .sc-empty{ grid-column:1 / -1; color:#777; font-size:15px; padding:30px 0; }
   .sc-more{ margin-top:34px; }
   .sc-more:empty{ display:none; }
@@ -775,8 +784,49 @@
     .duo-card{ height:260px; }
   }
 
-  /* ============ VIDEO CAROUSEL (replaces testimonials; all classes prefixed vc-) ============ */
-  .vc-section{ background:var(--header-cream); padding:20px 20px 70px; text-align:center; }
+  /* ============ CUSTOMER REVIEWS ============ */
+  .vc-section{ background:var(--header-cream); padding:44px 20px 70px; text-align:center; }
+  .google-reviews{ max-width:1240px; margin:0 auto; text-align:left; }
+  .google-reviews-summary{
+    display:flex; align-items:center; justify-content:space-between; gap:24px;
+    padding:24px 28px; border:1px solid #e5e7eb; border-radius:14px; background:#fff;
+    box-shadow:0 8px 24px rgba(13,51,40,.07);
+  }
+  .google-reviews-brand{ display:flex; align-items:center; gap:14px; }
+  .google-mark{
+    display:flex; align-items:center; justify-content:center; width:46px; height:46px;
+    border-radius:50%; background:#f2f5f9; color:#4285f4; font:700 30px Arial,sans-serif;
+  }
+  .google-reviews-name{ color:#202124; font-size:18px; font-weight:700; }
+  .google-reviews-meta{ margin-top:4px; color:#5f6368; font-size:13px; }
+  .google-reviews-score{ display:flex; align-items:center; gap:10px; color:#202124; }
+  .google-reviews-score strong{ font-size:32px; font-weight:500; }
+  .google-stars{ color:#fbbc04; font-size:22px; letter-spacing:1px; white-space:nowrap; }
+  .google-reviews-count{ color:#5f6368; font-size:14px; }
+  .google-review-link{
+    flex:0 0 auto; padding:11px 18px; border:1px solid #dadce0; border-radius:6px;
+    color:#1a73e8; background:#fff; text-decoration:none; font-size:14px; font-weight:600;
+    transition:background .2s ease, box-shadow .2s ease;
+  }
+  .google-review-link:hover{ background:#f8faff; box-shadow:0 2px 7px rgba(60,64,67,.2); }
+  .google-review-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin-top:20px; }
+  .google-review-card{
+    min-width:0; padding:22px; border:1px solid #e5e7eb; border-radius:12px;
+    background:#fff; box-shadow:0 6px 18px rgba(13,51,40,.05);
+  }
+  .google-review-author{ display:flex; align-items:center; gap:12px; }
+  .google-review-avatar{
+    display:flex; align-items:center; justify-content:center; flex:0 0 42px; height:42px;
+    border-radius:50%; background:#e8f0fe; color:#1a73e8; font-size:15px; font-weight:700;
+  }
+  .google-review-card:nth-child(2) .google-review-avatar{ background:#e6f4ea; color:#188038; }
+  .google-review-card:nth-child(3) .google-review-avatar{ background:#fce8e6; color:#d93025; }
+  .google-review-author strong{ display:block; color:#202124; font-size:14px; }
+  .google-review-age{ display:block; margin-top:3px; color:#70757a; font-size:12px; }
+  .google-review-stars{ margin-top:15px; color:#fbbc04; font-size:16px; letter-spacing:1px; }
+  .google-review-card p{ margin-top:10px; color:#3c4043; font-size:14px; line-height:1.65; }
+  .google-reviews-note{ margin:14px 0 0; color:#70757a; font-size:12px; text-align:right; }
+  .vc-section > .section-heading{ margin-bottom:30px; }
   .vc-wrap{
     position:relative; max-width:1240px; margin:40px auto 0; min-height:560px;
     display:flex; align-items:center; justify-content:center;
@@ -860,7 +910,10 @@
   .vc-dot.active{ background:var(--deep-green); }
   @media (max-width:900px){
     .vc-side{ display:none; }
-    .vc-section{ padding:20px 0 56px; }
+    .vc-section{ padding:36px 16px 56px; }
+    .google-reviews-summary{ flex-wrap:wrap; padding:20px; }
+    .google-review-grid{ grid-template-columns:1fr; gap:12px; }
+    .google-review-card{ padding:18px; }
     .vc-wrap{ min-height:0; margin-top:28px; }
     .vc-viewport{ padding:4px 0; }
     .vc-track{ width:100%; justify-content:center; gap:0; }
@@ -913,10 +966,22 @@
   </div>
 
   <div class="hero-image-col">
-    <img src="assets/res hero1.webp" alt="Shailu's Concepts hero slide 1" class="active" data-slide="0">
-    <img src="assets/res hero2.webp" alt="Shailu's Concepts hero slide 2" data-slide="1">
-    <img src="assets/res hero3.webp" alt="Shailu's Concepts hero slide 3" data-slide="2">
-    <img src="assets/hero respo4.png" alt="Shailu's Concepts hero slide 4" data-slide="3">
+    <picture>
+      <source media="(min-width: 481px)" srcset="assets/3hero1.png">
+      <img src="assets/res hero1.webp" alt="Shailu's Concepts hero slide 1" class="active" data-slide="0">
+    </picture>
+    <picture>
+      <source media="(min-width: 481px)" srcset="assets/2hroe2.png">
+      <img src="assets/res hero2.webp" alt="Shailu's Concepts hero slide 2" data-slide="1">
+    </picture>
+    <picture>
+      <source media="(min-width: 481px)" srcset="assets/3hero3.png">
+      <img src="assets/res hero3.webp" alt="Shailu's Concepts hero slide 3" data-slide="2">
+    </picture>
+    <picture>
+      <source media="(min-width: 481px)" srcset="assets/1hero4.png">
+      <img src="assets/hero respo4.png" alt="Shailu's Concepts hero slide 4" data-slide="3">
+    </picture>
   </div>
 
   <button class="hero-arrow prev" aria-label="Previous slide" onclick="heroPrev()">&#10094;</button>
@@ -992,6 +1057,67 @@
   <div class="sc-grid" aria-live="polite"></div>
   <div class="sc-more"></div>
 </section>
+<!-- ============ GOOGLE CUSTOMER REVIEWS ============ -->
+<section class="vc-section" id="videoCarousel" aria-labelledby="vcHeading">
+  <div class="section-heading">
+    <h2 id="vcHeading">What Our Customers Say</h2>
+    <div class="section-underline"></div>
+  </div>
+
+  <div class="google-reviews" aria-label="Google customer reviews">
+    <div class="google-reviews-summary">
+      <div class="google-reviews-brand">
+        <span class="google-mark" aria-hidden="true">G</span>
+        <div>
+          <div class="google-reviews-name">Shailu's Concepts</div>
+          <div class="google-reviews-meta">Customer reviews on Google</div>
+        </div>
+      </div>
+      <div class="google-reviews-score" aria-label="Rated 4.9 out of 5 from 35 reviews">
+        <strong>4.9</strong><span class="google-stars" aria-hidden="true">★★★★★</span>
+        <span class="google-reviews-count">35 reviews</span>
+      </div>
+      <a class="google-review-link" href="https://www.google.com/search?q=Shailu%27s+Concepts+Return+Gifts+for+All+Occasions+proddatur" target="_blank" rel="noopener noreferrer">Write a review</a>
+    </div>
+
+    <div class="google-review-grid">
+      <article class="google-review-card">
+        <div class="google-review-author">
+          <span class="google-review-avatar" aria-hidden="true">S</span>
+          <div><strong>SAI CHARAN REDDY</strong><span class="google-review-age">5 months ago</span></div>
+        </div>
+        <div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>I highly recommend this shop for return gifts and all kinds of gift items. I've ordered from here and had a great experience. The owner is very polite and helpful, and the pricing is quite reasonable.</p>
+      </article>
+      <article class="google-review-card">
+        <div class="google-review-author">
+          <span class="google-review-avatar" aria-hidden="true">D</span>
+          <div><strong>dibbu santh</strong><span class="google-review-age">a year ago</span></div>
+        </div>
+        <div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>Such a wonderful store! The collection is unique, prices are fair, and the quality is excellent. The owner is very friendly and helpful, making the shopping experience even better.</p>
+      </article>
+      <article class="google-review-card">
+        <div class="google-review-author">
+          <span class="google-review-avatar" aria-hidden="true">P</span>
+          <div><strong>Putha Lohitha234</strong><span class="google-review-age">a year ago</span></div>
+        </div>
+        <div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p>We can have wide varieties of return gifts and cute little things especially for kids at affordable prices.</p>
+      </article>
+    </div>
+    <p class="google-reviews-note">Review highlights from our Google profile.</p>
+  </div>
+
+  <div class="vc-wrap">
+    <button class="vc-arrow vc-prev" id="vcPrev" aria-label="Previous video">&#10094;</button>
+    <div class="vc-viewport">
+      <div class="vc-track" id="vcTrack"></div>
+    </div>
+    <button class="vc-arrow vc-next" id="vcNext" aria-label="Next video">&#10095;</button>
+  </div>
+  <div class="vc-dots" id="vcDots"></div>
+</section>
 <section class="gift-compare-section">
   <div class="gift-compare-heading">
     <h2>What Makes Shailu's Concepts Gifts <span>Stand Out?</span></h2>
@@ -1065,23 +1191,6 @@
       <div class="duo-text"><h3>Corporate Gifts</h3><span>Shop Now</span></div>
     </a>
   </div>
-</section>
-
-<!-- ============ CUSTOMER TESTIMONIALS ============ -->
-<section class="vc-section" id="videoCarousel" aria-labelledby="vcHeading">
-  <div class="section-heading">
-    <h2 id="vcHeading">What Our Customers Say</h2>
-    <div class="section-underline"></div>
-  </div>
-
-  <div class="vc-wrap">
-    <button class="vc-arrow vc-prev" id="vcPrev" aria-label="Previous video">&#10094;</button>
-    <div class="vc-viewport">
-      <div class="vc-track" id="vcTrack"></div>
-    </div>
-    <button class="vc-arrow vc-next" id="vcNext" aria-label="Next video">&#10095;</button>
-  </div>
-  <div class="vc-dots" id="vcDots"></div>
 </section>
 
 <!-- ============ VISIT OUR STORE ============ -->
@@ -1379,7 +1488,7 @@
       img.classList.toggle('active', Number(img.dataset.slide) === heroIndex);
     });
     document.querySelector('.hero-image-col').style.setProperty('--hero-background',
-      'url("' + heroImages[heroIndex].getAttribute('src') + '")');
+      'url("' + (heroImages[heroIndex].currentSrc || heroImages[heroIndex].getAttribute('src')) + '")');
     document.querySelectorAll('.hero-slide-text').forEach(function(txt){
       txt.classList.toggle('active', Number(txt.dataset.slide) === heroIndex);
     });
@@ -1486,8 +1595,15 @@
               : '<div class="cart-item-image-missing" role="img" aria-label="Image unavailable for ' + escapeCartText(item.name) + '">Image unavailable</div>') +
             '<div class="cart-item-info">' +
               '<h4>' + escapeCartText(item.name) + '</h4>' +
-              '<div class="ci-price">Qty: ' + pricing.quantity + ' × ₹' + pricing.originalUnitPrice.toFixed(2) + '</div>' +
-              '<div class="ci-price">Discount: ' + pricing.discountPercentage + '% · Unit: ₹' + pricing.discountedUnitPrice.toFixed(2) + ' · Total: ₹' + pricing.lineTotal.toFixed(2) + '</div>' +
+              '<div class="ci-price">Unit price: ' +
+                (pricing.discountPercentage
+                  ? '<s>₹' + pricing.originalUnitPrice.toFixed(2) + '</s><strong>₹' + pricing.discountedUnitPrice.toFixed(2) + '</strong> each'
+                  : '<strong>₹' + pricing.originalUnitPrice.toFixed(2) + '</strong> each') + '</div>' +
+              '<div class="ci-price">' +
+                (pricing.discountPercentage
+                  ? '<span class="bulk-discount-label">Bulk discount: ' + pricing.discountPercentage + '% off</span>'
+                  : 'No bulk discount') +
+                ' · Qty: ' + pricing.quantity + ' · Line total: <strong>₹' + pricing.lineTotal.toFixed(2) + '</strong></div>' +
             '</div>' +
             '<div class="cart-item-actions">' +
               '<div class="cart-qty">' +
@@ -1639,11 +1755,13 @@
       return String(value || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     }
     function categoryUrl(slug){
-      return 'gallery.html?category=' + encodeURIComponent(slug);
+      var category = slug === 'brass' ? 'brass-return-gifts' : slug;
+      return 'gallery.html?category=' + encodeURIComponent(category);
     }
     function productsInCategory(slug){
       var categoryAliases = {
-        brass: ['brass', 'antique-gold-brass']
+        brass: ['brass', 'antique-gold-brass'],
+        'pichwai-items': ['pichwai']
       };
       var matchingSlugs = categoryAliases[slug] || [slugForCategory(slug)];
       return (Array.isArray(window.products) ? window.products : []).filter(function(product){
@@ -1694,12 +1812,16 @@
     }
 
     // Showcase sections (optional switch between categories)
-    function productCard(p){
+    function productCard(p, includePrice){
       var cartItem = window.ShailusCart && window.ShailusCart.makeItem(p.id, 1);
       var img = cartItem ? cartItem.img : '';
-      return '<a class="sc-card" href="views.html?id=' + encodeURIComponent(p.id) + '">' +
+      var price = includePrice && window.ShailusCart ? window.ShailusCart.getPrice(p) : null;
+      return '<a class="sc-card' + (includePrice ? ' pichwai-card' : '') + '" href="views.html?id=' + encodeURIComponent(p.id) + '">' +
         '<div class="ph" data-label="' + esc(p.name) + '">' + (img ? '<img data-fallback src="' + esc(img) + '" alt="' + esc(p.name) + '">' : '') + '</div>' +
-        '<h3>' + esc(p.name) + '</h3></a>';
+        '<h3>' + esc(p.name) + '</h3>' +
+        (price === null ? '' : '<p class="sc-price">₹' + price.toFixed(2) + '</p>' +
+          (p.priceProvisional === true ? '<p class="sc-price-note">Provisional price — confirm before ordering</p>' : '')) +
+        '</a>';
     }
     document.querySelectorAll('[data-showcase]').forEach(function(section){
       var slugs = section.dataset.cats.split(',').map(function(s){ return s.trim(); }).filter(Boolean);
@@ -1707,30 +1829,13 @@
       var grid = section.querySelector('.sc-grid');
       var more = section.querySelector('.sc-more');
       async function show(slug){
-        if(slug === 'pichwai-items'){
-          var pichwaiImages = [
-            {name:'Pichwai artwork 1', image:'assets/Pichwai id1.jpg'},
-            {name:'Pichwai artwork 2', image:'assets/Pichwai id2.jpg'},
-            {name:'Pichwai artwork 3', image:'assets/Pichwai id3.jpg'}
-          ];
-          grid.innerHTML = pichwaiImages.map(function(item){
-            return '<article class="sc-card pichwai-card"><div class="ph" data-label="' + esc(item.name) +
-              '"><img src="' + esc(item.image) + '" alt="' + esc(item.name) + '" loading="lazy"></div>' +
-              '<h3>' + esc(item.name) + '</h3></article>';
-          }).join('');
-          more.innerHTML = '';
-          sw.querySelectorAll('button').forEach(function(b){
-            var on = b.dataset.slug === slug;
-            b.classList.toggle('active', on);
-            b.setAttribute('aria-selected', String(on));
-          });
-          return;
-        }
         var items = productsInCategory(slug).slice(0, 4);
         await Promise.all(items.map(function(product){
           return window.ensureProductImages(product, false);
         }));
-        grid.innerHTML = items.length ? items.map(productCard).join('')
+        grid.innerHTML = items.length ? items.map(function(product){
+          return productCard(product, slug === 'pichwai-items');
+        }).join('')
           : '<p class="sc-empty">New ' + esc(nameOf(slug)) + ' products are arriving soon.</p>';
         more.innerHTML = '<a href="' + categoryUrl(slug) + '">View All ' + esc(nameOf(slug)) + '</a>';
         if(sw){

@@ -48,7 +48,7 @@
   }
 
   async function request(url, options){
-    const response = await fetch(url, Object.assign({credentials: 'same-origin', cache: 'no-store'}, options || {}));
+    const response = await fetch(url, Object.assign({credentials: 'include', cache: 'no-store'}, options || {}));
     let body = {};
     try{ body = await response.json(); } catch(error){ throw new Error('The server returned an unreadable response.'); }
     if(!response.ok){
@@ -80,7 +80,7 @@
 
   async function checkSession(){
     try{
-      const result = await request('/.netlify/functions/admin-auth');
+      const result = await request(window.ShailusApi.url('admin-auth'));
       if(result.authenticated && result.user){
         showDashboard(result.user);
         await loadOrders();
@@ -143,7 +143,7 @@
     setMessage(dashboardMessage, 'Loading orders…');
     try{
       const query = filterQuery();
-      const result = await request('/.netlify/functions/admin-orders' + (query ? '?' + query : ''));
+      const result = await request(window.ShailusApi.url('admin-orders') + (query ? '?' + query : ''));
       if(!Array.isArray(result.orders) || !Number.isSafeInteger(result.total) ||
          typeof result.truncated !== 'boolean'){
         throw new Error('The order service returned an invalid response. Refresh or contact support.');
@@ -245,7 +245,7 @@
     submit.disabled = true;
     setMessage(loginMessage, 'Signing in…');
     try{
-      const result = await request('/.netlify/functions/admin-auth', {
+      const result = await request(window.ShailusApi.url('admin-auth'), {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -266,7 +266,7 @@
 
   document.getElementById('logoutButton').addEventListener('click', async function(){
     try{
-      await request('/.netlify/functions/admin-auth', {
+      await request(window.ShailusApi.url('admin-auth'), {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({action: 'logout'})
@@ -291,7 +291,7 @@
     button.disabled = true;
     setMessage(document.getElementById('dialogMessage'), 'Saving order status…');
     try{
-      const result = await request('/.netlify/functions/admin-update-order', {
+      const result = await request(window.ShailusApi.url('admin-update-order'), {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

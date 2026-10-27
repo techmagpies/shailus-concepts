@@ -31,23 +31,56 @@
     'id82.png', 'id82a.png', 'id83.png', 'id83a.jpeg', 'id84.jpeg', 'id84a.jpeg',
     'id86.jpeg', 'id87.png', 'id88.png', 'id89.jpeg', 'id9.png', 'id91.jpeg',
     'id92.jpeg', 'id93.jpeg', 'id94.jpeg', 'id95.png', 'id96.jpeg', 'id97.png',
-    'id98.png', 'id99.jpeg', 'id9a.png'
+    'id98.png', 'id99.jpeg', 'id9a.png',
+    'crockery id1-a.jpeg', 'crockery id1-b.png',
+    'crockery id2-a.jpeg', 'crockery id2-b.png', 'crockery id2-c.png', 'crockery id2-d.png',
+    'crockery id3.jpeg', 'crockery id4.png', 'crockery id5.png', 'crockery id6.jpg',
+    'crockery id7.jpg', 'crockery id8-a.jpg', 'crokery id8-b.png',
+    'crockery id9-a.jpg', 'crockery id9-b.jpg', 'crockery id10.jpg', 'crockery id11.jpg',
+    'crockery id12.jpg', 'crockery id13.jpeg', 'crockery id14.png',
+    'crockery id15-a.png', 'crockery id15-b.png', 'crockery id16.png',
+    'crockery id17.png', 'crockery id18.png', 'crockery id19.png',
+    'crockery id21.png', 'crockery id22.png', 'crockery id23.png',
+    'kido1.jpeg', 'kido2.jpeg', 'kid03.jpeg', 'kido4.jpeg', 'kido5.jpeg',
+    'kido6.jpeg', 'kido7.jpeg', 'kid08.jpeg', 'kido8a.jpeg', 'kido9.jpeg',
+    'kido10.jpeg', 'kido11.jpeg', 'kido11a.jpeg', 'kido12.jpeg', 'kido13.jpeg',
+    'kido14.jpeg', 'kido14a.jpeg', 'kido15.jpeg',
+    'Pichwai id1.jpg', 'Pichwai id1-a.jpg', 'Pichwai id1-b.jpg',
+    'Pichwai id2.jpg', 'Pichwai id2-a.jpg', 'Pichwai id2-b.jpg', 'Pichwai id2-c.jpg',
+    'Pichwai id3.jpg', 'Pichwai id3-a.jpg',
+    'w1.jpeg', 'w2.jpeg', 'w3.jpeg', 'w3a.jpeg', 'w4.jpeg', 'w5.jpeg',
+    'w6.jpeg', 'w7.jpeg', 'w8.jpeg', 'w9.jpeg', 'w10.jpeg', 'w12.jpeg',
+    'w14.jpeg', 'w15.jpeg', 'w16.jpeg', 'w17.jpeg'
   ]);
 
-  function localImagePaths(productId){
+  function localImagePaths(productId, product){
     var paths = [];
-    ['', 'a', 'b'].forEach(function(suffix){
-      ['png', 'jpeg', 'jpg'].forEach(function(extension){
-        var filename = 'id' + productId + suffix + '.' + extension;
-        if(imageFiles.has(filename)) paths.push('assets/' + filename);
+    var primaryPath = typeof product.image === 'string' ? product.image.replace(/\\/g, '/') : '';
+    var primaryMatch = /^assets\/([^/]+)$/.exec(primaryPath);
+    if(primaryMatch && imageFiles.has(primaryMatch[1])){
+      paths.push(primaryPath);
+    }else{
+      ['', 'a', 'b'].forEach(function(suffix){
+        ['png', 'jpeg', 'jpg'].forEach(function(extension){
+          var filename = 'id' + productId + suffix + '.' + extension;
+          if(imageFiles.has(filename)) paths.push('assets/' + filename);
+        });
       });
+    }
+    [product.image].concat(Array.isArray(product.images) ? product.images : []).forEach(function(path){
+      if(typeof path !== 'string') return;
+      var normalizedPath = path.replace(/\\/g, '/');
+      var match = /^assets\/([^/]+)$/.exec(normalizedPath);
+      if(match && imageFiles.has(match[1]) && paths.indexOf(normalizedPath) === -1){
+        paths.push(normalizedPath);
+      }
     });
     return paths;
   }
 
   global.ensureProductImages = function(product, includeGallery){
     if(!product || product.id === undefined || product.id === null) return Promise.resolve([]);
-    var paths = localImagePaths(product.id);
+    var paths = localImagePaths(product.id, product);
     product.localImages = includeGallery ? paths : paths.slice(0, 1);
     return Promise.resolve(product.localImages);
   };
